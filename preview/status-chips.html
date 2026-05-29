@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 26px 32px; background: var(--paper); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 12px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .row { display: flex; gap: 10px; margin-top: 16px; align-items: center; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 400; letter-spacing: 0.02em; border: 1px solid var(--border); background: var(--paper); color: var(--ink); }
+  .chip .dot { width: 6px; height: 6px; border-radius: 999px; }
+  .ready .dot { background: var(--ink-faint); }
+  .review { color: var(--amber-800); background: var(--amber-50); border-color: transparent; }
+  .review .dot { background: var(--anona-orange); }
+  .locked { color: #fff; background: var(--ink); border-color: transparent; }
+  .locked .dot { background: #fff; }
+  .delivered { color: var(--ink-muted); }
+  .delivered .dot { background: var(--ink); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); margin-top: 14px; }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Status Chips — the only pill in the system</span>
+  <div class="row">
+    <span class="chip ready"><span class="dot"></span>Pending</span>
+    <span class="chip review"><span class="dot"></span>In Review</span>
+    <span class="chip locked"><span class="dot"></span>Locked</span>
+    <span class="chip delivered"><span class="dot"></span>Delivered</span>
+  </div>
+  <div class="meta">6 px dot · 999 px pill · Tenet only</div>
+</body></html>

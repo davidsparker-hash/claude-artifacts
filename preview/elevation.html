@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px 32px; background: var(--paper-soft); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 12px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .row { display: flex; gap: 26px; margin-top: 22px; }
+  .item { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .box { width: 130px; height: 80px; background: var(--paper); border-radius: 4px; }
+  .b1 { border: 1px solid var(--border); }
+  .b2 { box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 1px 0 rgba(0,0,0,0.02); border: 1px solid var(--border); }
+  .b3 { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .tok { font-family: var(--font-mono); font-size: 10px; color: var(--ink); }
+  .v { font-size: 10px; color: var(--ink-muted); }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Elevation — Hairlines, not shadows</span>
+  <div class="row">
+    <div class="item"><div class="box b1"></div><div class="tok">--shadow-hairline</div><div class="v">Resting cards</div></div>
+    <div class="item"><div class="box b2"></div><div class="tok">--shadow-card</div><div class="v">Hover lift</div></div>
+    <div class="item"><div class="box b3"></div><div class="tok">--shadow-pop</div><div class="v">Floating menus</div></div>
+  </div>
+</body></html>

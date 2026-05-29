@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Anona — Private Preview</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--fg-1);
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+
+  .gate {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    position: relative;
+  }
+  .gate::before {
+    content: "";
+    position: absolute;
+    left: calc(1.1 / 2.1 * 100%);
+    top: 8%; bottom: 8%;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  /* shared chrome */
+  .chrome {
+    position: absolute;
+    left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 38px 64px;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .chrome.top { top: 0; }
+  .chrome.bot {
+    bottom: 0;
+    border-top: 1px solid var(--rule);
+    margin: 0 64px;
+    padding: 22px 0;
+    left: 0; right: 0;
+    width: auto;
+  }
+  .chrome .lockup {
+    display: flex; align-items: baseline; gap: 12px;
+    font-family: var(--font-display); font-weight: 300;
+    letter-spacing: var(--tracking-wordmark, 0.18em); text-transform: uppercase;
+    font-size: 13px; color: var(--fg-2);
+  }
+  .chrome .lockup .dot { color: var(--fg-3); }
+  .chrome .lockup .amber { color: var(--fg-accent); }
+
+  /* LEFT — brand panel */
+  .brand-side {
+    padding: 140px 96px 100px;
+    display: flex; flex-direction: column;
+    background: var(--paper-soft);
+    position: relative;
+  }
+  .brand-side .kicker {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-3);
+    margin-bottom: 32px;
+  }
+  .brand-side .wordmark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(120px, 13vw, 200px);
+    line-height: 0.95;
+    letter-spacing: 0.06em;
+    color: var(--fg-1);
+    margin: 0;
+  }
+  .brand-side .amber-rule {
+    width: 64px; height: 1px;
+    background: var(--fg-accent);
+    margin: 32px 0 22px;
+  }
+  .brand-side .tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(22px, 2.2vw, 32px);
+    line-height: 1.3;
+    color: var(--fg-2);
+    margin: 0 0 36px;
+    max-width: 580px;
+    text-wrap: pretty;
+  }
+  .brand-side .body {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    margin: 0;
+    max-width: 480px;
+    text-wrap: pretty;
+  }
+  .brand-side .footer-meta {
+    margin-top: auto;
+    padding-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .brand-side .footer-meta strong {
+    display: block;
+    color: var(--fg-accent);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+
+  /* RIGHT — login panel */
+  .login-side {
+    padding: 140px 96px 100px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+  }
+  .login-side .title {
+    margin-bottom: 56px;
+  }
+  .login-side .title .small-kicker {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-accent);
+    margin-bottom: 16px;
+  }
+  .login-side .title h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--fg-1);
+    margin: 0;
+    max-width: 480px;
+    text-wrap: balance;
+  }
+  .login-side .title .sub {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--fg-2);
+    max-width: 440px;
+  }
+
+  form {
+    display: flex; flex-direction: column;
+    gap: 28px;
+    max-width: 440px;
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .field input {
+    border: 0;
+    border-bottom: 1px solid var(--fg-1);
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--fg-1);
+    padding: 8px 0;
+    outline: none;
+    border-radius: 0;
+  }
+  .field input::placeholder { color: var(--fg-3); }
+  .field input:focus { border-bottom-color: var(--fg-accent); }
+  .field input:autofill, .field input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--paper) inset;
+    box-shadow: 0 0 0 1000px var(--paper) inset;
+  }
+
+  .actions {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 8px;
+  }
+  .err {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-accent);
+    min-height: 16px;
+    margin: 0;
+  }
+  button.enter {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--fg-accent);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    color: var(--fg-1);
+    padding: 6px 4px;
+    cursor: pointer;
+    transition: color 120ms ease, background 120ms ease;
+  }
+  button.enter:hover {
+    color: var(--fg-accent);
+  }
+  button.enter:disabled {
+    color: var(--fg-3);
+    cursor: not-allowed;
+    border-bottom-color: var(--fg-3);
+  }
+  button.enter .arrow { display: inline-block; margin-left: 10px; }
+
+  .helper {
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--fg-3);
+    max-width: 440px;
+  }
+  .helper a {
+    color: var(--fg-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .helper a:hover { color: var(--fg-accent); border-bottom-color: var(--fg-accent); }
+
+  /* responsive collapse */
+  @media (max-width: 1024px) {
+    .gate { grid-template-columns: 1fr; }
+    .gate::before { display: none; }
+    .brand-side, .login-side { padding: 120px 48px 80px; }
+    .brand-side .footer-meta { display: none; }
+  }
+  @media (max-width: 600px) {
+    .chrome { padding: 24px 28px; }
+    .brand-side, .login-side { padding: 110px 28px 60px; }
+    .login-side .title h1 { font-size: 32px; }
+    .brand-side .wordmark { font-size: 96px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="chrome top">
+  <span>Anona · private preview</span>
+  <span>By invitation</span>
+</header>
+
+<div class="gate">
+
+  <aside class="brand-side">
+    <div class="kicker">A collaborative creative software company</div>
+
+    <h1 class="wordmark">ANONA</h1>
+    <div class="amber-rule"></div>
+
+    <p class="tagline">For the people who tell stories at the highest level.</p>
+
+    <p class="body">Anona builds upstream creative software. Tenet, our first product, sits before production — where ideas are still flexible, decisions still cheap, and the strongest version of a thing can still be found.</p>
+
+    <div class="footer-meta">
+      <div><strong>Parent</strong>Anona</div>
+      <div><strong>First product</strong>Tenet</div>
+      <div><strong>Studio</strong>Jane</div>
+      <div><strong>Stage</strong>Private preview</div>
+    </div>
+  </aside>
+
+  <main class="login-side">
+    <div class="title">
+      <div class="small-kicker">Access</div>
+      <h1>Sign in to view the preview.</h1>
+    </div>
+
+    <form id="gateForm" autocomplete="on" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required spellcheck="false" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label for="password">Access code</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+
+      <div class="actions">
+        <p class="err" id="err">&nbsp;</p>
+        <button class="enter" id="enterBtn" type="submit">Enter<span class="arrow">→</span></button>
+      </div>
+    </form>
+
+    <p class="helper">
+      Trouble accessing? Reply to your invitation email or contact <a href="mailto:hello@anona.tv">hello@anona.tv</a>.
+    </p>
+  </main>
+
+</div>
+
+<footer class="chrome bot">
+  <div class="lockup">
+    <span>Anona</span><span class="dot">·</span><span class="amber">TENET</span><span class="dot">·</span><span>Jane</span>
+  </div>
+  <span>2026 · v 1.0</span>
+</footer>
+
+<script>
+/* =====================================================================
+   ACCESS LIST — REPLACE BEFORE SHARING
+   ---------------------------------------------------------------------
+   This is CASUAL GATING ONLY. Anyone who can View Source can read both
+   the email allowlist and the access code below. Use it to keep
+   the deck out of casual public hands, not as real security.
+
+   For real protection, host this behind a password-protected deploy
+   (Vercel password protection, Netlify Identity, Cloudflare Access)
+   or move auth to a serverless function. Ask if you want that.
+
+   To update: edit the two lists below. Emails are matched case-
+   insensitively after trimming whitespace.
+   ===================================================================== */
+
+const ALLOWED_EMAILS = [
+  "justin.charbonnet@gmail.com",   // Justin Charbonnet
+  "markhall71@gmail.com",          // Mark Hall
+  "david.s.parker@gmail.com",      // David Parker
+  "roger.obando@gmail.com",        // Roger Obando
+  "dan@delphihousing.com",         // Dan Odea
+  "laurent@jane.tv",               // Laurent
+  "cole@jane.tv",                  // Cole
+  "ben@jane.tv",                   // Ben
+  "rich@jane.tv",                  // Rich
+  "gary@lostplanet.com",           // Gary
+];
+
+const ACCESS_CODE = "VioletHarbor!92Crane";
+
+/* --- redirect target after successful login ------------------------- */
+/* After auth, send the user to the chooser, not straight to the deck. */
+const DECK_URL = "chooser.html";
+
+/* --- handlers ------------------------------------------------------- */
+(function () {
+  const form = document.getElementById("gateForm");
+  const emailEl = document.getElementById("email");
+  const pwEl = document.getElementById("password");
+  const errEl = document.getElementById("err");
+  const btn = document.getElementById("enterBtn");
+
+  // if already authed, fast-forward
+  try {
+    const existing = JSON.parse(localStorage.getItem("anona-auth") || "null");
+    if (existing && existing.email) {
+      // still respect the user wanting to log in — show subtle prefill, not auto-redirect
+      emailEl.value = existing.email;
+    }
+  } catch (_) {}
+
+  const normalizedList = new Set(
+    ALLOWED_EMAILS.map(e => String(e).trim().toLowerCase())
+  );
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.style.opacity = "1";
+  }
+  function clearError() {
+    errEl.innerHTML = "&nbsp;";
+  }
+
+  emailEl.addEventListener("input", clearError);
+  pwEl.addEventListener("input", clearError);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearError();
+    const email = emailEl.value.trim().toLowerCase();
+    const pw = pwEl.value;
+
+    if (!email) { showError("Email required."); emailEl.focus(); return; }
+    if (!pw) { showError("Access code required."); pwEl.focus(); return; }
+
+    // Soft delay to make it feel less guessable / no info-leak from timing
+    btn.disabled = true;
+    setTimeout(function () {
+      if (!normalizedList.has(email)) {
+        btn.disabled = false;
+        showError("Email or access code is invalid.");
+        return;
+      }
+      if (pw !== ACCESS_CODE) {
+        btn.disabled = false;
+        showError("Email or access code is invalid.");
+        return;
+      }
+      try {
+        localStorage.setItem(
+          "anona-auth",
+          JSON.stringify({ email: email, ts: Date.now() })
+        );
+      } catch (_) {}
+      window.location.assign(DECK_URL);
+    }, 320);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--paper); }
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .sw { display: flex; flex-direction: column; gap: 6px; }
+  .chip { aspect-ratio: 1.4 / 1; border-radius: 2px; }
+  .name { font-size: 11px; font-weight: 400; color: var(--ink); letter-spacing: 0.02em; }
+  .hex { font-family: var(--font-mono); font-size: 10px; color: var(--ink-muted); }
+  .role { font-size: 10px; color: var(--ink-faint); margin-top: 2px; }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 14px; }
+  .kicker-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--anona-orange); font-weight: 400; }
+  .meta { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); font-weight: 400; }
+</style></head>
+<body>
+  <div class="kicker-row">
+    <div>
+      <div class="accent-bar"></div>
+      <span class="label">Amber — Primary</span>
+    </div>
+    <span class="meta">2 colors, period</span>
+  </div>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#FAEEDA"></div><div class="name">Amber 50</div><div class="hex">#FAEEDA</div><div class="role">Light fills, badges</div></div>
+    <div class="sw"><div class="chip" style="background:#EF9F27"></div><div class="name">Amber 200</div><div class="hex">#EF9F27</div><div class="role">Mid, charts</div></div>
+    <div class="sw"><div class="chip" style="background:#BA7517"></div><div class="name">Anona Orange</div><div class="hex">#BA7517</div><div class="role">The brand color</div></div>
+    <div class="sw"><div class="chip" style="background:#854F0B"></div><div class="name">Amber 800</div><div class="hex">#854F0B</div><div class="role">Hover, text-on-amber</div></div>
+  </div>
+</body></html>

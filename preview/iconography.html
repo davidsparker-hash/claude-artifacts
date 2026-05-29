@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 26px 32px; background: var(--paper); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 12px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .iconrow { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px 12px; margin-top: 18px; }
+  .ic { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ic svg { color: var(--ink-muted); }
+  .ic .nm { font-family: var(--font-mono); font-size: 9px; color: var(--ink-faint); }
+  .note { margin-top: 14px; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.02em; }
+  .amber { color: var(--anona-orange) !important; }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Iconography — Lucide, stroke 1.75</span>
+  <div class="iconrow">
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8Z"/></svg><div class="nm">video</div></div>
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg><div class="nm">script</div></div>
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div class="nm">timecode</div></div>
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 7h4M17 7h4M3 17h4M17 17h4M3 12h18"/></svg><div class="nm">filmstrip</div></div>
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div class="nm">crew</div></div>
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><div class="nm">notes</div></div>
+    <div class="ic"><svg class="amber" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div class="nm">locked</div></div>
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h3l6-6"/><path d="m22 5-3-3-9 9 3 3z"/></svg><div class="nm">edit</div></div>
+  </div>
+  <div class="note">24 px base · currentColor inheritance · no fills, no badges</div>
+</body></html>

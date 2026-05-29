@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tenet — First Experience</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: #0a0a0a; color: #f6f4ef;
+    overflow: hidden;
+    font-family: var(--font-sans);
+  }
+  #root { position: fixed; inset: 0; }
+  .stage-canvas, .stage-canvas * {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Overview pill — matches the deck's session-nav so the affordance is
+     identical no matter what view you're in. */
+  .session-nav {
+    position: fixed;
+    top: 14px; left: 16px;
+    z-index: 1000;
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(246,244,239,0.7);
+    background: rgba(20,20,20,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0.10);
+    text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .session-nav:hover {
+    color: #E8A55F;
+    border-color: rgba(232,165,95,0.6);
+  }
+  .session-nav .arrow { color: inherit; }
+  @media print { .session-nav { display: none !important; } }
+</style>
+</head>
+<body>
+  <a class="session-nav session-overview" href="chooser.html" title="Back to overview">
+    <span class="arrow">↩ overview</span>
+  </a>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Dialogue data (plain JS, loads first so scene.jsx can read window.DIALOGUE) -->
+  <script src="dialogue.js"></script>
+
+  <!-- Engines + scene -->
+  <script type="text/babel" src="animations.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="scene.jsx"></script>
+
+  <!-- Mount -->
+  <script type="text/babel" data-presets="env,react">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "pace": 1.65,
+      "colorIntensity": 0.95,
+      "showSignature": false,
+      "loopOnEnd": false,
+      "initialA": "DP",
+      "initialB": "RO",
+      "fontSize": 16
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      // Duration scales with pace
+      const duration = React.useMemo(() => window.computeTenetDuration(t.pace), [t.pace]);
+
+      return (
+        <>
+          <Stage
+            width={1920}
+            height={1080}
+            duration={duration}
+            background="#FFFFFF"
+            loop={!!t.loopOnEnd}
+            autoplay={true}
+            persistKey="tenet-first-experience"
+          >
+            <TenetFirstExperience
+              pace={t.pace}
+              intensity={t.colorIntensity}
+              showSignature={t.showSignature}
+              initialA={t.initialA || 'A'}
+              initialB={t.initialB || 'B'}
+              fontSize={t.fontSize}
+            />
+          </Stage>
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection label="Conversation" />
+            <TweakSlider
+              label="Pace"
+              value={t.pace}
+              min={0.5} max={2.0} step={0.05}
+              onChange={(v) => setTweak('pace', v)}
+            />
+            <TweakSlider
+              label="Dialogue font size"
+              value={t.fontSize}
+              min={13} max={22} step={1} unit="px"
+              onChange={(v) => setTweak('fontSize', v)}
+            />
+
+            <TweakSection label="Callers" />
+            <TweakText
+              label="Initial A"
+              value={t.initialA}
+              onChange={(v) => setTweak('initialA', v)}
+            />
+            <TweakText
+              label="Initial B"
+              value={t.initialB}
+              onChange={(v) => setTweak('initialB', v)}
+            />
+
+            <TweakSection label="Atmosphere" />
+            <TweakSlider
+              label="Color intensity"
+              value={t.colorIntensity}
+              min={0} max={1.4} step={0.05}
+              onChange={(v) => setTweak('colorIntensity', v)}
+            />
+
+            <TweakSection label="Composition" />
+            <TweakToggle
+              label="Signature line at end"
+              value={t.showSignature}
+              onChange={(v) => setTweak('showSignature', v)}
+            />
+            <TweakToggle
+              label="Loop on end"
+              value={t.loopOnEnd}
+              onChange={(v) => setTweak('loopOnEnd', v)}
+            />
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--paper); }
+  .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { display: flex; flex-direction: column; gap: 6px; }
+  .chip { aspect-ratio: 1.4 / 1; border-radius: 2px; border: 1px solid var(--border); }
+  .name { font-size: 11px; font-weight: 400; color: var(--ink); letter-spacing: 0.02em; }
+  .hex { font-family: var(--font-mono); font-size: 10px; color: var(--ink-muted); }
+  .ink { background: var(--ink); border-color: transparent; }
+  .imuted { background: var(--ink-muted); border-color: transparent; }
+  .ifaint { background: var(--ink-faint); border-color: transparent; }
+  .paper { background: var(--paper); }
+  .papersoft { background: var(--paper-soft); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 14px; }
+  .kicker-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+</style></head>
+<body>
+  <div class="kicker-row">
+    <div>
+      <div class="accent-bar"></div>
+      <span class="label">Neutrals</span>
+    </div>
+    <span class="label" style="color:var(--ink-faint)">5 + 1 hairline</span>
+  </div>
+  <div class="swatches">
+    <div class="sw"><div class="chip ink"></div><div class="name">Ink</div><div class="hex">#1A1A1A</div></div>
+    <div class="sw"><div class="chip imuted"></div><div class="name">Ink Muted</div><div class="hex">#6B6B6B</div></div>
+    <div class="sw"><div class="chip ifaint"></div><div class="name">Ink Faint</div><div class="hex">#9A9A9A</div></div>
+    <div class="sw"><div class="chip paper"></div><div class="name">Paper</div><div class="hex">#FFFFFF</div></div>
+    <div class="sw"><div class="chip papersoft"></div><div class="name">Paper Soft</div><div class="hex">#FAF8F4</div></div>
+  </div>
+</body></html>

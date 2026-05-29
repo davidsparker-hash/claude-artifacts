@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 26px 32px; background: var(--paper); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 12px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .row { margin-top: 18px; display: grid; grid-template-columns: auto 1fr; gap: 16px 24px; align-items: center; }
+  .demo { width: 280px; }
+  .desc { font-size: 12px; color: var(--ink-muted); line-height: 1.55; max-width: 380px; }
+  .desc strong { color: var(--ink); font-weight: 700; }
+  .amber-rule { width: 48px; height: 1px; background: var(--anona-orange); }
+  .progress { position: relative; width: 280px; height: 2px; background: var(--paper-soft); overflow: hidden; }
+  .progress::after { content: ""; position: absolute; left: -40%; top: 0; bottom: 0; width: 40%; background: var(--anona-orange); animation: slide 1.6s ease-in-out infinite; }
+  @keyframes slide { 0% { left: -40%; } 100% { left: 100%; } }
+  .head { display: flex; gap: 14px; align-items: center; }
+  .head .title { font-family: var(--font-display); font-weight: 400; font-size: 22px; color: var(--ink); }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Signature Devices</span>
+  <div class="row">
+    <div class="demo"><div class="amber-rule" style="margin-bottom:10px"></div><div class="head"><div class="title">Section header</div></div></div>
+    <div class="desc"><strong>The 48 px amber rule.</strong> Sits above a section header. 1 px tall. Never paired with another amber element nearby.</div>
+
+    <div class="demo"><div class="progress"></div></div>
+    <div class="desc"><strong>Indeterminate progress.</strong> 2 px amber bar across the top of the surface. Never a spinner.</div>
+  </div>
+</body></html>

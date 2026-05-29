@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--paper); }
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 11px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; border-bottom-color: var(--ink); }
+  td.tok { color: var(--ink); }
+  td.val { color: var(--ink-muted); }
+  td.dot { width: 18px; }
+  .d { width: 14px; height: 14px; border-radius: 999px; border: 1px solid var(--border); display: inline-block; }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 14px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Semantic Color Tokens</span>
+  <table style="margin-top: 14px;">
+    <thead><tr><th></th><th>Token</th><th>Maps to</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td class="dot"><span class="d" style="background:#1A1A1A;border-color:transparent"></span></td><td class="tok">--fg-1</td><td class="val">--ink</td><td class="val">Primary text</td></tr>
+      <tr><td class="dot"><span class="d" style="background:#6B6B6B;border-color:transparent"></span></td><td class="tok">--fg-2</td><td class="val">--ink-muted</td><td class="val">Secondary text</td></tr>
+      <tr><td class="dot"><span class="d" style="background:#9A9A9A;border-color:transparent"></span></td><td class="tok">--fg-3</td><td class="val">--ink-faint</td><td class="val">Meta, captions</td></tr>
+      <tr><td class="dot"><span class="d" style="background:#BA7517;border-color:transparent"></span></td><td class="tok">--fg-accent</td><td class="val">--anona-orange</td><td class="val">Kickers, accents</td></tr>
+      <tr><td class="dot"><span class="d" style="background:#FFFFFF"></span></td><td class="tok">--bg-1</td><td class="val">--paper</td><td class="val">Canvas</td></tr>
+      <tr><td class="dot"><span class="d" style="background:#FAF8F4"></span></td><td class="tok">--bg-2</td><td class="val">--paper-soft</td><td class="val">Cards, lists</td></tr>
+    </tbody>
+  </table>
+</body></html>

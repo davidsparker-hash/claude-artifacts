@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 26px 32px; background: var(--paper); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 12px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .col { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; max-width: 420px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .lab { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .input { font-family: var(--font-sans); font-size: 14px; padding: 10px 12px; border: 1px solid var(--border); background: var(--paper); color: var(--ink); border-radius: 2px; outline: none; }
+  .input:focus { border-color: var(--ink); }
+  .input.amber:focus { border-color: var(--anona-orange); }
+  .hint { font-size: 11px; color: var(--ink-faint); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); margin-top: 14px; }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Form Inputs</span>
+  <div class="col">
+    <div class="field"><span class="lab">Project name</span><input class="input" value="The Last Reel"></div>
+    <div class="field"><span class="lab">Department</span><input class="input amber" placeholder="e.g. Picture, Sound, Color"></div>
+  </div>
+  <div class="meta">12 px label tracking · 1 px hairline · ink focus ring</div>
+</body></html>

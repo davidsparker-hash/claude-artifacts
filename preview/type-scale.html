@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 26px 32px; background: var(--paper); }
+  .accent-bar { width: 32px; height: 2px; background: var(--anona-orange); margin-bottom: 12px; }
+  .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 400; }
+  .row { display: flex; align-items: baseline; gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .row:last-child { border-bottom: 0; }
+  .role { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); width: 110px; flex-shrink: 0; }
+  .specimen { color: var(--ink); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--ink-muted); margin-left: auto; }
+</style></head>
+<body>
+  <div class="accent-bar"></div>
+  <span class="label">Type Scale</span>
+  <div style="margin-top: 14px;">
+    <div class="row"><div class="role">display-l</div><div class="specimen" style="font-family:var(--font-display);font-weight:300;font-size:54px;line-height:1.02;letter-spacing:-0.01em">Tenet</div><div class="meta">54 · 300</div></div>
+    <div class="row"><div class="role">h1</div><div class="specimen" style="font-family:var(--font-display);font-weight:400;font-size:34px;line-height:1.1">Lock the cut.</div><div class="meta">34 · 400</div></div>
+    <div class="row"><div class="role">h2</div><div class="specimen" style="font-family:var(--font-display);font-weight:400;font-size:24px;line-height:1.15">Department handoffs</div><div class="meta">24 · 400</div></div>
+    <div class="row"><div class="role">h3 / h4</div><div class="specimen" style="font-weight: 400;font-size:17px">Section subhead</div><div class="meta">17 · 400</div></div>
+    <div class="row"><div class="role">body</div><div class="specimen" style="font-size:14px">Tenet versions every change downstream.</div><div class="meta">14 · 400</div></div>
+    <div class="row"><div class="role">meta</div><div class="specimen" style="font-size:11px;color:var(--ink-faint);letter-spacing:0.02em">04:21:13 · Day 12</div><div class="meta">11 · 400</div></div>
+  </div>
+</body></html>
