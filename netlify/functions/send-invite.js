@@ -28,7 +28,10 @@ exports.handler = async (event) => {
   const siteUrl = process.env.SITE_URL || 'https://anona.tv';
 
   if (!url || !serviceKey) return json(500, { error: 'Server not configured (Supabase).' });
-  if (!resendKey || !fromEmail) return json(500, { error: 'Email sending is not configured yet (RESEND_API_KEY / INVITE_FROM_EMAIL).' });
+  const missing = [];
+  if (!resendKey) missing.push('RESEND_API_KEY');
+  if (!fromEmail) missing.push('INVITE_FROM_EMAIL');
+  if (missing.length) return json(500, { error: 'Email not configured — missing env var(s): ' + missing.join(', ') });
 
   // --- verify the caller is a signed-in admin ---
   const authHeader = event.headers.authorization || event.headers.Authorization || '';
