@@ -2,17 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>
-/* Auth gate — bounce to homepage if no session. Casual gating only. */
-(function () {
-  try {
-    var a = localStorage.getItem("anona-auth");
-    if (!a) { window.location.replace("../index.html"); }
-  } catch (_) {
-    window.location.replace("../index.html");
-  }
-})();
-</script>
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
 <title>TENET — CTO / Investor Deck</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="colors_and_type.css">
@@ -56,20 +47,10 @@
   <span class="who" id="sessionWho"></span>
   <span class="arrow">exit ↩</span>
 </button>
-<script>
-(function () {
-  var btn = document.getElementById("sessionExit");
-  var who = document.getElementById("sessionWho");
-  try {
-    var a = JSON.parse(localStorage.getItem("anona-auth") || "null");
-    if (a && a.email) { who.textContent = a.email; }
-  } catch (_) {}
-  btn.addEventListener("click", function () {
-    try { localStorage.removeItem("anona-auth"); } catch (_) {}
-    window.location.replace("../index.html");
-  });
-})();
-</script>
+<!-- AUTH (not design): session validation, "signed in as", and sign-out live in /_auth/guard.js
+     It auto-fills #sessionWho and wires #sessionExit. -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
 <deck-stage>
 
 <!-- ============================================================

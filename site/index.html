@@ -281,7 +281,7 @@
   <main class="login-side">
     <div class="title">
       <div class="small-kicker">Access</div>
-      <h1>Sign in to view the preview.</h1>
+      <h1 id="gateTitle">Sign in to view the preview.</h1>
     </div>
 
     <form id="gateForm" autocomplete="on" novalidate>
@@ -290,18 +290,24 @@
         <input type="email" id="email" name="email" autocomplete="email" required spellcheck="false" placeholder="you@example.com">
       </div>
 
+      <div class="field" id="inviteField" style="display:none">
+        <label for="invite">Invite code</label>
+        <input type="text" id="invite" name="invite" autocomplete="off" spellcheck="false" placeholder="one-time code from your invitation">
+      </div>
+
       <div class="field">
-        <label for="password">Access code</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" autocomplete="current-password" required>
       </div>
 
       <div class="actions">
         <p class="err" id="err">&nbsp;</p>
-        <button class="enter" id="enterBtn" type="submit">Enter<span class="arrow">→</span></button>
+        <button class="enter" id="enterBtn" type="submit"><span id="btnLabel">Enter</span><span class="arrow">→</span></button>
       </div>
     </form>
 
     <p class="helper">
+      <a href="#" id="modeToggle">Have an invite code? Create account</a><br>
       Trouble accessing? Reply to your invitation email or contact <a href="mailto:hello@anona.tv">hello@anona.tv</a>.
     </p>
   </main>
@@ -315,106 +321,15 @@
   <span>2026 · v 1.0</span>
 </footer>
 
-<script>
-/* =====================================================================
-   ACCESS LIST — REPLACE BEFORE SHARING
-   ---------------------------------------------------------------------
-   This is CASUAL GATING ONLY. Anyone who can View Source can read both
-   the email allowlist and the access code below. Use it to keep
-   the deck out of casual public hands, not as real security.
-
-   For real protection, host this behind a password-protected deploy
-   (Vercel password protection, Netlify Identity, Cloudflare Access)
-   or move auth to a serverless function. Ask if you want that.
-
-   To update: edit the two lists below. Emails are matched case-
-   insensitively after trimming whitespace.
-   ===================================================================== */
-
-const ALLOWED_EMAILS = [
-  "justin.charbonnet@gmail.com",   // Justin Charbonnet
-  "markhall71@gmail.com",          // Mark Hall
-  "david.s.parker@gmail.com",      // David Parker
-  "roger.obando@gmail.com",        // Roger Obando
-  "dan@delphihousing.com",         // Dan Odea
-  "laurent@jane.tv",               // Laurent
-  "cole@jane.tv",                  // Cole
-  "ben@jane.tv",                   // Ben
-  "rich@jane.tv",                  // Rich
-  "gary@lostplanet.com",           // Gary
-];
-
-const ACCESS_CODE = "VioletHarbor!92Crane";
-
-/* --- redirect target after successful login ------------------------- */
-/* After auth, send the user to the chooser, not straight to the deck. */
-const DECK_URL = "chooser.html";
-
-/* --- handlers ------------------------------------------------------- */
-(function () {
-  const form = document.getElementById("gateForm");
-  const emailEl = document.getElementById("email");
-  const pwEl = document.getElementById("password");
-  const errEl = document.getElementById("err");
-  const btn = document.getElementById("enterBtn");
-
-  // if already authed, fast-forward
-  try {
-    const existing = JSON.parse(localStorage.getItem("anona-auth") || "null");
-    if (existing && existing.email) {
-      // still respect the user wanting to log in — show subtle prefill, not auto-redirect
-      emailEl.value = existing.email;
-    }
-  } catch (_) {}
-
-  const normalizedList = new Set(
-    ALLOWED_EMAILS.map(e => String(e).trim().toLowerCase())
-  );
-
-  function showError(msg) {
-    errEl.textContent = msg;
-    errEl.style.opacity = "1";
-  }
-  function clearError() {
-    errEl.innerHTML = "&nbsp;";
-  }
-
-  emailEl.addEventListener("input", clearError);
-  pwEl.addEventListener("input", clearError);
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    clearError();
-    const email = emailEl.value.trim().toLowerCase();
-    const pw = pwEl.value;
-
-    if (!email) { showError("Email required."); emailEl.focus(); return; }
-    if (!pw) { showError("Access code required."); pwEl.focus(); return; }
-
-    // Soft delay to make it feel less guessable / no info-leak from timing
-    btn.disabled = true;
-    setTimeout(function () {
-      if (!normalizedList.has(email)) {
-        btn.disabled = false;
-        showError("Email or access code is invalid.");
-        return;
-      }
-      if (pw !== ACCESS_CODE) {
-        btn.disabled = false;
-        showError("Email or access code is invalid.");
-        return;
-      }
-      try {
-        localStorage.setItem(
-          "anona-auth",
-          JSON.stringify({ email: email, ts: Date.now() })
-        );
-      } catch (_) {}
-      window.location.assign(DECK_URL);
-    }, 320);
-  });
-})();
-</script>
+<!-- =====================================================================
+     AUTH WIRING — points to the protected /_auth/ folder (NOT design).
+     The real login/signup logic lives in /_auth/auth.js. This page only
+     references it. If you re-download this page from Claude Design, the
+     old fake-login <script> will come back — just delete it and re-add
+     these two lines (see /_auth/README-AUTH.md).
+     ===================================================================== -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/auth.js"></script>
 
 </body>
 </html>

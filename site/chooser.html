@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
 <title>Anona — Choose preview</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="data:,">
@@ -497,24 +499,11 @@
   <span>2026 · v 1.0</span>
 </footer>
 
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+
 <script>
-  // ── Auth check: bounce to gate if not signed in ──────────
-  let auth = null;
-  try { auth = JSON.parse(localStorage.getItem("anona-auth") || "null"); } catch (e) {}
-  if (!auth || !auth.email) {
-    // Not signed in — back to gate.
-    window.location.replace("index.html");
-  } else {
-    const who = document.getElementById("who");
-    if (who) who.textContent = auth.email;
-  }
-
-  // ── Sign out ─────────────────────────────────────────────
-  document.getElementById("signout").addEventListener("click", () => {
-    try { localStorage.removeItem("anona-auth"); } catch (e) {}
-    window.location.assign("index.html");
-  });
-
   // ── Animate the tiny voice waveform in Stage 1 thumb ─────
   (function buildWaves() {
     const row = document.getElementById("thumb-waves");

@@ -1,0 +1,31 @@
+# =====================================================================
+#  netlify.toml  —  build + functions config  (ROOT FILE, set once)
+#  ---------------------------------------------------------------------
+#  This MUST live at the repo root — Netlify looks for it here. It is an
+#  AUTH/PLUMBING file, NOT a design file. Never delete it.
+#
+#  Source layout (two clean, separate folders):
+#    /site    🎨 ALL design files (replace freely from Claude Design)
+#    /_auth   🔒 all auth code (never touch)
+#
+#  The build below MERGES them into a single "dist" folder that Netlify
+#  serves, so anona.tv/ loads /site/index.html and /_auth/* is reachable.
+#  You never edit "dist" — it's generated on every deploy and is git-ignored.
+# =====================================================================
+
+[build]
+  # Merge design + auth into dist/ for serving.
+  command = "rm -rf dist && mkdir -p dist && cp -a site/. dist/ && cp -a _auth dist/_auth"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  # Bundle npm dependencies (e.g. @supabase/supabase-js) into each function.
+  node_bundler = "esbuild"
+
+# Pretty path for the public-config function so all front-end <script>
+# references can point under /_auth/ and stay consistent.
+[[redirects]]
+  from = "/_auth/config.js"
+  to = "/.netlify/functions/config"
+  status = 200
