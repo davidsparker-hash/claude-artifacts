@@ -92,34 +92,49 @@ function setupInvite() {
   if (!box || !btn) return;
   box.style.display = '';
 
+  const re = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
   btn.addEventListener('click', async () => {
-    const email = (input.value || '').trim().toLowerCase();
-    if (!email) { status.textContent = 'Enter an email first.'; input.focus(); return; }
+    const raw = input.value || '';
+    const all = [...new Set(raw.split(/[\s,;]+/).map((s) => s.trim().toLowerCase()).filter(Boolean))];
+    const emails = all.filter((e) => re.test(e));
+    const invalid = all.filter((e) => !re.test(e));
+
+    if (!emails.length) {
+      status.textContent = invalid.length ? 'No valid email addresses found.' : 'Enter at least one email.';
+      input.focus();
+      return;
+    }
 
     btn.disabled = true;
-    status.textContent = 'Sending…';
-    try {
-      const { data: sess } = await supabase.auth.getSession();
-      const token = sess && sess.session ? sess.session.access_token : '';
-      const res = await fetch('/.netlify/functions/send-invite', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
-        body: JSON.stringify({ email, note: email }),
-      });
-      const out = await res.json().catch(() => ({}));
-      if (res.ok) {
-        status.textContent = `✓ Invite sent to ${email}.`;
-        input.value = '';
-      } else if (out.code) {
-        status.textContent = `Email didn't send, but the code was created — copy it: ${out.code}`;
-      } else {
-        status.textContent = out.error || 'Could not send the invite.';
+    const { data: sess } = await supabase.auth.getSession();
+    const token = sess && sess.session ? sess.session.access_token : '';
+
+    let sent = 0;
+    const failed = [];
+    for (let i = 0; i < emails.length; i++) {
+      const email = emails[i];
+      status.textContent = `Sending ${i + 1} of ${emails.length}…`;
+      try {
+        const res = await fetch('/.netlify/functions/send-invite', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+          body: JSON.stringify({ email, note: email }),
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok) sent++;
+        else failed.push(`${email}: ${out.error || 'failed'}`);
+      } catch (e) {
+        failed.push(`${email}: network error`);
       }
-    } catch (e) {
-      status.textContent = 'Something went wrong. Please try again.';
-    } finally {
-      btn.disabled = false;
     }
+
+    let msg = `✓ Sent ${sent} of ${emails.length}.`;
+    if (failed.length) msg += `\nFailed:\n` + failed.join('\n');
+    if (invalid.length) msg += `\nSkipped (not valid emails): ${invalid.join(', ')}`;
+    status.textContent = msg;
+    if (!failed.length) input.value = '';
+    btn.disabled = false;
   });
 }
 
