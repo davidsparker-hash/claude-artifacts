@@ -67,11 +67,15 @@ create trigger on_auth_user_created
 -- ---------------------------------------------------------------------
 create table if not exists public.invite_codes (
   code        text primary key,
+  note        text,                 -- who this code is intended for (your label)
   claimed     boolean not null default false,
   claimed_by  uuid references auth.users(id),
   claimed_at  timestamptz,
   created_at  timestamptz not null default now()
 );
+
+-- (if the table already existed without it, add the column)
+alter table public.invite_codes add column if not exists note text;
 
 alter table public.invite_codes enable row level security;
 

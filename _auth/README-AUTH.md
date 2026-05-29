@@ -59,21 +59,36 @@ Keys live **only** in Netlify — never in the repo.
 
 Supabase dashboard → **SQL Editor** → run:
 
+**Invite ONE new person** (change the email to theirs; the `note` is just your
+label so you can see who each code is for):
 ```sql
--- make 5 random one-time codes
-insert into invite_codes (code)
-select replace(gen_random_uuid()::text, '-', '')
-from generate_series(1, 5)
+insert into invite_codes (code, note)
+values (replace(gen_random_uuid()::text,'-',''), 'newperson@example.com')
 returning code;
 ```
+Copy the returned `code` and send it to them with the signup steps (§ below).
 
-Copy the returned `code` values and hand them out — one per person. Each works
-for a single signup, then is marked claimed automatically.
+**Invite several at once** — one line per person:
+```sql
+insert into invite_codes (code, note)
+values
+  (replace(gen_random_uuid()::text,'-',''), 'alice@example.com'),
+  (replace(gen_random_uuid()::text,'-',''), 'bob@example.com')
+returning note, code;
+```
+
+⚠️ Each code is single-use — give every person a DIFFERENT code. Don't send the
+same code to a group.
 
 Prefer your own friendlier codes? Insert them directly:
 ```sql
-insert into invite_codes (code) values ('welcome-justin'), ('welcome-mark');
+insert into invite_codes (code, note) values ('welcome-justin', 'Justin');
 ```
+
+**Signup steps to send each person:**
+1. Go to https://anona.tv
+2. Click "Have an invite code? Create account"
+3. Enter your email, the code, and choose a password.
 
 See which codes are used / unused:
 ```sql
