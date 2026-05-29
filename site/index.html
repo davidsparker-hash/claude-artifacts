@@ -7,6 +7,7 @@
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="colors_and_type.css">
 <style>
+  *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
     min-height: 100vh;
@@ -16,146 +17,131 @@
     font-weight: 400;
   }
 
+  /* ---------------------------------------------------------------
+     GATE — two columns (brand / login) sharing one vertical seam
+     that continues straight down through the footer band.
+     --------------------------------------------------------------- */
   .gate {
+    --split: 0.7fr;           /* brand column — dominant */
+    --split-2: 0.3fr;         /* login column */
+    --seam: 70%;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: var(--split) var(--split-2);
+    grid-template-rows: 1fr auto;
     position: relative;
   }
+  /* single continuous hairline at the column boundary */
   .gate::before {
     content: "";
     position: absolute;
-    left: calc(1.1 / 2.1 * 100%);
-    top: 8%; bottom: 8%;
+    left: var(--seam);
+    top: 0; bottom: 0;
     width: 1px;
     background: var(--rule);
+    z-index: 2;
   }
 
-  /* shared chrome */
+  /* ---------- top + bottom chrome ---------- */
   .chrome {
     position: absolute;
     left: 0; right: 0;
     display: flex; justify-content: space-between; align-items: baseline;
-    padding: 38px 64px;
+    padding: 34px 56px;
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--fg-3);
+    z-index: 3;
   }
   .chrome.top { top: 0; }
-  .chrome.bot {
-    bottom: 0;
-    border-top: 1px solid var(--rule);
-    margin: 0 64px;
-    padding: 22px 0;
-    left: 0; right: 0;
-    width: auto;
-  }
-  .chrome .lockup {
-    display: flex; align-items: baseline; gap: 12px;
-    font-family: var(--font-display); font-weight: 300;
-    letter-spacing: var(--tracking-wordmark, 0.18em); text-transform: uppercase;
-    font-size: 13px; color: var(--fg-2);
-  }
-  .chrome .lockup .dot { color: var(--fg-3); }
-  .chrome .lockup .amber { color: var(--fg-accent); }
+  .chrome .dot { color: var(--rule-strong); margin: 0 8px; }
 
-  /* LEFT — brand panel */
+  /* ---------- LEFT: brand panel ---------- */
   .brand-side {
-    padding: 96px 96px 132px;
-    display: flex; flex-direction: column;
+    grid-column: 1; grid-row: 1;
     background: var(--paper-soft);
-    position: relative;
+    padding: 124px 56px 64px;
+    display: flex; flex-direction: column; justify-content: flex-start;
+    min-width: 0;
   }
   .brand-side .kicker {
     font-family: var(--font-mono);
     font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-3);
-    margin-bottom: 22px;
+    margin: 0 0 34px;
   }
-  .brand-side .wordmark {
+  .wordmark-lg {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(104px, 11vw, 172px);
+    font-size: 66px;
     line-height: 0.95;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--fg-1);
     margin: 0;
   }
   .brand-side .amber-rule {
     width: 64px; height: 1px;
     background: var(--fg-accent);
-    margin: 24px 0 18px;
+    margin: 34px 0 24px;
   }
   .brand-side .tagline {
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 300;
-    font-size: clamp(22px, 2.2vw, 32px);
+    font-size: clamp(22px, 2.2vw, 33px);
     line-height: 1.3;
     color: var(--fg-2);
-    margin: 0 0 24px;
-    max-width: 580px;
-    text-wrap: pretty;
-  }
-  .brand-side .body {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--fg-1);
     margin: 0;
-    max-width: 480px;
+    max-width: 560px;
     text-wrap: pretty;
   }
-  .brand-side .footer-meta {
-    margin-top: auto;
-    padding-top: 28px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--fg-3);
-  }
-  .brand-side .footer-meta strong {
-    display: block;
+  .brand-side .amber-rule.is-tenet { margin-top: 42px; }
+  .brand-side .tenet-mark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 66px;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--fg-accent);
-    font-weight: 400;
-    margin-bottom: 4px;
+    margin: 0;
   }
-  /* Short screens: drop the detail block so it can never collide with the
-     fixed footer (its key info also appears in the footer lockup). */
-  @media (max-height: 820px) {
-    .brand-side .footer-meta { display: none; }
+  .brand-side .tenet-label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-3);
+    margin: 14px 0 0;
   }
 
-  /* RIGHT — login panel */
+  /* ---------- RIGHT: login panel ---------- */
   .login-side {
-    padding: 120px 96px 150px;
-    display: flex; flex-direction: column;
-    justify-content: center;
+    grid-column: 2; grid-row: 1;
+    padding: 88px 56px 64px;
+    display: flex; flex-direction: column; justify-content: flex-start;
+    min-width: 0;
   }
-  .login-side .title {
-    margin-bottom: 36px;
-  }
-  .login-side .title .small-kicker {
+  .login-side .head { margin-bottom: 44px; }
+  .login-side .head .small-kicker {
     font-family: var(--font-mono);
     font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-accent);
-    margin-bottom: 16px;
+    margin: 0 0 16px;
   }
-  .login-side .title h1 {
+  .login-side .head h1 {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: 44px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    font-size: 33px;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
     color: var(--fg-1);
     margin: 0;
-    max-width: 480px;
+    max-width: 460px;
     text-wrap: balance;
   }
-  .login-side .title .sub {
-    margin-top: 18px;
-    font-size: 17px;
+  .login-side .head .sub {
+    margin: 18px 0 0;
+    font-size: 16px;
     line-height: 1.5;
     color: var(--fg-2);
     max-width: 440px;
@@ -163,10 +149,12 @@
 
   form {
     display: flex; flex-direction: column;
-    gap: 28px;
+    gap: 26px;
     max-width: 440px;
+    width: 100%;
   }
   .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.hide { display: none; }
   .field label {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
@@ -177,27 +165,29 @@
     border-bottom: 1px solid var(--fg-1);
     background: transparent;
     font-family: var(--font-sans);
-    font-size: 22px;
+    font-size: 21px;
     line-height: 1.4;
     color: var(--fg-1);
     padding: 8px 0;
     outline: none;
     border-radius: 0;
+    transition: border-color 140ms ease;
   }
   .field input::placeholder { color: var(--fg-3); }
   .field input:focus { border-bottom-color: var(--fg-accent); }
-  .field input:autofill, .field input:-webkit-autofill {
+  .field input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px var(--paper) inset;
     box-shadow: 0 0 0 1000px var(--paper) inset;
   }
 
   .actions {
     display: flex; justify-content: space-between; align-items: center;
-    margin-top: 8px;
+    gap: 16px;
+    margin-top: 6px;
   }
   .err {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--fg-accent);
     min-height: 16px;
     margin: 0;
@@ -209,82 +199,112 @@
     font-family: var(--font-display);
     font-weight: 300;
     font-size: 22px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     color: var(--fg-1);
     padding: 6px 4px;
     cursor: pointer;
-    transition: color 120ms ease, background 120ms ease;
+    white-space: nowrap;
+    transition: color 130ms ease;
   }
-  button.enter:hover {
-    color: var(--fg-accent);
-  }
-  button.enter:disabled {
-    color: var(--fg-3);
-    cursor: not-allowed;
-    border-bottom-color: var(--fg-3);
-  }
-  button.enter .arrow { display: inline-block; margin-left: 10px; }
+  button.enter:hover { color: var(--fg-accent); }
+  button.enter:disabled { color: var(--fg-3); border-bottom-color: var(--fg-3); cursor: not-allowed; }
+  button.enter .arrow { display: inline-block; margin-left: 10px; transition: transform 160ms ease; }
+  button.enter:hover .arrow { transform: translateX(4px); }
 
   .helper {
-    margin-top: 32px;
-    padding-top: 22px;
-    border-top: 1px solid var(--rule);
+    margin-top: 30px;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--fg-3);
     max-width: 440px;
   }
-  .helper a {
+  .helper .toggle {
+    background: none; border: 0; padding: 0;
+    font: inherit; cursor: pointer;
     color: var(--fg-2);
-    text-decoration: none;
     border-bottom: 1px solid var(--rule);
   }
+  .helper .toggle:hover { color: var(--fg-accent); border-bottom-color: var(--fg-accent); }
+  .helper a { color: var(--fg-2); border-bottom: 1px solid var(--rule); }
   .helper a:hover { color: var(--fg-accent); border-bottom-color: var(--fg-accent); }
+  .helper .row + .row { margin-top: 8px; }
 
-  /* responsive collapse */
+  /* ---------- footer band (full width, seam continues) ---------- */
+  .gate-footer {
+    grid-column: 1 / -1; grid-row: 2;
+    display: grid;
+    grid-template-columns: var(--split) var(--split-2);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .gate-footer .f-left {
+    background: var(--paper-soft);
+    padding: 28px 56px;
+    display: flex; align-items: center; gap: 0;
+  }
+  .gate-footer .f-left .sep { color: var(--rule-strong); margin: 0 12px; }
+  .gate-footer .f-left .amber { color: var(--fg-accent); transition: color 130ms ease; }
+  .gate-footer .f-left a {
+    color: inherit;
+    border: 0;
+    text-decoration: none;
+    transition: color 130ms ease;
+  }
+  .gate-footer .f-left a:hover { color: var(--fg-accent); }
+  /* When Jane is hovered, fade the leading "Anona" to grey. */
+  .gate-footer .f-left:has(a:hover) .amber { color: var(--fg-3); }
+  .gate-footer .f-right {
+    padding: 28px 56px;
+    display: flex; align-items: center; justify-content: flex-end;
+  }
+
+  /* ---------- responsive ---------- */
   @media (max-width: 1024px) {
-    .gate { grid-template-columns: 1fr; }
+    .gate { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
     .gate::before { display: none; }
-    .brand-side, .login-side { padding: 120px 48px 80px; }
-    .brand-side .footer-meta { display: none; }
+    .brand-side { grid-column: 1; grid-row: 1; }
+    .login-side { grid-column: 1; grid-row: 2; }
+    .brand-side, .login-side { padding: 124px 48px 72px; }
+    .gate-footer { grid-column: 1; grid-row: 3; grid-template-columns: 1fr; }
+    .gate-footer .f-left { padding: 26px 48px; }
+    .gate-footer .f-right { padding: 26px 48px; justify-content: flex-start; }
   }
   @media (max-width: 600px) {
-    .chrome { padding: 24px 28px; }
-    .brand-side, .login-side { padding: 110px 28px 60px; }
-    .login-side .title h1 { font-size: 32px; }
-    .brand-side .wordmark { font-size: 96px; }
+    .chrome { padding: 22px 26px; font-size: 10px; }
+    .brand-side, .login-side { padding: 104px 26px 56px; }
+    .wordmark-lg { font-size: 64px; }
+    .login-side .head h1 { font-size: 28px; }
+    .gate-footer .f-left { padding: 22px 26px; }
+    .gate-footer .f-right { padding: 22px 26px; }
   }
 </style>
 </head>
 <body>
 
 <header class="chrome top">
-  <span>Anona · private preview</span>
+  <span>Anona<span class="dot">·</span>private preview</span>
   <span>By invitation</span>
 </header>
 
 <div class="gate">
 
   <aside class="brand-side">
-    <div class="kicker">A collaborative creative software company</div>
-
-    <h1 class="wordmark">ANONA</h1>
+    <p class="kicker">A collaborative creative software company</p>
+    <h1 class="wordmark-lg" style="font-size: 86px">Anona</h1>
     <div class="amber-rule"></div>
-
     <p class="tagline">For the people who tell stories at the highest level.</p>
 
-    <div class="footer-meta">
-      <div><strong>Parent</strong>Anona</div>
-      <div><strong>First product</strong>Tenet</div>
-      <div><strong>Studio</strong>Jane</div>
-      <div><strong>Stage</strong>Private preview</div>
-    </div>
+    <div class="amber-rule is-tenet"></div>
+    <p class="tenet-mark" style="font-size: 86px">Tenet</p>
+    <p class="tenet-label">Our first product</p>
   </aside>
 
   <main class="login-side">
-    <div class="title">
-      <div class="small-kicker">Access</div>
-      <h1 id="gateTitle">Sign in to view the preview.</h1>
+    <div class="head">
+      <p class="small-kicker" id="formKicker">Access</p>
+      <h1 id="formTitle" style="font-size: 25px">Sign in to view the preview.</h1>
     </div>
 
     <form id="gateForm" autocomplete="on" novalidate>
@@ -293,9 +313,9 @@
         <input type="email" id="email" name="email" autocomplete="email" required spellcheck="false" placeholder="you@example.com">
       </div>
 
-      <div class="field" id="inviteField" style="display:none">
+      <div class="field hide" id="inviteField">
         <label for="invite">Invite code</label>
-        <input type="text" id="invite" name="invite" autocomplete="off" spellcheck="false" placeholder="one-time code from your invitation">
+        <input type="text" id="invite" name="invite" spellcheck="false" placeholder="ANONA-XXXX" autocapitalize="characters">
       </div>
 
       <div class="field">
@@ -305,31 +325,35 @@
 
       <div class="actions">
         <p class="err" id="err">&nbsp;</p>
-        <button class="enter" id="enterBtn" type="submit"><span id="btnLabel">Enter</span><span class="arrow">→</span></button>
+        <button class="enter" id="enterBtn" type="submit"><span id="btnLabel">Enter</span><span class="arrow">&rarr;</span></button>
       </div>
     </form>
 
-    <p class="helper">
-      <a href="#" id="modeToggle">Have an invite code? Create account</a><br>
-      Trouble? Contact <a href="mailto:hello@anona.tv">hello@anona.tv</a>.
-    </p>
+    <div class="helper">
+      <p class="row" id="toggleRow">
+        <span id="toggleLead">Have an invite code?</span> <button type="button" class="toggle" id="modeToggle">Create account</button>
+      </p>
+      <p class="row">
+        Trouble accessing? Contact <a href="mailto:hello@anona.tv">hello@anona.tv</a>.
+      </p>
+    </div>
   </main>
 
-</div>
-
-<footer class="chrome bot">
-  <div class="lockup">
-    <span>Anona</span><span class="dot">·</span><span class="amber">TENET</span><span class="dot">·</span><span>Jane</span>
+  <div class="gate-footer">
+    <div class="f-left">
+      <span class="amber" id="footAnona">Anona</span><span class="sep">·</span>Tenet<span class="sep">·</span><a href="https://jane.tv/" target="_blank" rel="noopener">Jane</a>
+    </div>
+    <div class="f-right">2026 &nbsp;·&nbsp; v 1.0</div>
   </div>
-  <span>2026 · v 1.0</span>
-</footer>
+
+</div>
 
 <!-- =====================================================================
      AUTH WIRING — points to the protected /_auth/ folder (NOT design).
      The real login/signup logic lives in /_auth/auth.js. This page only
      references it. If you re-download this page from Claude Design, the
-     old fake-login <script> will come back — just delete it and re-add
-     these two lines (see /_auth/README-AUTH.md).
+     demo gate <script> comes back — delete it and re-add these two lines
+     (see /_auth/README-AUTH.md §6).
      ===================================================================== -->
 <script src="/_auth/config.js"></script>
 <script type="module" src="/_auth/auth.js"></script>

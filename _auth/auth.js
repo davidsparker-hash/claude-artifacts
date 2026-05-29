@@ -30,7 +30,9 @@ const errEl      = document.getElementById('err');
 const btn        = document.getElementById('enterBtn');
 const btnLabel   = document.getElementById('btnLabel');
 const toggle     = document.getElementById('modeToggle');
-const titleEl    = document.getElementById('gateTitle');
+const titleEl    = document.getElementById('gateTitle') || document.getElementById('formTitle');
+const kickerEl   = document.getElementById('formKicker');
+const leadEl     = document.getElementById('toggleLead');
 
 let mode = 'login'; // 'login' | 'signup'
 
@@ -45,11 +47,16 @@ function clearError()   { if (errEl) errEl.innerHTML = '&nbsp;'; }
 function setMode(next) {
   mode = next;
   const signup = mode === 'signup';
-  if (inviteWrap) inviteWrap.style.display = signup ? '' : 'none';
+  if (inviteWrap) {
+    inviteWrap.classList.toggle('hide', !signup); // works with the design's .hide class
+    inviteWrap.style.display = signup ? 'flex' : 'none'; // and as a fallback
+  }
   if (inviteEl)   inviteEl.required = signup;
   if (titleEl)    titleEl.textContent = signup ? 'Create your account.' : 'Sign in to view the preview.';
+  if (kickerEl)   kickerEl.textContent = signup ? 'Request access' : 'Access';
   if (btnLabel)   btnLabel.textContent = signup ? 'Create account' : 'Enter';
-  if (toggle)     toggle.textContent = signup ? 'Have an account? Sign in' : 'Have an invite code? Create account';
+  if (leadEl)     leadEl.textContent = signup ? 'Already have access?' : 'Have an invite code?';
+  if (toggle)     toggle.textContent = signup ? 'Sign in' : 'Create account';
   clearError();
 }
 

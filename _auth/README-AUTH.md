@@ -144,8 +144,13 @@ and ensure these are before `</body>`:
 <script src="/_auth/config.js"></script>
 <script type="module" src="/_auth/auth.js"></script>
 ```
-Also confirm the form still has: `#email`, `#password`, `#invite` (inside
-`#inviteField`), `#enterBtn` (with `#btnLabel` span), `#modeToggle`, `#gateTitle`.
+Also confirm the form still has these hooks (auth.js drives them; it tolerates
+missing optional ones): `#gateForm`, `#email`, `#password`, `#invite` (inside
+`#inviteField`), `#err`, `#enterBtn` containing a `#btnLabel` span, `#modeToggle`
+(the create-account/sign-in toggle button), and the title `#formTitle` (or
+`#gateTitle`). Optional niceties it will also update if present: `#formKicker`,
+`#toggleLead`. If a re-download changes these IDs, tell Claude and it will
+re-map auth.js to match.
 
 **Any protected page** (`site/chooser.html`,
 `site/tenet-deck/TENET Investor Deck.html`, `site/Tenet First Experience.html`)

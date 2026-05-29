@@ -24,7 +24,7 @@ const SCRIPT_FONT = '"Times New Roman", Times, serif';
 const W = 1920;
 const H = 1080;
 const TOOLBAR_X = 80;
-const TOOLBAR_ICON_SIZE = 26;
+const TOOLBAR_ICON_SIZE = 34;
 const TOOLBAR_Y = {
   mic:    104,
   phone:  154,
@@ -78,7 +78,7 @@ function Wordmark() {
       fontFamily: SERIF,
       fontStyle: 'italic',
       fontWeight: 400,
-      fontSize: 17,
+      fontSize: 21,
       letterSpacing: '0.02em',
       color: INK_FAINT,
       opacity: op,
@@ -173,12 +173,12 @@ function DownloadGlyph({ size = 14, stroke = PAPER, sw = 1.8 }) {
 function Avatar({ letter, opacity = 1 }) {
   return (
     <div style={{
-      width: 28, height: 28,
+      width: 33, height: 33,
       borderRadius: '50%',
       border: `1px solid ${BORDER}`,
       background: PAPER_SOFT,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontFamily: SANS, fontSize: 11, fontWeight: 400,
+      fontFamily: SANS, fontSize: 12, fontWeight: 400,
       color: INK_MUTED,
       letterSpacing: '0.04em',
       opacity,
@@ -350,7 +350,7 @@ function CallInitiation({ initialA, initialB }) {
           </div>
           <div style={{
             display: 'flex', alignItems: 'center', gap: 8,
-            fontFamily: SANS, fontSize: 11, fontWeight: 400,
+            fontFamily: SANS, fontSize: 13, fontWeight: 400,
             letterSpacing: '0.18em', textTransform: 'uppercase',
             color: AMBER,
           }}>
@@ -383,7 +383,7 @@ function VoiceWaveform() {
 
   // Anchored to the right of the LISTENING strip (upper-left workspace).
   // Strip lives at top=TOOLBAR_Y.mic; this sits centered on the same baseline.
-  const LEFT = 302;
+  const LEFT = 322;
   const TOP  = TOOLBAR_Y.mic + (TOOLBAR_ICON_SIZE - HEIGHT) / 2;
 
   const bars = [];
@@ -433,8 +433,8 @@ function DialogueFeed({ timeline, fontSize = 17 }) {
   }
   if (active < 0) return null;
 
-  const COL_LEFT  = 820;
-  const COL_WIDTH = 1020;     // right-side column
+  const COL_LEFT  = 900;
+  const COL_WIDTH = 940;     // right-side column
   // Top baseline aligns with the LISTENING strip / waveform row on the left.
   const VIEW_TOP    = 104;
   const VIEW_BOTTOM = 920;
@@ -532,14 +532,14 @@ function ScriptWorkspace({ scriptOpenAt, expandAt, dialogueTimeline }) {
   //   • large  — top rises to sit beside the phone icon, bottom drops down
   //              to share the baseline with the dialogue feed (y=920).
   const WIN_Y_SMALL = 252;
-  const WIN_Y_LARGE = 170;
+  const WIN_Y_LARGE = 152;
 
   // Two-stage sizing: opens "small", then the cursor returns later to drag
   // the bottom-right corner outward into the full workspace size.
-  const W_SMALL = 470;
-  const H_SMALL = 440;
-  const W_LARGE = 680;
-  const H_LARGE = 750;  // bottom = WIN_Y_LARGE + H_LARGE = 920 (text baseline)
+  const W_SMALL = 530;
+  const H_SMALL = 468;
+  const W_LARGE = 760;
+  const H_LARGE = 768;  // bottom = WIN_Y_LARGE + H_LARGE = 920 (text baseline)
   const expandP = clamp((t - expandAt) / 1.0, 0, 1);
   const expandE = easeInOutCubic(expandP);
   const WIN_W = W_SMALL + (W_LARGE - W_SMALL) * expandE;
@@ -613,14 +613,14 @@ function ScriptWorkspace({ scriptOpenAt, expandAt, dialogueTimeline }) {
               marginBottom: 16,
             }}>
               <div style={{
-                fontFamily: SANS, fontSize: 10, fontWeight: 400,
+                fontFamily: SANS, fontSize: 12, fontWeight: 400,
                 letterSpacing: '0.20em', textTransform: 'uppercase',
                 color: AMBER,
               }}>Script</div>
               {anyPending && (
                 <div style={{
                   display: 'flex', alignItems: 'center', gap: 7,
-                  fontFamily: SANS, fontSize: 9, fontWeight: 400,
+                  fontFamily: SANS, fontSize: 11, fontWeight: 400,
                   letterSpacing: '0.18em', textTransform: 'uppercase',
                   color: AMBER, opacity: 0.95,
                 }}>
@@ -708,7 +708,7 @@ function ScriptItemRender({ item }) {
       return (
         <div style={{
           fontFamily: SCRIPT_FONT, fontStyle: 'italic', fontWeight: 400,
-          fontSize: 24, lineHeight: 1.15,
+          fontSize: 28, lineHeight: 1.15,
           color: INK,
           marginTop: 0,
         }}>{item.text}</div>
@@ -716,7 +716,7 @@ function ScriptItemRender({ item }) {
     case 'subtitle':
       return (
         <div style={{
-          fontFamily: SCRIPT_FONT, fontSize: 13, fontWeight: 400,
+          fontFamily: SCRIPT_FONT, fontSize: 15, fontWeight: 400,
           color: INK_FAINT,
           marginTop: 4, marginBottom: 14,
         }}>{item.text}</div>
@@ -724,7 +724,7 @@ function ScriptItemRender({ item }) {
     case 'section':
       return (
         <div style={{
-          fontFamily: SANS, fontSize: 10, fontWeight: 400,
+          fontFamily: SANS, fontSize: 12, fontWeight: 400,
           letterSpacing: '0.20em', textTransform: 'uppercase',
           color: AMBER,
           marginTop: 14, marginBottom: 6,
@@ -733,7 +733,7 @@ function ScriptItemRender({ item }) {
     case 'p':
       return (
         <div style={{
-          fontFamily: SCRIPT_FONT, fontSize: 14, fontWeight: 400,
+          fontFamily: SCRIPT_FONT, fontSize: 16, fontWeight: 400,
           lineHeight: 1.45, color: INK,
           marginTop: 2, marginBottom: 4,
         }}>{item.text}</div>
@@ -742,12 +742,12 @@ function ScriptItemRender({ item }) {
       return (
         <div style={{
           display: 'flex', gap: 14,
-          fontSize: 14, lineHeight: 1.45,
+          fontSize: 16, lineHeight: 1.45,
           color: INK,
           marginTop: 2, marginBottom: 3,
           fontFamily: SCRIPT_FONT,
         }}>
-          <div style={{ fontWeight: 400, minWidth: 86, color: INK }}>{item.name}</div>
+          <div style={{ fontWeight: 400, minWidth: 98, color: INK }}>{item.name}</div>
           <div style={{ fontWeight: 400, color: INK_MUTED, flex: 1 }}>{item.desc}</div>
         </div>
       );
@@ -755,10 +755,10 @@ function ScriptItemRender({ item }) {
       return (
         <div style={{
           display: 'flex', gap: 12,
-          fontSize: 14, lineHeight: 1.45, marginTop: 2, marginBottom: 3,
+          fontSize: 16, lineHeight: 1.45, marginTop: 2, marginBottom: 3,
           fontFamily: SCRIPT_FONT,
         }}>
-          <div style={{ fontStyle: 'italic', color: AMBER, minWidth: 28 }}>{item.num}.</div>
+          <div style={{ fontStyle: 'italic', color: AMBER, minWidth: 34 }}>{item.num}.</div>
           <div style={{ color: INK, flex: 1 }}>{item.text}</div>
         </div>
       );
@@ -769,12 +769,12 @@ function ScriptItemRender({ item }) {
 // Placeholder for unfilled item — keeps vertical rhythm consistent
 function ScriptItemSkeleton({ kind }) {
   const h =
-    kind === 'title' ? 28 :
-    kind === 'subtitle' ? 18 :
-    kind === 'section' ? 24 :
-    kind === 'p' ? 20 :
-    kind === 'char' ? 20 :
-    kind === 'beat' ? 20 : 16;
+    kind === 'title' ? 33 :
+    kind === 'subtitle' ? 22 :
+    kind === 'section' ? 28 :
+    kind === 'p' ? 23 :
+    kind === 'char' ? 23 :
+    kind === 'beat' ? 23 : 18;
   return <div style={{ height: h, opacity: 0 }}/>;
 }
 
@@ -1061,9 +1061,9 @@ function computeReferenceLayout({ scriptOpenAt, winX, winY, winW, winH, expanded
   const ordered = REFERENCE_CARDS.slice(0, 6);
 
   // Cards grow slightly when the script window expands.
-  const cardW  = 92  + 8  * expandedE;
-  const cardH  = 76  + 6  * expandedE;
-  const thumbH = 48  + 4  * expandedE;
+  const cardW  = 106 + 8  * expandedE;
+  const cardH  = 88  + 6  * expandedE;
+  const thumbH = 52  + 4  * expandedE;
   const gap    = 8;
   const rowGap = 6;
 
@@ -1113,7 +1113,7 @@ function InlineReferences({ layout }) {
       <div style={{
         position: 'absolute',
         left: stripLeft, top: headerTop,
-        fontFamily: SANS, fontSize: 10, fontWeight: 400,
+        fontFamily: SANS, fontSize: 12, fontWeight: 400,
         letterSpacing: '0.20em', textTransform: 'uppercase',
         color: AMBER,
         opacity: headerOp,
@@ -1157,12 +1157,12 @@ function InlineReferences({ layout }) {
             </div>
             <div style={{ padding: '5px 8px' }}>
               <div style={{
-                fontFamily: SCRIPT_FONT, fontSize: 11, fontWeight: 400,
+                fontFamily: SCRIPT_FONT, fontSize: 13, fontWeight: 400,
                 color: INK, lineHeight: 1.2,
                 overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
               }}>{c.title}</div>
               <div style={{
-                fontFamily: SANS, fontSize: 7, fontWeight: 400,
+                fontFamily: SANS, fontSize: 8, fontWeight: 400,
                 color: INK_FAINT,
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 lineHeight: 1.2, marginTop: 1,
