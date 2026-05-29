@@ -40,6 +40,7 @@ async function main() {
   }
 
   elStatus().textContent = '';
+  setupInvite();
 
   const { data: events, error } = await supabase
     .from('login_events')
@@ -81,6 +82,45 @@ async function main() {
     events.slice(0, 100).map((ev) =>
       `<tr><td>${escapeHtml(ev.email || ev.user_id)}</td><td>${escapeHtml(fmt(ev.created_at))}</td></tr>`
     ).join('');
+}
+
+function setupInvite() {
+  const box = document.getElementById('inviteBox');
+  const input = document.getElementById('inviteEmail');
+  const btn = document.getElementById('inviteBtn');
+  const status = document.getElementById('inviteStatus');
+  if (!box || !btn) return;
+  box.style.display = '';
+
+  btn.addEventListener('click', async () => {
+    const email = (input.value || '').trim().toLowerCase();
+    if (!email) { status.textContent = 'Enter an email first.'; input.focus(); return; }
+
+    btn.disabled = true;
+    status.textContent = 'Sending…';
+    try {
+      const { data: sess } = await supabase.auth.getSession();
+      const token = sess && sess.session ? sess.session.access_token : '';
+      const res = await fetch('/.netlify/functions/send-invite', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+        body: JSON.stringify({ email, note: email }),
+      });
+      const out = await res.json().catch(() => ({}));
+      if (res.ok) {
+        status.textContent = `✓ Invite sent to ${email}.`;
+        input.value = '';
+      } else if (out.code) {
+        status.textContent = `Email didn't send, but the code was created — copy it: ${out.code}`;
+      } else {
+        status.textContent = out.error || 'Could not send the invite.';
+      }
+    } catch (e) {
+      status.textContent = 'Something went wrong. Please try again.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
 }
 
 function escapeHtml(s) {

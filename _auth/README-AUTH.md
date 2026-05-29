@@ -50,8 +50,18 @@ git-ignored — never edit it.
 | `SUPABASE_SERVICE_ROLE_KEY` | **yes** | Supabase service_role/secret key |
 | `POSTHOG_KEY` | no | PostHog Project API key (starts `phc_…`) |
 | `POSTHOG_HOST` | no | e.g. `https://us.i.posthog.com` (or EU host) |
+| `RESEND_API_KEY` | **yes** | Resend API key (starts `re_…`) — for auto-invite emails |
+| `INVITE_FROM_EMAIL` | no | verified sender, e.g. `Anona <invites@anona.tv>` |
+| `SITE_URL` | no | optional, defaults to `https://anona.tv` |
 
 Keys live **only** in Netlify — never in the repo.
+
+### Auto-invite by email (admin page)
+The "Invite someone" box on the admin page generates a code and emails it
+automatically via Resend. It needs `RESEND_API_KEY` + `INVITE_FROM_EMAIL` set,
+and the sending domain verified in Resend. Until then, use the SQL method (§3).
+The function (`netlify/functions/send-invite.js`) checks `is_admin` server-side,
+so only you can send invites.
 
 ---
 

@@ -34,6 +34,13 @@
        letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:1px solid var(--rule); }
   td { padding:9px 12px; border-bottom:1px solid var(--rule); }
   tr:hover td { background:rgba(0,0,0,0.02); }
+  .invite-row { display:flex; gap:10px; align-items:center; margin-top:4px; max-width:560px; }
+  .invite-row input { flex:1; padding:10px 12px; font-size:14px; border:1px solid var(--rule);
+                      border-radius:6px; background:#fff; color:var(--ink); }
+  .invite-row button { padding:10px 16px; font-size:14px; border:0; border-radius:6px; cursor:pointer;
+                       background:var(--accent); color:#fff; }
+  .invite-row button:disabled { opacity:0.5; cursor:not-allowed; }
+  .invite-status { font-size:13px; color:var(--muted); margin:10px 0 0; min-height:18px; }
 </style>
 </head>
 <body>
@@ -45,6 +52,15 @@
     </header>
 
     <p id="status">Loading…</p>
+
+    <section id="inviteBox" style="display:none">
+      <h2>Invite someone</h2>
+      <div class="invite-row">
+        <input id="inviteEmail" type="email" placeholder="their@email.com" autocomplete="off" spellcheck="false">
+        <button id="inviteBtn" type="button">Send invite</button>
+      </div>
+      <p class="invite-status" id="inviteStatus"></p>
+    </section>
 
     <h2>Per user</h2>
     <table><tbody id="summary"></tbody></table>
