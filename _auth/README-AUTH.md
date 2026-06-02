@@ -48,8 +48,11 @@ git-ignored — never edit it.
 | `SUPABASE_URL` | no | your Supabase Project URL |
 | `SUPABASE_ANON_KEY` | no | Supabase anon/public key |
 | `SUPABASE_SERVICE_ROLE_KEY` | **yes** | Supabase service_role/secret key |
-| `POSTHOG_KEY` | no | PostHog Project API key (starts `phc_…`) |
+| `POSTHOG_KEY` | no | PostHog Project API key (starts `phc_…`) — browser ingest |
 | `POSTHOG_HOST` | no | e.g. `https://us.i.posthog.com` (or EU host) |
+| `POSTHOG_PERSONAL_API_KEY` | **yes** | PostHog **personal** API key (starts `phx_…`), scope "Query: Read" — lets the admin page read the time-on-site report |
+| `POSTHOG_PROJECT_ID` | no | numeric PostHog project id (Settings → Project) |
+| `POSTHOG_API_HOST` | no | optional; defaults to `POSTHOG_HOST` with the `i.` ingestion prefix stripped (`us.i.posthog.com` → `us.posthog.com`) |
 | `RESEND_API_KEY` | **yes** | Resend API key (starts `re_…`) — for auto-invite emails |
 | `INVITE_FROM_EMAIL` | no | verified sender, e.g. `Anona <invites@anona.tv>` |
 | `SITE_URL` | no | optional, defaults to `https://anona.tv` |
@@ -123,10 +126,30 @@ by database security, not just the page).
 
 ## 5. Where to view analytics
 
-- **Login log (who/when/how often):** `https://anona.tv/_auth/admin.html`
-  (admin-only).
-- **Page behavior (what they viewed, how long, recordings):** the **PostHog**
-  dashboard. Events are tied to each user's email, so you can filter per person.
+The admin page (`https://anona.tv/_auth/admin.html`, admin-only) now shows
+three things:
+
+1. **Time on site** — per user, a breakdown of which pages they viewed, how
+   long on each, and their total. Switch the range with the 7d / 30d / 90d
+   buttons. This reads from **PostHog** via the admin-only
+   `analytics-summary` function.
+2. **Per user · logins** — login count + last seen (from `login_events`).
+3. **Recent activity** — the most recent logins.
+
+**To turn the "Time on site" report on**, set these PostHog env vars in Netlify
+(see the table in §2), then redeploy:
+- `POSTHOG_PERSONAL_API_KEY` — PostHog → **Settings → Personal API keys** →
+  *Create*, give it the **"Query: Read"** scope. Starts `phx_…`. (This is
+  different from `POSTHOG_KEY`, the public `phc_…` ingest key.)
+- `POSTHOG_PROJECT_ID` — PostHog → **Settings → Project** → the numeric
+  *Project ID*.
+
+Until those are set, the section shows a friendly "not set up yet" note — it
+never errors. Time-on-page is measured from PostHog `$pageview`/`$pageleave`
+events (analytics.js sets `capture_pageleave`), so it reflects real dwell time.
+
+- For deeper analysis (funnels, session recordings, per-click events), the full
+  **PostHog dashboard** still has everything; the admin page is the quick view.
 
 ---
 

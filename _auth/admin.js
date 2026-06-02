@@ -82,6 +82,108 @@ async function main() {
     events.slice(0, 100).map((ev) =>
       `<tr><td>${escapeHtml(ev.email || ev.user_id)}</td><td>${escapeHtml(fmt(ev.created_at))}</td></tr>`
     ).join('');
+
+  // ---- time-on-site (PostHog) ----
+  setupBehavior();
+}
+
+/* ── Time on site: per-user, per-page dwell from PostHog ──────────────── */
+let behaviorDays = 30;
+
+function setupBehavior() {
+  const range = document.getElementById('range');
+  if (range) {
+    range.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-days]');
+      if (!btn) return;
+      behaviorDays = parseInt(btn.dataset.days, 10) || 30;
+      [...range.querySelectorAll('button')].forEach((b) =>
+        b.setAttribute('aria-pressed', String(b === btn)));
+      loadBehavior();
+    });
+  }
+  loadBehavior();
+}
+
+async function loadBehavior() {
+  const body = document.getElementById('behavior');
+  const note = document.getElementById('behaviorNote');
+  if (!body) return;
+  body.innerHTML = '';
+  note.textContent = 'Loading…';
+
+  const { data: sess } = await supabase.auth.getSession();
+  const token = sess && sess.session ? sess.session.access_token : '';
+
+  let out;
+  try {
+    const res = await fetch('/.netlify/functions/analytics-summary?days=' + behaviorDays, {
+      headers: { 'Authorization': 'Bearer ' + token },
+    });
+    out = await res.json().catch(() => ({}));
+    if (!res.ok) { note.textContent = out.error || 'Could not load analytics.'; return; }
+  } catch (e) {
+    note.textContent = 'Could not reach the analytics service.';
+    return;
+  }
+
+  if (out.configured === false) { note.textContent = out.reason || 'PostHog reporting is not set up yet.'; return; }
+  if (!out.rows || !out.rows.length) { note.textContent = `No page activity recorded in the last ${behaviorDays} days.`; return; }
+
+  // group rows by user
+  const byUser = new Map();
+  for (const r of out.rows) {
+    const u = byUser.get(r.email) || { email: r.email, total: 0, pages: [] };
+    u.total += r.seconds;
+    u.pages.push(r);
+    byUser.set(r.email, u);
+  }
+  const users = [...byUser.values()].sort((a, b) => b.total - a.total);
+
+  note.textContent = '';
+  body.innerHTML = users.map((u) => {
+    const pages = u.pages
+      .sort((a, b) => b.seconds - a.seconds)
+      .map((p) =>
+        `<li><span class="lbl">${escapeHtml(pageLabel(p.path))}</span>` +
+        `<span class="num">${escapeHtml(fmtDur(p.seconds))} · ${p.views}×</span></li>`
+      ).join('');
+    return `<tr>
+      <td class="usr">${escapeHtml(u.email)}</td>
+      <td><ul class="pages">${pages}</ul></td>
+      <td class="total">${escapeHtml(fmtDur(u.total))}</td>
+    </tr>`;
+  }).join('');
+}
+
+// Map a URL path to a friendly section name.
+function pageLabel(path) {
+  if (!path) return '(unknown)';
+  let p = path;
+  try { p = decodeURIComponent(path); } catch (_) {}
+  const map = {
+    '/': 'Login / Home',
+    '/index.html': 'Login / Home',
+    '/chooser.html': 'Chooser',
+    '/ANONA_seed_plan.html': 'Seed Investment Plan',
+    '/TENET First Experience.html': 'TENET First Experience',
+    '/ANONA_investor_deck/ANONA Investor Deck.html': 'ANONA Investor Deck',
+    '/TENET_product_deck/TENET Product Deck.html': 'TENET Product Deck',
+    '/_auth/admin.html': 'Admin',
+  };
+  if (map[p]) return map[p];
+  // fall back to the file name without extension
+  const name = p.split('/').filter(Boolean).pop() || p;
+  return name.replace(/\.html$/i, '');
+}
+
+// Seconds -> "1h 4m" / "3m 12s" / "45s".
+function fmtDur(s) {
+  s = Math.round(Number(s) || 0);
+  if (s < 60) return s + 's';
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+  if (h) return `${h}h ${m}m`;
+  return `${m}m ${sec}s`;
 }
 
 function setupInvite() {

@@ -43,6 +43,21 @@
                        background:var(--accent); color:#fff; white-space:nowrap; }
   .invite-row button:disabled { opacity:0.5; cursor:not-allowed; }
   .invite-status { font-size:13px; color:var(--muted); margin:10px 0 0; min-height:18px; white-space:pre-line; }
+  .section-head { display:flex; justify-content:space-between; align-items:baseline; margin:40px 0 12px; }
+  .section-head h2 { margin:0; }
+  .range { font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--muted); }
+  .range button { background:none; border:0; cursor:pointer; color:var(--muted); padding:2px 6px;
+                  font:inherit; border-bottom:1px solid transparent; }
+  .range button[aria-pressed="true"] { color:var(--accent); border-color:var(--accent); }
+  .range button:hover { color:var(--accent); }
+  .usr { font-weight:500; }
+  .pages { margin:2px 0 0; padding:0; list-style:none; }
+  .pages li { display:flex; justify-content:space-between; gap:16px; font-size:13px;
+              color:var(--muted); padding:2px 0; }
+  .pages li .lbl { color:var(--ink); }
+  .num { font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .total { color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .ph-note { color:var(--muted); font-size:13px; margin:8px 0 0; }
 </style>
 </head>
 <body>
@@ -65,7 +80,19 @@
       <p class="invite-status" id="inviteStatus"></p>
     </section>
 
-    <h2>Per user</h2>
+    <div class="section-head">
+      <h2>Time on site</h2>
+      <span class="range" id="range" role="group" aria-label="Time range">
+        <button type="button" data-days="7">7d</button>
+        <button type="button" data-days="30" aria-pressed="true">30d</button>
+        <button type="button" data-days="90">90d</button>
+      </span>
+    </div>
+    <table><thead><tr><th>User</th><th>Pages (time · views)</th><th class="num">Total time</th></tr></thead>
+      <tbody id="behavior"></tbody></table>
+    <p class="ph-note" id="behaviorNote"></p>
+
+    <h2>Per user · logins</h2>
     <table><tbody id="summary"></tbody></table>
 
     <h2>Recent activity</h2>
