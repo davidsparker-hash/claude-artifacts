@@ -35,3 +35,11 @@ export function initAnalytics(user) {
     posthog.identify(user.id, { email: user.email });
   }
 }
+
+/* Fire a custom event (e.g. "terms_accepted"). No-op until analytics is
+ * initialized. Keep PROPS free of PII — pass only safe values like a
+ * version string. */
+export function track(eventName, props) {
+  if (!started) return;
+  try { posthog.capture(eventName, props || {}); } catch (_) {}
+}

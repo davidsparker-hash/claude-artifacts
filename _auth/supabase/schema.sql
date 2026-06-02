@@ -113,3 +113,37 @@ create policy "admins read all login events"
       where p.id = auth.uid() and p.is_admin = true
     )
   );
+
+
+-- ---------------------------------------------------------------------
+--  terms_acceptances : one row per (user, terms version) they accepted
+--  ---------------------------------------------------------------------
+--  Recorded by the accept-terms Netlify Function so the IP is captured
+--  server-side (never trusted from the client). The UNIQUE constraint
+--  makes re-clicking "I Agree" idempotent: one acceptance per version.
+-- ---------------------------------------------------------------------
+create table if not exists public.terms_acceptances (
+  id            uuid primary key default gen_random_uuid(),
+  user_id       uuid not null references auth.users(id) on delete cascade,
+  terms_version text not null,
+  accepted_at   timestamptz not null default now(),
+  ip_address    text,
+  unique (user_id, terms_version)
+);
+
+create index if not exists terms_acceptances_user_id_idx
+  on public.terms_acceptances (user_id);
+
+alter table public.terms_acceptances enable row level security;
+
+-- A signed-in user may insert an acceptance ONLY for themselves.
+drop policy if exists "insert own terms acceptance" on public.terms_acceptances;
+create policy "insert own terms acceptance"
+  on public.terms_acceptances for insert
+  with check ( auth.uid() = user_id );
+
+-- A signed-in user may read ONLY their own acceptance rows.
+drop policy if exists "read own terms acceptance" on public.terms_acceptances;
+create policy "read own terms acceptance"
+  on public.terms_acceptances for select
+  using ( auth.uid() = user_id );

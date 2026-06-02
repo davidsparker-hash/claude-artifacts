@@ -13,7 +13,8 @@ This file is your operating manual.
   - `supabase-client.js` — shared Supabase connection
   - `auth.js` — login + invite-gated signup (used by `index.html`)
   - `guard.js` — protects pages; fills "signed in as"; sign-out; loads analytics
-  - `analytics.js` — PostHog (per-user behavior)
+  - `analytics.js` — PostHog (per-user behavior) + `track()` helper
+  - `terms.js` — Terms of Use **copy + version** (edit this to change terms)
   - `admin.js` + `admin.html` — your admin login-log page
   - `supabase/schema.sql` — the database tables + security (already run)
   - `README-AUTH.md` — this file
@@ -22,6 +23,9 @@ This file is your operating manual.
   - `package.json` (+ `package-lock.json` if present) — function dependencies
   - `netlify/functions/redeem-invite.js` — secure invite check
   - `netlify/functions/config.js` — serves public keys to the browser
+  - `netlify/functions/send-invite.js` — admin auto-invite by email
+  - `netlify/functions/analytics-summary.js` — admin time-on-site report
+  - `netlify/functions/accept-terms.js` — records Terms of Use acceptance (IP server-side)
 
 ### 🎨 DESIGN — safe to overwrite from Claude Design
 **Everything in `/site/`**: `index.html`, `chooser.html`,
@@ -228,4 +232,37 @@ Auth** for login/sessions, and for signup posts the invite code to the
 service-role key so it can't be bypassed. Successful logins write a row to
 `login_events`; **Row Level Security** lets each user write only their own and
 lets only admins read them. The admin page reads that log; **PostHog** captures
-per-user page behavior.
+per-user page behavior. After login, `guard.js` also enforces the **Terms of
+Use** gate (§9) before showing any content.
+
+---
+
+## 9. Terms of Use (acceptance gate)
+
+After login, every protected page makes the user accept the current Terms of
+Use before they can see content. It's enforced by `guard.js`, so it applies to
+**all** protected pages automatically — design re-downloads never affect it.
+
+**One-time database step** (like the original schema): in Supabase → **SQL
+Editor**, run the `terms_acceptances` block at the bottom of
+`_auth/supabase/schema.sql` (re-running the whole file is also safe — it uses
+`create table if not exists`). This creates the table that stores acceptances.
+
+**To edit the terms or re-prompt everyone** — edit **one file**, `_auth/terms.js`:
+- Change the copy inside the `EDITABLE TERMS COPY` block.
+- Bump `TERMS_VERSION` (use the date, e.g. `2026-07-15`). Anyone who hasn't
+  accepted *that* version is re-prompted on their next page load; a fresh row
+  is recorded against the new version.
+
+**How a click is recorded.** The "I Agree" button needs a real click (no
+pre-checked box). On click, the browser calls the **`accept-terms`** function,
+which verifies the user's session and writes a row to `terms_acceptances` with
+their id, the version, the time, and their **IP address captured server-side**
+(never trusted from the browser). It also fires a PostHog `terms_accepted`
+event carrying only `{ terms_version }` — no IP, no PII.
+
+**Where to see who accepted:** Supabase → **Table editor → `terms_acceptances`**
+(or SQL): `select * from terms_acceptances order by accepted_at desc;`
+
+No new environment variables are needed — it reuses `SUPABASE_URL` and
+`SUPABASE_SERVICE_ROLE_KEY`.
