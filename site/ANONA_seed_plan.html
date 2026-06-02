@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<title>ANONA — Seed Investment Plan</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { min-height: 100vh; background: var(--paper); color: var(--fg-1); font-family: var(--font-sans); }
+
+  .chrome { position: fixed; left: 0; right: 0; display: flex; justify-content: space-between; align-items: baseline;
+    padding: 22px 64px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-3); z-index: 50; }
+  .chrome.top { top: 0; background: var(--paper-soft); border-bottom: 1px solid var(--rule); }
+  .chrome.top a { color: var(--fg-3); text-decoration: none; border: 0; }
+  .chrome.top a:hover { color: var(--fg-accent); }
+  .chrome.bot { bottom: 0; border-top: 1px solid var(--rule); background: var(--paper); }
+  .chrome .lockup .amber { color: var(--fg-accent); }
+  .chrome .lockup .dot { color: var(--rule-strong); margin: 0 10px; }
+
+  main { max-width: 1080px; margin: 0 auto; padding: 116px 64px 96px; }
+
+  .masthead { margin-bottom: 56px; }
+  .masthead .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-accent); margin-bottom: 22px; }
+  .masthead h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(44px, 5.5vw, 76px); line-height: 0.98; letter-spacing: -0.01em; margin: 0 0 20px; }
+  .masthead .sub { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 20px; color: var(--fg-2); margin: 0 0 28px; max-width: 620px; }
+  .dl { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-accent); text-decoration: none; border: 1px solid var(--fg-accent); padding: 12px 22px; background: rgba(186,117,23,0.05); transition: background .16s, color .16s; }
+  .dl:hover { background: var(--fg-accent); color: #fff; }
+
+  section.tab { margin-bottom: 64px; }
+  .tab-head { display: flex; align-items: baseline; gap: 18px; padding-bottom: 14px; margin-bottom: 24px; border-bottom: 1px solid var(--fg-1); }
+  .tab-head .no { font-family: var(--font-mono); font-size: 12px; color: var(--fg-accent); letter-spacing: 0.1em; }
+  .tab-head h2 { font-family: var(--font-display); font-weight: 300; font-size: 30px; letter-spacing: -0.005em; margin: 0; }
+  .tab-head .note { font-size: 13px; color: var(--fg-3); margin-left: auto; font-style: italic; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  th, td { text-align: left; padding: 12px 14px; font-size: 15px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3); font-weight: 400; border-bottom: 1px solid var(--rule-strong); }
+  td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.pct { text-align: right; font-family: var(--font-mono); color: var(--fg-3); white-space: nowrap; }
+  td .lbl { color: var(--fg-1); }
+  td .meta { color: var(--fg-3); font-size: 12.5px; }
+  tr.sub td { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-accent); padding-top: 22px; border-bottom: 1px solid var(--rule-strong); }
+  tr.total td { font-family: var(--font-display); font-weight: 400; font-size: 17px; color: var(--fg-1); border-top: 1px solid var(--fg-1); border-bottom: none; }
+  tr.total td.num { color: var(--fg-accent); }
+  tr.indent td:first-child { padding-left: 30px; }
+  .amt { color: var(--fg-accent); }
+
+  .kv { display: grid; grid-template-columns: 220px 1fr auto; gap: 0; }
+  .kv .row { display: contents; }
+  .kv .row > div { padding: 12px 14px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+  .kv .row .k { color: var(--fg-2); }
+  .kv .row .v { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .kv .row .f { color: var(--fg-3); font-size: 12.5px; font-style: italic; text-align: right; }
+
+  .callout { border: 1px solid var(--fg-accent); background: rgba(186,117,23,0.05); padding: 22px 26px; margin: 18px 0; }
+  .callout .t { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-accent); margin-bottom: 10px; }
+  .callout p { font-size: 15px; line-height: 1.6; color: var(--fg-1); margin: 0; }
+
+  .scrollx { overflow-x: auto; }
+  @media (max-width: 760px) { main { padding: 110px 24px 80px; } .chrome { padding: 20px 24px; } }
+</style>
+</head>
+<body>
+<header class="chrome top">
+  <a href="chooser.html">↩ overview</a>
+  <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Seed plan</span></div>
+</header>
+
+<main>
+  <div class="masthead">
+    <div class="kicker">Prepared for investor + legal review · May 2026</div>
+    <h1>Seed Investment Plan</h1>
+    <p class="sub">The financial source of truth behind the raise — round overview, use of funds, funding mechanism, and an illustrative 18-month runway.</p>
+    <a class="dl" href="ANONA_Seed_Investment_Plan.xlsx" download>↓ Download the workbook (.xlsx)</a>
+  </div>
+
+  <!-- ── SUMMARY ─────────────────────────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">01</span><h2>Round overview</h2></div>
+    <div class="kv">
+      <div class="row"><div class="k">Round</div><div class="v">Seed</div><div class="f"></div></div>
+      <div class="row"><div class="k">Target raise</div><div class="v amt">$3,750,000</div><div class="f">Primary target</div></div>
+      <div class="row"><div class="k">Floor</div><div class="v">$3,500,000</div><div class="f">Executes plan on a tighter ~16-mo runway</div></div>
+      <div class="row"><div class="k">Ceiling</div><div class="v">$4,500,000</div><div class="f">Oversubscribed; extends toward 22 mo</div></div>
+      <div class="row"><div class="k">Runway target</div><div class="v">18–22 months</div><div class="f">To a credible Series A</div></div>
+      <div class="row"><div class="k">Instrument</div><div class="v" style="font-family:var(--font-sans)">Hybrid bridge → priced seed</div><div class="f">See Funding Mechanism</div></div>
+    </div>
+  </section>
+
+  <!-- ── USE OF FUNDS ────────────────────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">02</span><h2>Use of funds — $3.75M target</h2></div>
+    <div class="scrollx">
+    <table>
+      <thead><tr><th>Category / line item</th><th class="num">Amount</th><th class="num">% of raise</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr class="sub"><td>Engineering &amp; infrastructure</td><td class="num">$1,800,000</td><td class="pct">48.0%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Engineering Lead (senior, AI orchestration)</span></td><td class="num">$320,000</td><td class="pct">8.5%</td><td><span class="meta">Top hire priority — fully loaded yr1</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Senior Frontend / Product Engineer</span></td><td class="num">$260,000</td><td class="pct">6.9%</td><td><span class="meta">NLE-adjacent · loaded yr1</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Second engineer (from month 4–5)</span></td><td class="num">$200,000</td><td class="pct">5.3%</td><td><span class="meta">Partial-year</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Cloud / GPU / model inference infra</span></td><td class="num">$480,000</td><td class="pct">12.8%</td><td><span class="meta">Generation + orchestration compute</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Tooling, licenses, dev infrastructure</span></td><td class="num">$140,000</td><td class="pct">3.7%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Fractional CTO / eng-lead seat (5 mo + held)</span></td><td class="num">$70,000</td><td class="pct">1.9%</td><td><span class="meta">Roger M1–5; hands to full-time Eng Lead</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Engineering contingency</span></td><td class="num">$330,000</td><td class="pct">8.8%</td><td></td></tr>
+
+        <tr class="sub"><td>Design &amp; product</td><td class="num">$400,000</td><td class="pct">10.7%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Product Designer (multi-state UI / motion)</span></td><td class="num">$280,000</td><td class="pct">7.5%</td><td><span class="meta">Loaded yr1</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Design tooling &amp; prototyping</span></td><td class="num">$40,000</td><td class="pct">1.1%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Product validation (test sessions)</span></td><td class="num">$80,000</td><td class="pct">2.1%</td><td><span class="meta">ANONA-run; JANE provides live jobs</span></td></tr>
+
+        <tr class="sub"><td>Founder &amp; operations</td><td class="num">$735,000</td><td class="pct">19.6%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Founder compensation</span></td><td class="num">$390,000</td><td class="pct">10.4%</td><td><span class="meta">$20K/mo M1–3, $30K/mo M4–18</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Legal, accounting, corporate formation</span></td><td class="num">$70,000</td><td class="pct">1.9%</td><td><span class="meta">Incl. round + ongoing counsel</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Producer / Operations (full-time, day 15)</span></td><td class="num">$225,000</td><td class="pct">6.0%</td><td><span class="meta">$225K/yr loaded</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Office / operations / misc.</span></td><td class="num">$50,000</td><td class="pct">1.3%</td><td></td></tr>
+
+        <tr class="sub"><td>Brand &amp; strategy</td><td class="num">$396,000</td><td class="pct">10.6%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Strategy (positioning, GTM, advisory)</span></td><td class="num">$280,000</td><td class="pct">7.5%</td><td><span class="meta">Team supporting founder from day 15</span></td></tr>
+        <tr class="indent"><td><span class="lbl">Brand development (site, identity, system)</span></td><td class="num">$116,000</td><td class="pct">3.1%</td><td><span class="meta">Starts month 3</span></td></tr>
+
+        <tr class="sub"><td>Reserves / contingency</td><td class="num">$419,000</td><td class="pct">11.2%</td><td></td></tr>
+        <tr class="indent"><td><span class="lbl">Unallocated reserve</span></td><td class="num">$419,000</td><td class="pct">11.2%</td><td><span class="meta">~11% buffer to extend runway</span></td></tr>
+
+        <tr class="total"><td>Total raise</td><td class="num">$3,750,000</td><td class="pct">100%</td><td></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--fg-3);font-style:italic;margin:0;">Salary figures are fully-loaded yr1 estimates (incl. benefits/taxes). Headcount per the Section 7 hiring plan.</p>
+  </section>
+
+  <!-- ── IMMEDIATE ASK / BRIDGE ──────────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">03</span><h2>Immediate ask — bridge (first 90 days)</h2></div>
+    <table>
+      <thead><tr><th>Line item</th><th class="num">Amount</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Roger Obando — fractional CTO retainer</td><td class="num">$42,000</td><td><span class="meta">$14K/mo × 3 months (bridge window)</span></td></tr>
+        <tr><td>Immediate operating costs (legal, setup, infra)</td><td class="num">$24,000</td><td><span class="meta">Estimate — refine on call</span></td></tr>
+        <tr class="total"><td>Immediate ask total</td><td class="num">$66,000</td><td><span class="meta" style="font-style:italic">Bridge only: operating plan funded by seed</span></td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <div class="t">Recommended path — hybrid</div>
+      <p>A short-term convertible bridge note funds the first 90 days (Roger + legal/setup, ~$66K), then converts into the priced seed at the round close. This protects the start date without locking full round terms early. Cap, discount, and conversion trigger to be finalized with counsel.</p>
+    </div>
+    <div class="callout" style="border-color:var(--rule);background:var(--paper-soft);">
+      <div class="t" style="color:var(--fg-3);">Bridge scope</div>
+      <p>The bridge funds <strong style="font-weight:400;">only</strong> Roger's 3-month engagement and legal/corporate setup (~$66K) during the 90-day window. It does <strong style="font-weight:400;">not</strong> fund the 18-month operating plan, team buildout, or infrastructure — those are funded by the seed itself.</p>
+    </div>
+  </section>
+
+  <!-- ── RUNWAY ──────────────────────────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">04</span><h2>18-month runway</h2><span class="note">illustrative monthly burn · checkpoints</span></div>
+    <div class="scrollx">
+    <table>
+      <thead><tr><th>($ per month)</th><th class="num">M1</th><th class="num">M3</th><th class="num">M6</th><th class="num">M9</th><th class="num">M12</th><th class="num">M15</th><th class="num">M18</th></tr></thead>
+      <tbody>
+        <tr><td>Monthly burn</td><td class="num">$166K</td><td class="num">$174K</td><td class="num">$213K</td><td class="num">$218K</td><td class="num">$213K</td><td class="num">$213K</td><td class="num">$213K</td></tr>
+        <tr class="total"><td>Capital remaining</td><td class="num">$3.58M</td><td class="num">$3.24M</td><td class="num">$2.61M</td><td class="num">$1.96M</td><td class="num">$1.32M</td><td class="num">$682K</td><td class="num">$42K</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="kv" style="grid-template-columns:220px 1fr;margin-top:18px;">
+      <div class="row"><div class="k">Real 18-month operating burn</div><div class="v amt">≈ $3,707,511</div></div>
+      <div class="row"><div class="k">Capital remaining at M18</div><div class="v">$42,489</div></div>
+      <div class="row"><div class="k">Solvency</div><div class="v" style="font-family:var(--font-sans)">Positive across all 18 months at the $3.75M raise</div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="chrome bot">
+  <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span><span class="dot">·</span><span>Jane</span></div>
+  <span>2026 &nbsp;·&nbsp; v 1.0</span>
+</footer>
+
+<!-- AUTH (not design): authoritative session check. See /_auth/README-AUTH.md -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+</body>
+</html>
