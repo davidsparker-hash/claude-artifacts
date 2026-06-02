@@ -105,11 +105,21 @@ function setupBehavior() {
   loadBehavior();
 }
 
+function toggleBehaviorTables(show) {
+  ['rollupHead', 'rollupTable', 'byUserHead', 'behaviorTable'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = show ? '' : 'none';
+  });
+}
+
 async function loadBehavior() {
   const body = document.getElementById('behavior');
+  const rollup = document.getElementById('rollup');
   const note = document.getElementById('behaviorNote');
   if (!body) return;
   body.innerHTML = '';
+  if (rollup) rollup.innerHTML = '';
+  toggleBehaviorTables(false);
   note.textContent = 'Loading…';
 
   const { data: sess } = await supabase.auth.getSession();
@@ -130,17 +140,42 @@ async function loadBehavior() {
   if (out.configured === false) { note.textContent = out.reason || 'PostHog reporting is not set up yet.'; return; }
   if (!out.rows || !out.rows.length) { note.textContent = `No page activity recorded in the last ${behaviorDays} days.`; return; }
 
-  // group rows by user
+  // group rows by user, and roll up by section (page) across all users
   const byUser = new Map();
+  const bySection = new Map();
   for (const r of out.rows) {
     const u = byUser.get(r.email) || { email: r.email, total: 0, pages: [] };
     u.total += r.seconds;
     u.pages.push(r);
     byUser.set(r.email, u);
+
+    const label = pageLabel(r.path);
+    const s = bySection.get(label) || { label, seconds: 0, views: 0, visitors: new Set() };
+    s.seconds += r.seconds;
+    s.views += r.views;
+    if (r.email) s.visitors.add(r.email);
+    bySection.set(label, s);
   }
   const users = [...byUser.values()].sort((a, b) => b.total - a.total);
+  const sections = [...bySection.values()].sort((a, b) => b.seconds - a.seconds);
 
   note.textContent = '';
+  toggleBehaviorTables(true);
+
+  // ---- most-viewed sections (rollup across all users) ----
+  const rollup = document.getElementById('rollup');
+  if (rollup) {
+    rollup.innerHTML = sections.map((s) =>
+      `<tr>
+        <td class="lbl">${escapeHtml(s.label)}</td>
+        <td class="num">${escapeHtml(fmtDur(s.seconds))}</td>
+        <td class="num">${s.views}</td>
+        <td class="num">${s.visitors.size}</td>
+      </tr>`
+    ).join('');
+  }
+
+  // ---- by user ----
   body.innerHTML = users.map((u) => {
     const pages = u.pages
       .sort((a, b) => b.seconds - a.seconds)

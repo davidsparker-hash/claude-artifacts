@@ -58,6 +58,8 @@
   .num { font-variant-numeric:tabular-nums; white-space:nowrap; }
   .total { color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
   .ph-note { color:var(--muted); font-size:13px; margin:8px 0 0; }
+  .subhead { font-weight:500; font-size:12px; letter-spacing:0.04em; color:var(--ink);
+             margin:26px 0 8px; }
 </style>
 </head>
 <body>
@@ -88,9 +90,18 @@
         <button type="button" data-days="90">90d</button>
       </span>
     </div>
-    <table><thead><tr><th>User</th><th>Pages (time · views)</th><th class="num">Total time</th></tr></thead>
-      <tbody id="behavior"></tbody></table>
     <p class="ph-note" id="behaviorNote"></p>
+
+    <h3 class="subhead" id="rollupHead" style="display:none">Most-viewed sections</h3>
+    <table id="rollupTable" style="display:none">
+      <thead><tr><th>Section</th><th class="num">Total time</th><th class="num">Views</th><th class="num">Visitors</th></tr></thead>
+      <tbody id="rollup"></tbody>
+    </table>
+
+    <h3 class="subhead" id="byUserHead" style="display:none">By user</h3>
+    <table id="behaviorTable" style="display:none">
+      <thead><tr><th>User</th><th>Pages (time · views)</th><th class="num">Total time</th></tr></thead>
+      <tbody id="behavior"></tbody></table>
 
     <h2>Per user · logins</h2>
     <table><tbody id="summary"></tbody></table>
