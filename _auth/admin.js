@@ -178,7 +178,6 @@ async function loadBehavior() {
   toggleBehaviorTables(true);
 
   // ---- most-viewed sections (rollup across all users) ----
-  const rollup = document.getElementById('rollup');
   if (rollup) {
     rollup.innerHTML = sections.map((s) =>
       `<tr>
