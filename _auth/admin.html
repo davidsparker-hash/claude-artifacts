@@ -7,6 +7,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Anona — Admin · Login log</title>
+<!-- DIAGNOSTIC: surface any startup/module-load error on the page itself,
+     so a failed import no longer leaves the page silently on "Loading…". -->
+<script>
+  window.__anonaShowStartupError = function (msg) {
+    var s = document.getElementById('status');
+    if (s) s.textContent = msg;
+  };
+  window.addEventListener('error', function (e) {
+    var m = (e && (e.message || (e.error && e.error.message))) || 'a script failed to load';
+    var where = (e && e.filename) ? ' [' + e.filename + (e.lineno ? ':' + e.lineno : '') + ']' : '';
+    window.__anonaShowStartupError('Startup error: ' + m + where);
+  }, true);
+  window.addEventListener('unhandledrejection', function (e) {
+    var r = e && e.reason;
+    window.__anonaShowStartupError('Startup error (async): ' + ((r && r.message) ? r.message : String(r)));
+  });
+</script>
 <style>
   :root {
     --paper:#f6f4ef; --ink:#1a1a1a; --muted:#6b6b6b; --rule:rgba(0,0,0,0.10);
@@ -111,6 +128,6 @@
   </div>
 
   <script src="/_auth/config.js"></script>
-  <script type="module" src="/_auth/admin.js"></script>
+  <script type="module" src="/_auth/admin.js?v=6"></script>
 </body>
 </html>
