@@ -290,4 +290,13 @@ document.addEventListener('click', async (e) => {
   }
 });
 
-main();
+// Surface any unexpected failure instead of leaving the page on "Loading…".
+main().catch((e) => {
+  console.error('[anona admin] load failed:', e);
+  try {
+    const s = document.getElementById('status');
+    if (s) s.textContent = 'This page hit an error while loading: '
+      + (e && e.message ? e.message : String(e))
+      + ' — please screenshot this and send it over.';
+  } catch (_) {}
+});
