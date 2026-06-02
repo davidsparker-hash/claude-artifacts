@@ -66,12 +66,21 @@ if (!data || !data.session) {
 
 /* ── Terms of Use gate ───────────────────────────────────────────────── */
 
-async function enforceTerms(user, accessToken, track) {
-  const gate = buildGate();
-  document.body.appendChild(gate.root);
-  lockScroll(true);
+// Per-device cache of "already accepted version X", so repeat navigations
+// don't re-query and don't flash the modal. The DB row stays authoritative;
+// this is only a UX cache (cleared/bumped naturally when TERMS_VERSION changes).
+const TERMS_OK_KEY = 'anona-terms-ok';
 
-  // Has this user already accepted the CURRENT version?
+async function enforceTerms(user, accessToken, track) {
+  // Fast path: this device already confirmed acceptance of the current
+  // version — skip entirely. No query, no overlay, no flash.
+  try {
+    if (localStorage.getItem(TERMS_OK_KEY) === TERMS_VERSION) return;
+  } catch (_) {}
+
+  // Otherwise ask the server FIRST, without showing any UI — so a user who
+  // has already accepted never sees the modal flash. We only build/show the
+  // gate if they genuinely haven't accepted.
   let accepted = false;
   try {
     const { data: rows, error } = await supabase
@@ -82,12 +91,19 @@ async function enforceTerms(user, accessToken, track) {
       .limit(1);
     if (!error && rows && rows.length) accepted = true;
   } catch (_) {
-    // Fail closed: show the gate. Accepting is idempotent, so a prior
-    // accepter who hit a transient read error just clicks once more.
+    // On a transient read error, fall through to showing the gate.
+    // Accepting is idempotent, so a prior accepter just clicks once more.
   }
 
-  if (accepted) { teardown(gate); return; }
+  if (accepted) {
+    try { localStorage.setItem(TERMS_OK_KEY, TERMS_VERSION); } catch (_) {}
+    return;
+  }
 
+  // Not accepted — NOW show the blocking gate.
+  const gate = buildGate();
+  document.body.appendChild(gate.root);
+  lockScroll(true);
   gate.showTerms();
 
   gate.agree.addEventListener('click', async () => {
@@ -110,6 +126,8 @@ async function enforceTerms(user, accessToken, track) {
       gate.setBusy(false);
       return;
     }
+    // Remember on this device so we don't re-check / re-flash on every nav.
+    try { localStorage.setItem(TERMS_OK_KEY, TERMS_VERSION); } catch (_) {}
     // Analytics: no IP, no PII — just the version.
     try { track('terms_accepted', { terms_version: TERMS_VERSION }); } catch (_) {}
     teardown(gate);
