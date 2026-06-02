@@ -1,6 +1,10 @@
+// @ds-adherence-ignore -- omelette starter scaffold (raw elements/hex/px by design)
 
+/* BEGIN USAGE */
 // tweaks-panel.jsx
 // Reusable Tweaks shell + form-control helpers.
+// Exports (to window): useTweaks, TweaksPanel, TweakSection, TweakRow, TweakSlider,
+//   TweakToggle, TweakRadio, TweakSelect, TweakText, TweakNumber, TweakColor, TweakButton.
 //
 // Owns the host protocol (listens for __activate_edit_mode / __deactivate_edit_mode,
 // posts __edit_mode_available / __edit_mode_set_keys / __edit_mode_dismissed) so
@@ -44,6 +48,13 @@
 //     );
 //   }
 //
+// TweakRadio is the segmented control for 2–3 short options (auto-falls-back to
+// TweakSelect past ~16/~10 chars per label); reach for TweakSelect directly when
+// options are many or long. For color tweaks always curate 3-4 options rather than
+// a free picker; an option can also be a whole 2–5 color palette (the stored value
+// is the array). The Tweak* controls are a floor, not a ceiling — build custom
+// controls inside the panel if a tweak calls for UI they don't cover.
+/* END USAGE */
 // ─────────────────────────────────────────────────────────────────────────────
 
 const __TWEAKS_STYLE = `

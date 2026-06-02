@@ -47,7 +47,9 @@
   <span class="who" id="sessionWho"></span>
   <span class="arrow">exit ↩</span>
 </button>
-<!-- AUTH (not design): session validation, "signed in as", and sign-out live in /_auth/guard.js -->
+<!-- AUTH (not design): #sessionWho (signed-in email) and #sessionExit (sign-out)
+     are wired by /_auth/guard.js, loaded before </body>. The previous
+     anona-auth localStorage handler has been removed. -->
 <script src="/_auth/config.js"></script>
 <script type="module" src="/_auth/guard.js"></script>
 <deck-stage>
@@ -61,7 +63,7 @@
       <div class="left">
         <span class="crumb">Investor &amp; CTO conversation</span>
       </div>
-      <div class="counter">01 / 14</div>
+      <div class="counter">01 / 13</div>
     </div>
 
     <div class="cover-grid">
@@ -81,7 +83,7 @@
       <div class="left">
         Built by David Parker — a founder with twenty-six years of experience solving production, storytelling, and visual execution problems across advertising and film.
       </div>
-      <div class="right">For Roger · Tuesday</div>
+      <div class="right">Tuesday</div>
     </div>
   </div>
 </section>
@@ -96,7 +98,7 @@
         <span class="kicker">Origin</span>
         <span class="crumb">Twenty-six years in the room</span>
       </div>
-      <div class="counter">02 / 14</div>
+      <div class="counter">02 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -168,7 +170,7 @@
         <span class="kicker">The Problem</span>
         <span class="crumb">Cost of change over time</span>
       </div>
-      <div class="counter">03 / 14</div>
+      <div class="counter">03 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -259,7 +261,7 @@
         <span class="kicker">Definition</span>
         <span class="crumb">The clarity slide</span>
       </div>
-      <div class="counter">04 / 14</div>
+      <div class="counter">04 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -371,7 +373,7 @@
         <span class="kicker">Structure</span>
         <span class="crumb">Product ↔ production</span>
       </div>
-      <div class="counter">05 / 14</div>
+      <div class="counter">05 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -455,7 +457,7 @@
         <span class="kicker">Production Reality</span>
         <span class="crumb">The part no one talks about</span>
       </div>
-      <div class="counter">06 / 14</div>
+      <div class="counter">06 / 13</div>
     </div>
 
     <div class="titleblock" style="margin-bottom: 12px;">
@@ -560,7 +562,7 @@
         <span class="kicker">Integration</span>
         <span class="crumb">The moat</span>
       </div>
-      <div class="counter">07 / 14</div>
+      <div class="counter">07 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -654,7 +656,7 @@
         <span class="kicker">Strategic Position</span>
         <span class="crumb">Upstream of generation</span>
       </div>
-      <div class="counter">08 / 14</div>
+      <div class="counter">08 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -702,7 +704,7 @@
         <span class="kicker">Working Session</span>
         <span class="crumb">Rapid creative exploration</span>
       </div>
-      <div class="counter">09 / 14</div>
+      <div class="counter">09 / 13</div>
     </div>
 
     <div class="titleblock" style="margin-bottom: 28px;">
@@ -823,7 +825,7 @@
         <span class="kicker">Refinement</span>
         <span class="crumb">Decision precedes prompt</span>
       </div>
-      <div class="counter">10 / 14</div>
+      <div class="counter">10 / 13</div>
     </div>
 
     <div class="titleblock">
@@ -881,7 +883,7 @@
         <span class="kicker">One Eye</span>
         <span class="crumb">Single-artist workflow</span>
       </div>
-      <div class="counter">11 / 14</div>
+      <div class="counter">11 / 13</div>
     </div>
 
     <div class="titleblock" style="margin-bottom: 28px;">
@@ -948,7 +950,7 @@
         <span class="kicker">Same Canvas</span>
         <span class="crumb">Collaborative workflow</span>
       </div>
-      <div class="counter">12 / 14</div>
+      <div class="counter">12 / 13</div>
     </div>
 
     <div class="titleblock" style="margin-bottom: 28px;">
@@ -1041,7 +1043,7 @@
         <span class="kicker">Enterprise</span>
         <span class="crumb">Brand integrity layer · Cisco profile</span>
       </div>
-      <div class="counter">13 / 14</div>
+      <div class="counter">13 / 13</div>
     </div>
 
     <div class="titleblock" style="margin-bottom: 22px;">
@@ -1164,51 +1166,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     SLIDE 14 — The Question for Roger
-     ============================================================ -->
-<section data-screen-label="14 The Question">
-  <div class="slide-pad">
-    <div class="chrome-top">
-      <div class="left">
-        <span class="kicker">For Roger</span>
-        <span class="crumb">Tuesday</span>
-      </div>
-      <div class="counter">14 / 14</div>
-    </div>
 
-    <div class="titleblock">
-      <div class="rule"></div>
-      <h1>How do we ship the first version of TENET<br>inside JANE in the next sixty to ninety days?</h1>
-    </div>
-
-    <div class="qlist">
-      <div class="q">
-        <div class="num">01</div>
-        <div class="text">What is the thinnest possible version of TENET that solves a <em>real</em> JANE production problem — on a job we're already working on?</div>
-      </div>
-      <div class="q">
-        <div class="num">02</div>
-        <div class="text">What does the orchestration layer look like? Model-agnostic. Instrumented. Built so the collaborative version lands on the same foundation later, without a rewrite.</div>
-      </div>
-      <div class="q">
-        <div class="num">03</div>
-        <div class="text">What is the team for month one? What do we hire? What do we wait on? <em>And honestly — what scares you about the timeline?</em></div>
-      </div>
-    </div>
-
-    <div class="signoff">
-      <div>The deck is the artifact.</div>
-      <div>Tuesday is the conversation.</div>
-      <div class="l-amber">Tier one inside JANE is the starting line.</div>
-    </div>
-
-    <div class="chrome-bottom">
-      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
-      <div class="meta">14 — For Roger</div>
-    </div>
-  </div>
-</section>
 
 </deck-stage>
 

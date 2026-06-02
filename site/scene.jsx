@@ -788,42 +788,42 @@ const REFERENCE_CARDS = [
     source: 'reference · hull shape',
     kind: 'image',
     triggerLine: 9,           // "Imagine a pirate ship."
-    src: 'tenet-deck/media/ref-ship-sun.jpg',
+    src: 'TENET_product_deck/media/ref-ship-sun.jpg',
   },
   {
     title: 'The Mourning Tide',
     source: 'reference · storm mood',
     kind: 'image',
     triggerLine: 15,          // "ship called The Mourning Tide"
-    src: 'tenet-deck/media/ref-ship-storm.jpg',
+    src: 'TENET_product_deck/media/ref-ship-storm.jpg',
   },
   {
     title: 'Crew · period dress',
     source: 'reference · costume',
     kind: 'image',
     triggerLine: 20,          // "captain Vale" / crew intro
-    src: 'tenet-deck/media/ref-pirates-shore.jpg',
+    src: 'TENET_product_deck/media/ref-pirates-shore.jpg',
   },
   {
     title: 'Locked-room interior',
     source: 'reference · scene mood',
     kind: 'image',
     triggerLine: 36,          // navigator / locked room
-    src: 'tenet-deck/media/ref-ship-cave.jpg',
+    src: 'TENET_product_deck/media/ref-ship-cave.jpg',
   },
   {
     title: 'Prison transport',
     source: 'reference · ship AI lineage',
     kind: 'image',
     triggerLine: 66,          // ship AI built for prison transport
-    src: 'tenet-deck/media/ref-ship-navy.jpg',
+    src: 'TENET_product_deck/media/ref-ship-navy.jpg',
   },
   {
     title: 'Hull classifications',
     source: 'reference · taxonomy',
     kind: 'image',
     triggerLine: 88,          // "THE SHIP REMEMBERS"
-    src: 'tenet-deck/media/ref-ship-types.jpg',
+    src: 'TENET_product_deck/media/ref-ship-types.jpg',
   },
 ];
 

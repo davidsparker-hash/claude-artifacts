@@ -351,8 +351,9 @@
 <!-- =====================================================================
      AUTH WIRING — points to the protected /_auth/ folder (NOT design).
      The real login/signup logic lives in /_auth/auth.js. This page only
-     references it. If you re-download this page from Claude Design, the
-     demo gate <script> comes back — delete it and re-add these two lines
+     provides the form markup (#gateForm, #email, #password, #invite,
+     #enterBtn>#btnLabel, #modeToggle, #formTitle, etc.); auth.js drives it.
+     The previous "demo gate" script that faked a login has been removed.
      (see /_auth/README-AUTH.md §6).
      ===================================================================== -->
 <script src="/_auth/config.js"></script>

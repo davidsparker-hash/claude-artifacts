@@ -1,0 +1,1482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<title>ANONA × TENET — Investor Deck</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="investor.css">
+<style>
+  deck-stage:not(:defined) { visibility: hidden; }
+  .session-nav {
+    position: fixed; top: 14px; z-index: 1000;
+    display: flex; align-items: center; gap: 10px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(107,107,107,0.7);
+    background: rgba(246,244,239,0.7);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 6px 10px; border: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer; text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .session-nav:hover { color: var(--fg-accent, #BA7517); border-color: var(--fg-accent, #BA7517); }
+  .session-overview { left: 16px; }
+  .session-exit     { right: 16px; }
+  .session-nav .arrow { color: inherit; }
+  .session-nav .who   { color: rgba(107,107,107,0.55); }
+  @media print { .session-nav { display: none !important; } }
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<a class="session-nav session-overview" href="../chooser.html" title="Back to overview">
+  <span class="arrow">↩ overview</span>
+</a>
+<button class="session-nav session-exit" id="sessionExit" type="button" title="Sign out">
+  <span class="who" id="sessionWho"></span>
+  <span class="arrow">exit ↩</span>
+</button>
+<!-- AUTH (not design): #sessionWho (signed-in email) and #sessionExit (sign-out)
+     are wired by /_auth/guard.js, loaded before </body>. The previous
+     anona-auth localStorage handler has been removed. -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+<deck-stage>
+
+<!-- ============================================================
+     SLIDE 01 — Cover
+     ============================================================ -->
+<section data-screen-label="01 Cover" class="cover">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="crumb">Investor presentation · 2026</span>
+      </div>
+      <div class="counter">01 / 26</div>
+    </div>
+
+    <div class="cover-grid">
+      <div class="pane">
+        <div class="label">Parent company</div>
+        <div class="wm">ANONA</div>
+        <p class="tag">A collaborative creative software company.</p>
+      </div>
+      <div class="pane">
+        <div class="label">Our first product</div>
+        <div class="wm amber">TENET</div>
+        <p class="thesis">Every technological wave improves execution. <span class="amber">TENET improves decision-making.</span></p>
+        <div class="seed-badge">
+          <span class="lbl">Seed</span>
+          <span class="amt">$2.4M</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="credentialing">
+      <div class="left">Prepared by David Parker — founder and operator, two decades inside advertising and post-production.</div>
+      <div class="right">ANONA × TENET</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 02 — Context
+     ============================================================ -->
+<section data-screen-label="02 Context">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Context</span>
+        <span class="crumb">The earliest phase is the most chaotic</span>
+      </div>
+      <div class="counter">02 / 26</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>AI made content generation easy.<br>It made creative alignment harder.</h1>
+    </div>
+
+    <div class="two-col">
+      <div class="lede">
+        <p>Creative development is slower and more expensive than it should be. In advertising and film, the earliest phase of a project is often the most chaotic.</p>
+        <p class="muted">Weeks can pass before anyone truly sees whether an idea works. AI has made it easy to generate content — but it has not made it easier to align around direction.</p>
+      </div>
+      <ul class="stack-list">
+        <li><span class="mk"></span>Scripts evolve.</li>
+        <li><span class="mk"></span>Clients react.</li>
+        <li><span class="mk"></span>Teams build decks.</li>
+        <li><span class="mk"></span>Revisions accumulate.</li>
+      </ul>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">02 — Context</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 03 — Why Now?
+     ============================================================ -->
+<section data-screen-label="03 Why Now">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Why Now?</span>
+        <span class="crumb">Execution is no longer the bottleneck</span>
+      </div>
+      <div class="counter">03 / 26</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1 class="small">When creation becomes easy, judgment becomes scarce.</h1>
+      <p class="standfirst">Generative AI made it dramatically easier to produce beautiful images, video, and content. But when creation becomes easy, something else becomes scarce: structure, judgment, and direction.</p>
+    </div>
+
+    <div class="two-col center">
+      <div class="lede">
+        <p>Teams can generate endless variations, but they still struggle to decide which ideas deserve to move forward.</p>
+        <ul class="stack-list tight" style="margin-top: 6px;">
+          <li><span class="mk"></span>More options.</li>
+          <li><span class="mk"></span>More noise.</li>
+          <li><span class="mk"></span>More stakeholder opinions.</li>
+        </ul>
+      </div>
+      <div class="megaquote">The faster teams can generate creative, the <span class="amber">harder it becomes to reach conviction.</span></div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">03 — Why now</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 04 — The Shift In Real Numbers
+     ============================================================ -->
+<section data-screen-label="04 Real Numbers">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">The Shift In Real Numbers</span>
+        <span class="crumb">Three Cisco campaigns · three years</span>
+      </div>
+      <div class="counter">04 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 34px;">
+      <div class="rule"></div>
+      <h1 class="small">Three Cisco campaigns. Three consecutive years. One story.</h1>
+    </div>
+
+    <div class="bigstat">
+      <div class="lede-col">
+        <div class="src">Source · JANE · full CG → full AI production</div>
+        <p>Hard costs dropped from 62 cents on the dollar to 23 cents. Margins nearly doubled — and held at scale.</p>
+        <p class="not"><span class="amber">This is not a projection.</span> Not a model. This is what happened.</p>
+        <p class="muted">AI production has opened a margin window. But windows close — clients already know generation is cheap. The next advantage won't be production efficiency. It will be creative conviction: knowing which idea to pursue before abundance becomes paralysis.</p>
+        <p style="font-family: var(--font-serif); font-style: italic; font-size: 20px; color: var(--fg-1); margin: 0;">That is the problem TENET solves.</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-tag">Hard cost per dollar of revenue</div>
+        <div class="stat-row">
+          <div class="figure was">
+            <div class="n">62¢</div>
+            <div class="cap">Year 1<br>Full CG</div>
+          </div>
+          <div class="arrow-mid">→</div>
+          <div class="figure now">
+            <div class="n">23¢</div>
+            <div class="cap">Year 3<br>Full AI</div>
+          </div>
+        </div>
+        <div class="bars">
+          <div class="bar-row">
+            <div class="bar-lbl"><span>Year 1 · Full CG</span><span>62¢</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl"><span>Year 2 · Hybrid</span><span>~40¢</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 64.5%;"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl"><span>Year 3 · Full AI</span><span>23¢</span></div>
+            <div class="bar-track"><div class="bar-fill amber" style="width: 37%;"></div></div>
+          </div>
+        </div>
+        <div class="foot">Margins nearly doubled, and held at scale.</div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span><span class="dot">·</span><span>JANE</span></div>
+      <div class="meta">04 — The shift in real numbers</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 05 — The Creative Intelligence Engine
+     ============================================================ -->
+<section data-screen-label="05 Creative Intelligence Engine">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">The Creative Intelligence Engine</span>
+        <span class="crumb">A proprietary dataset</span>
+      </div>
+      <div class="counter">05 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 26px;">
+      <div class="rule"></div>
+      <h1 class="small">Every AI company is a tools company until it has a proprietary dataset.</h1>
+      <p class="standfirst">We're building a proprietary repository of what works in creative storytelling.</p>
+    </div>
+
+    <div class="cie">
+      <svg class="cie-arrows" viewBox="0 0 1728 458" preserveAspectRatio="none" aria-hidden="true">
+        <g>
+          <line x1="372" y1="128" x2="748" y2="182" stroke="rgba(186,117,23,0.20)" stroke-width="1.4"/>
+          <line x1="372" y1="128" x2="748" y2="182" stroke="#BA7517" stroke-width="1.6" stroke-dasharray="9 38" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="0" to="-47" dur="2.2s" repeatCount="indefinite"/>
+          </line>
+          <circle r="3.4" fill="#BA7517"><animateMotion dur="2.2s" repeatCount="indefinite" path="M372,128 L748,182"/></circle>
+        </g>
+        <g>
+          <line x1="1356" y1="128" x2="980" y2="182" stroke="rgba(186,117,23,0.20)" stroke-width="1.4"/>
+          <line x1="1356" y1="128" x2="980" y2="182" stroke="#BA7517" stroke-width="1.6" stroke-dasharray="9 38" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="0" to="-47" dur="2.2s" begin="-0.55s" repeatCount="indefinite"/>
+          </line>
+          <circle r="3.4" fill="#BA7517"><animateMotion dur="2.2s" begin="-0.55s" repeatCount="indefinite" path="M1356,128 L980,182"/></circle>
+        </g>
+        <g>
+          <line x1="372" y1="330" x2="748" y2="276" stroke="rgba(186,117,23,0.20)" stroke-width="1.4"/>
+          <line x1="372" y1="330" x2="748" y2="276" stroke="#BA7517" stroke-width="1.6" stroke-dasharray="9 38" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="0" to="-47" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/>
+          </line>
+          <circle r="3.4" fill="#BA7517"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite" path="M372,330 L748,276"/></circle>
+        </g>
+        <g>
+          <line x1="1356" y1="330" x2="980" y2="276" stroke="rgba(186,117,23,0.20)" stroke-width="1.4"/>
+          <line x1="1356" y1="330" x2="980" y2="276" stroke="#BA7517" stroke-width="1.6" stroke-dasharray="9 38" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="0" to="-47" dur="2.2s" begin="-1.65s" repeatCount="indefinite"/>
+          </line>
+          <circle r="3.4" fill="#BA7517"><animateMotion dur="2.2s" begin="-1.65s" repeatCount="indefinite" path="M1356,330 L980,276"/></circle>
+        </g>
+      </svg>
+
+      <div class="cie-box q1">
+        <div class="num">Data we capture · 01</div>
+        <div class="ttl">Pacing patterns</div>
+        <p>Which beat timings get approved faster.</p>
+      </div>
+      <div class="cie-box q2">
+        <div class="num">Data we capture · 02</div>
+        <div class="ttl">Narrative sequencing</div>
+        <p>What story structures work, by vertical.</p>
+      </div>
+      <div class="cie-box q3">
+        <div class="num">Data we capture · 03</div>
+        <div class="ttl">Iteration behavior</div>
+        <p>Where teams get stuck, and what they change.</p>
+      </div>
+      <div class="cie-box q4">
+        <div class="num">Data we capture · 04</div>
+        <div class="ttl">Alignment signals</div>
+        <p>How long decisions take, and who approves what.</p>
+      </div>
+
+      <div class="cie-hub">
+        <div class="wm">TENET</div>
+        <div class="sub">Creative validation</div>
+      </div>
+    </div>
+
+    <p style="font-size: 15px; color: var(--fg-2); margin: 0 0 8px; max-width: 1300px;">TENET captures anonymized structural signals only. Scripts, brands, and proprietary concepts remain strictly confidential.</p>
+    <p style="font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 22px; color: var(--fg-1); margin: 0;">The more projects run through TENET, the more valuable it becomes for everyone — <span style="color: var(--fg-accent);">a compounding advantage, not a static tool.</span></p>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">05 — Creative intelligence engine</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 06 — The Flywheel
+     ============================================================ -->
+<section data-screen-label="06 The Flywheel" class="flyw-slide">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">The Compounding Flywheel</span>
+        <span class="crumb">More projects → more value</span>
+      </div>
+      <div class="counter">06 / 26</div>
+    </div>
+
+    <div class="flyw-wrap">
+      <div class="flyw">
+        <svg class="flyw-svg" viewBox="0 0 820 558" aria-hidden="true">
+          <circle cx="410" cy="279" r="186" fill="none" stroke="rgba(186,117,23,0.18)" stroke-width="6"/>
+          <circle cx="410" cy="279" r="186" fill="none" stroke="#BA7517" stroke-width="6" stroke-linecap="round" stroke-dasharray="62 58">
+            <animate attributeName="stroke-dashoffset" from="0" to="-240" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <path d="M410,86 L423,93 L410,100 Z" fill="#BA7517"/>
+          <path d="M596,279 L589,292 L583,279 Z" fill="#BA7517"/>
+          <path d="M410,472 L397,465 L410,458 Z" fill="#BA7517"/>
+          <path d="M224,279 L231,266 L237,279 Z" fill="#BA7517"/>
+          <circle cx="410" cy="279" r="112" fill="#1A1A1A"/>
+          <text x="410" y="270" text-anchor="middle" class="flyw-hub-t" style="font-size:19px; font-weight:400; letter-spacing:0.14em;">THE</text>
+          <text x="410" y="305" text-anchor="middle" class="flyw-hub-t" style="font-size:33px; font-weight:700; letter-spacing:0.03em;">FLYWHEEL</text>
+        </svg>
+        <div class="flyw-box b-top">More Customers</div>
+        <div class="flyw-box b-right">More Projects</div>
+        <div class="flyw-box b-br">Richer Dataset</div>
+        <div class="flyw-box b-bl">Better Predictions</div>
+        <div class="flyw-box b-left">Higher Customer Value</div>
+      </div>
+      <p class="flyw-cap">“The more projects run through TENET, the more valuable it becomes for everyone.”</p>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">06 — The flywheel</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 07 — Introducing Tenet
+     ============================================================ -->
+<section data-screen-label="07 Introducing Tenet">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Introducing TENET</span>
+        <span class="crumb">Script in by Monday · approved by Friday</span>
+      </div>
+      <div class="counter">07 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 26px;">
+      <div class="rule"></div>
+      <h1 class="small">A script becomes a shared visual narrative — while change is still free.</h1>
+    </div>
+
+    <div class="two-col">
+      <div class="lede">
+        <p>Picture this: your team uploads a script Monday morning; by lunch they're reviewing five different edits. By Friday the creative is client-approved, the shoot is scheduled, and the shots that can be fully AI are being developed in parallel.</p>
+        <p class="muted">Not because AI is magic — but because we made the early ideation loop fast for creatives who typically spend 70% of their time on logistics instead of story.</p>
+        <p style="font-family: var(--font-serif); font-style: italic; font-size: 22px; color: var(--fg-1); margin: 6px 0 0;">TENET is not a production tool. It is a decision-making environment for early creative development.</p>
+      </div>
+      <div>
+        <div class="team-block-tag" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--rule);">Teams can</div>
+        <ul class="stack-list">
+          <li><span class="mk"></span>Upload a script or outline</li>
+          <li><span class="mk"></span>Generate a timed narrative sequence</li>
+          <li><span class="mk"></span>Refine scenes collaboratively</li>
+          <li><span class="mk"></span>Adjust tone, structure, and direction in one shared environment</li>
+        </ul>
+        <p style="font-size: 14px; color: var(--fg-3); margin: 18px 0 0; line-height: 1.5;">TENET lives upstream of execution tools. It is not designed to create final assets — it is designed to structure the decision of what deserves to be created.</p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">07 — Introducing TENET</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 08 — How Tenet Works
+     ============================================================ -->
+<section data-screen-label="08 How Tenet Works">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">How TENET Works</span>
+        <span class="crumb">A shared experience of the idea</span>
+      </div>
+      <div class="counter">08 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 26px;">
+      <div class="rule"></div>
+      <h1 class="small">Most creative decisions are made about things nobody can fully see yet.</h1>
+      <p class="standfirst">Scripts are read, not experienced. Boards are static. Decks describe what something might feel like. Drop in a script and TENET builds a living version of it — paced, structured, moving — that the whole team can see, react to, and shape together in real time.</p>
+    </div>
+
+    <div class="howtenet ht-stack">
+      <div class="ht-hub">
+        <div class="wm">TENET</div>
+        <div class="sub">One shared source</div>
+      </div>
+      <svg class="ht-fan" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
+        <path pathLength="100" d="M500,6 L125,58"/>
+        <path pathLength="100" d="M500,6 L375,58"/>
+        <path pathLength="100" d="M500,6 L625,58"/>
+        <path pathLength="100" d="M500,6 L875,58"/>
+        <circle cx="500" cy="6" r="3"/>
+        <circle cx="125" cy="58" r="3"/>
+        <circle cx="375" cy="58" r="3"/>
+        <circle cx="625" cy="58" r="3"/>
+        <circle cx="875" cy="58" r="3"/>
+      </svg>
+
+      <div class="panel-grid cols-4">
+      <div class="cell">
+        <div class="num">The writer sees</div>
+        <div class="ttl">Pacing</div>
+        <p>Whether the pacing matches the intention.</p>
+      </div>
+      <div class="cell">
+        <div class="num">The director sees</div>
+        <div class="ttl">Structure</div>
+        <p>Whether the structure supports the story.</p>
+      </div>
+      <div class="cell">
+        <div class="num">The producer sees</div>
+        <div class="ttl">Scope</div>
+        <p>Whether the scope matches the budget.</p>
+      </div>
+      <div class="cell">
+        <div class="num">The client sees</div>
+        <div class="ttl">The brief</div>
+        <p>Whether the idea matches the brief.</p>
+      </div>
+    </div>
+    </div>
+
+    <p style="font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 24px; color: var(--fg-1); margin: 26px 0 0; text-align: center;">Nobody interprets a document. Everyone reacts to the same thing at the same time. <span style="color: var(--fg-accent);">That's when the strongest idea survives.</span></p>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">08 — How TENET works</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 09 — Sample UI (product shot, full-bleed)
+     ============================================================ -->
+<section data-screen-label="09 UI Visualization" class="uiviz-slide">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Sample · illustrative</span>
+        <span class="crumb">TENET in use</span>
+      </div>
+      <div class="counter">09 / 26</div>
+    </div>
+
+    <div class="uiviz-body">
+      <div class="uiviz-head">
+        <div class="rule"></div>
+        <h1>UI Visualization</h1>
+      </div>
+      <a class="uiviz-frame" href="../TENET%20First%20Experience.html" title="Open the live First Experience">
+        <img src="media/intro-ui.png" alt="TENET interface — a script ('The Mourning Tide') beside a live, paced dialogue transcript over a resolving seascape">
+      </a>
+      <a class="uiviz-link" href="../TENET%20First%20Experience.html">
+        Open the live First Experience <span class="ar">→</span>
+      </a>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">09 — UI visualization</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 10 — Built For Teams
+     ============================================================ -->
+<section data-screen-label="10 Built For Teams">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Built For Teams</span>
+        <span class="crumb">The creative room, digitally</span>
+      </div>
+      <div class="counter">10 / 26</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>Creative is collaborative.<br>Ideas are shaped by groups.</h1>
+    </div>
+
+    <div class="two-col center">
+      <ul class="stack-list">
+        <li><span class="mk"></span>Writers</li>
+        <li><span class="mk"></span>Directors</li>
+        <li><span class="mk"></span>Producers</li>
+        <li><span class="mk"></span>Agency leads</li>
+        <li><span class="mk"></span>Clients</li>
+      </ul>
+      <div class="lede">
+        <p>TENET recreates the creative room digitally. Multiple stakeholders can log in, adjust scenes, comment, refine tone, and iterate together — before committing to production budgets.</p>
+        <p class="closer">Earlier alignment reduces friction. <span class="amber">Earlier alignment reduces compromise.</span></p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">10 — Built for teams</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 11 — Where TENET Sits
+     ============================================================ -->
+<section data-screen-label="11 Where TENET Sits">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Where TENET Sits</span>
+        <span class="crumb">Above the execution layer</span>
+      </div>
+      <div class="counter">11 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 26px;">
+      <div class="rule"></div>
+      <h1 class="small">Execution tools create assets. TENET determines what deserves to be created.</h1>
+      <p class="standfirst">Creative technology today is dominated by execution tools. TENET sits above them — the structured environment where teams reach conviction, then move downstream to execute.</p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="team-block-tag" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--rule);">Execution tools today</div>
+        <ul class="stack-list tight">
+          <li><span class="mk"></span>Design tools</li>
+          <li><span class="mk"></span>Editing software</li>
+          <li><span class="mk"></span>AI generators</li>
+          <li><span class="mk"></span>Rendering engines</li>
+        </ul>
+      </div>
+      <div>
+        <div class="team-block-tag" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-accent); padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--rule);">TENET is where teams</div>
+        <ul class="stack-list tight">
+          <li><span class="mk"></span>Evaluate direction</li>
+          <li><span class="mk"></span>Align stakeholders</li>
+          <li><span class="mk"></span>Reach conviction</li>
+          <li><span class="mk"></span>Then move downstream to execute</li>
+        </ul>
+        <p style="font-size: 14px; color: var(--fg-3); margin: 18px 0 0; line-height: 1.5;">When ideas change mid-production — which they always do — TENET makes the cost of that change visible before it becomes a crisis.</p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">11 — Where TENET sits</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 12 — Category Map
+     ============================================================ -->
+<section data-screen-label="12 Category Map">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Category Map</span>
+        <span class="crumb">Three layers of creative production</span>
+      </div>
+      <div class="counter">12 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 22px;">
+      <div class="rule"></div>
+      <h1 class="small">The layer where teams reach conviction is largely undefined. TENET defines it.</h1>
+    </div>
+
+    <div class="catmap">
+      <div class="cat-layer here">
+        <div class="cl-no">01</div>
+        <div class="cl-body">
+          <div class="cl-name">Ideation &amp; Alignment</div>
+          <div class="cl-desc">Where teams shape direction and reach conviction.</div>
+        </div>
+        <div class="cl-tag">TENET lives here</div>
+      </div>
+      <div class="cat-layer">
+        <div class="cl-no">02</div>
+        <div class="cl-body">
+          <div class="cl-name">Execution Tools</div>
+          <div class="cl-tools"><span>Design software</span><span>Editing platforms</span><span>VFX pipelines</span><span>AI generation</span></div>
+        </div>
+        <div class="cl-tag">Create assets</div>
+      </div>
+      <div class="cat-layer">
+        <div class="cl-no">03</div>
+        <div class="cl-body">
+          <div class="cl-name">Production &amp; Distribution</div>
+          <div class="cl-tools"><span>Production management</span><span>Asset delivery</span><span>Publishing pipelines</span></div>
+        </div>
+        <div class="cl-tag">Deliver &amp; publish</div>
+      </div>
+      <div class="down-note">Most technology investment has focused on execution &nbsp;·&nbsp; TENET defines the layer above it</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">12 — Category map</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 13 — The Compounding Advantage
+     ============================================================ -->
+<section data-screen-label="13 Compounding Advantage">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">The Compounding Advantage</span>
+        <span class="crumb">Validation that compounds</span>
+      </div>
+      <div class="counter">13 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 20px;">
+      <div class="rule"></div>
+      <h1 class="small">Every project produces structured insight about creative decision-making.</h1>
+    </div>
+
+    <div class="flywheel-grid">
+      <div class="flywheel">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="78" fill="none" stroke="rgba(186,117,23,0.18)" stroke-width="1.2"/>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#BA7517" stroke-width="1.6" stroke-dasharray="10 30" stroke-linecap="round">
+            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="16s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="3" fill="#BA7517">
+            <animateMotion dur="7s" repeatCount="indefinite" path="M100,22 A78,78 0 1 1 99.99,22"/>
+          </circle>
+        </svg>
+        <div class="fw-hub">
+          <div class="wm">TENET</div>
+          <div class="sub">Creative validation</div>
+        </div>
+        <div class="fw-node" style="left: 50%; top: 11%;">Pacing patterns</div>
+        <div class="fw-node" style="left: 84%; top: 69%;">Narrative sequencing</div>
+        <div class="fw-node" style="left: 16%; top: 69%;">Iteration behavior</div>
+      </div>
+
+      <div class="lede">
+        <p>Over time this creates a growing dataset about what actually works in early creative development. Future teams benefit from better scaffolding, faster exploration, and improved alignment from day one.</p>
+        <p class="muted" style="font-size: 16px;">TENET captures anonymized structural signals only. Scripts, brands, and proprietary concepts remain strictly confidential.</p>
+        <p class="closer">The more projects run through TENET, the more valuable it becomes <span class="amber">for everyone.</span></p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">13 — The compounding advantage</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 14 — Why I'm Building It
+     ============================================================ -->
+<section data-screen-label="14 Why I'm Building It">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Why I'm Building It</span>
+        <span class="crumb">I've lived this problem</span>
+      </div>
+      <div class="counter">14 / 26</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>I've lived this problem.</h1>
+    </div>
+
+    <div class="two-col">
+      <div class="lede">
+        <p>For over two decades I've worked inside advertising and post-production — building companies and helping bring creative work to life. Across hundreds of campaigns and productions, I kept seeing the same thing happen.</p>
+        <p class="muted">Not because people lacked talent, but because clarity arrived too late. By the time everyone could actually see the idea clearly, momentum and budget were already pushing the project forward.</p>
+      </div>
+      <div class="lede">
+        <p class="muted">Stronger ideas often appeared after it was too costly to pivot — or were killed early because the client couldn't see them yet and called them a gamble.</p>
+        <p style="font-size: 22px; line-height: 1.5; color: var(--fg-1); margin: 0 0 22px;">After years of watching that happen, I started building the tool I wished teams had at the beginning of the process.</p>
+        <p class="closer">ANONA builds that environment. <span class="amber">TENET is the first product.</span></p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">14 — Why I'm building it</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 15 — From Pilot To Platform
+     ============================================================ -->
+<section data-screen-label="15 Pilot To Platform">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">From Pilot To Platform</span>
+        <span class="crumb">Scaling intelligence, not consultants</span>
+      </div>
+      <div class="counter">15 / 26</div>
+    </div>
+
+    <div class="journey-head">
+      <h1>From Pilot to Platform.</h1>
+      <p class="sub">From high-touch pilot to scalable recurring revenue.</p>
+    </div>
+
+    <div class="journey-cols">
+      <div class="stage-card">
+        <div class="sc-head">
+          <div class="st-name">Stage 1 · Validation</div>
+          <div class="st-months">Months 1–3</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-lead">Start with validation.</div>
+          <div class="sc-price"><strong>Pricing:</strong> $45K</div>
+          <div class="sc-sec">
+            <h5>What we do</h5>
+            <ul><li>Custom workflow design</li><li>Hands-on training</li><li>Success metrics tracking</li></ul>
+          </div>
+          <div class="sc-sec">
+            <h5>What we learn</h5>
+            <ul><li>Customer creative patterns</li><li>Approval workflows</li><li>Stakeholder preferences</li></ul>
+          </div>
+          <div class="sc-sec">
+            <h5>Outcome</h5>
+            <ul><li>Proven ROI</li><li>3–5 reusable templates</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="2" y1="12" x2="20" y2="12"/><polyline points="14,6 21,12 14,18"/></svg>
+      </div>
+
+      <div class="stage-card">
+        <div class="sc-head">
+          <div class="st-name">Stage 2 · Transition</div>
+          <div class="st-months">Months 4–6</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-lead">Capture the playbook.</div>
+          <div class="sc-price"><strong>Pricing:</strong> $20K setup + $5K/mo<span class="imp">$35K implied over 3 months</span></div>
+          <div class="sc-sec">
+            <h5>What we do</h5>
+            <ul><li>Template-driven onboarding</li><li>Reduced hands-on time</li><li>Automated reporting</li></ul>
+          </div>
+          <div class="sc-sec">
+            <h5>What customer gets</h5>
+            <ul><li>80% self-service</li><li>Expert support available</li></ul>
+          </div>
+          <div class="sc-sec">
+            <h5>Outcome</h5>
+            <ul><li>Operating independently</li><li>With safety net in place</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="2" y1="12" x2="20" y2="12"/><polyline points="14,6 21,12 14,18"/></svg>
+      </div>
+
+      <div class="stage-card">
+        <div class="sc-head">
+          <div class="st-name">Stage 3 · Independence</div>
+          <div class="st-months">Months 7+</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-lead">Graduate to independence.</div>
+          <div class="sc-price"><strong>Pricing:</strong> $3K–$8K / month<span class="imp">usage-based</span></div>
+          <div class="sc-sec">
+            <h5>What customer gets</h5>
+            <ul><li>Full platform access</li><li>Automated workflows</li><li>Community support</li></ul>
+          </div>
+          <div class="sc-sec">
+            <h5>Our involvement</h5>
+            <ul><li>Product updates</li><li>Feature releases</li><li>Data insights</li></ul>
+          </div>
+          <div class="sc-sec">
+            <h5>Outcome</h5>
+            <ul><li>Scalable recurring revenue</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">15 — From pilot to platform</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 16 — Visual interstitial (image-only in source)
+     ============================================================ -->
+<section data-screen-label="16 Playbook Multiplication">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Playbook Multiplication</span>
+        <span class="crumb">One pilot → many templates → scale</span>
+      </div>
+      <div class="counter">16 / 26</div>
+    </div>
+
+    <div class="pbm-head">
+      <h1>Playbook Multiplication.</h1>
+      <p class="sub">1 pilot → many templates → increasing scale with decreasing service intensity.</p>
+    </div>
+
+    <div class="pbm-top">
+      <div class="pbm-cap-box"><div class="t">1 Pilot</div></div>
+      <div class="pbm-arrow"><svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="12" x2="38" y2="12"/><polyline points="29,5 40,12 29,19"/></svg></div>
+      <div class="pbm-templates">
+        <div class="sheet s3"></div>
+        <div class="sheet s2"></div>
+        <div class="front"><span class="bar"></span><div class="t">Templates /<br>Playbooks</div></div>
+      </div>
+      <div class="pbm-customers">
+        <div class="pbm-dots">
+          <i></i><i class="ink"></i><i></i><i></i><i class="ink"></i><i></i>
+          <i class="ink"></i><i></i><i></i><i class="ink"></i><i></i><i></i>
+          <i></i><i class="ink"></i><i></i><i></i><i></i><i class="ink"></i>
+        </div>
+        <div class="lbl">Many Customers</div>
+      </div>
+    </div>
+
+    <div class="pbm-years">
+      <div class="pbm-row">
+        <div class="pbm-barcol">
+          <div class="pbm-year">Year 1</div>
+          <div class="pbm-bar"><div class="svc" style="width:80%">80% Services</div><div class="sw" style="width:20%">20% Software</div></div>
+        </div>
+        <div class="pbm-cust"><div class="n">15</div><div class="l">Customers</div></div>
+      </div>
+      <div class="pbm-row">
+        <div class="pbm-barcol">
+          <div class="pbm-year">Year 2</div>
+          <div class="pbm-bar"><div class="svc" style="width:40%">40% Services</div><div class="sw" style="width:60%">60% Software</div></div>
+        </div>
+        <div class="pbm-cust"><div class="n">75</div><div class="l">Customers</div></div>
+      </div>
+      <div class="pbm-row">
+        <div class="pbm-barcol">
+          <div class="pbm-year">Year 3</div>
+          <div class="pbm-bar"><div class="svc" style="width:10%">10%</div><div class="sw" style="width:90%">90% Software</div></div>
+        </div>
+        <div class="pbm-cust"><div class="n">300</div><div class="l">Customers</div></div>
+      </div>
+    </div>
+
+    <div class="pbm-legend">
+      <span class="key"><i class="svc"></i> Services</span>
+      <span class="key"><i class="sw"></i> Software</span>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">16 — Playbook multiplication</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 17 — Visual interstitial (image-only in source)
+     ============================================================ -->
+<section data-screen-label="17 Decreasing Touch">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Decreasing Touch. Increasing Scale.</span>
+        <span class="crumb">The bridge metrics</span>
+      </div>
+      <div class="counter">17 / 26</div>
+    </div>
+
+    <div class="dt-head">
+      <h1>Decreasing touch. Increasing scale.</h1>
+      <p class="sub">From high-touch pilot to self-serve platform — the model gets more efficient as it grows.</p>
+    </div>
+
+    <div class="dt-chart">
+      <div class="dt-group">
+        <div class="dt-cap"><strong>Stage 1 · Validation</strong><div class="mo">Months 1–3</div></div>
+        <div class="dt-bars">
+          <div class="dt-bar"><span class="v">100%</span><div class="col svc" style="height:220px"></div></div>
+          <div class="dt-bar"><span class="v am">10%</span><div class="col sw" style="height:22px"></div></div>
+        </div>
+      </div>
+      <div class="dt-group">
+        <div class="dt-cap"><strong>Stage 2 · Transition</strong><div class="mo">Months 4–6</div></div>
+        <div class="dt-bars">
+          <div class="dt-bar"><span class="v">45%</span><div class="col svc" style="height:99px"></div></div>
+          <div class="dt-bar"><span class="v am">45%</span><div class="col sw" style="height:99px"></div></div>
+        </div>
+      </div>
+      <div class="dt-group">
+        <div class="dt-cap"><strong>Stage 3 · Independence</strong><div class="mo">Months 7+</div></div>
+        <div class="dt-bars">
+          <div class="dt-bar"><span class="v">10%</span><div class="col svc" style="height:22px"></div></div>
+          <div class="dt-bar"><span class="v am">100%</span><div class="col sw" style="height:220px"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dt-legend">
+      <span class="key"><i class="svc"></i> Human Touch / Effort</span>
+      <span class="key"><i class="sw"></i> Scale / Revenue Potential</span>
+    </div>
+
+    <div class="dt-bridge-tag">The Bridge Metrics</div>
+
+    <div class="dt-metrics">
+      <div class="dt-metric"><div class="n">75%</div><div class="t">Pilot → Platform Conversion Rate</div><div class="d">75% of completed pilots convert to software subs</div></div>
+      <div class="dt-metric"><div class="n">6 mo</div><div class="t">Avg. Time to Self-Sufficiency</div><div class="d">Customer can operate independently</div></div>
+      <div class="dt-metric"><div class="n">90%</div><div class="t">Support Hours Reduction</div><div class="d">From pilot intensity to platform independence</div></div>
+      <div class="dt-metric"><div class="n">300%</div><div class="t">Customer LTV Increase</div><div class="d">vs. pilot-only engagements</div></div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">17 — Decreasing touch, increasing scale</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 18 — Why This Matters
+     ============================================================ -->
+<section data-screen-label="18 Why This Matters">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Why This Matters</span>
+        <span class="crumb">Conviction, earlier</span>
+      </div>
+      <div class="counter">18 / 26</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>When teams arrive at conviction earlier.</h1>
+    </div>
+
+    <div class="two-col center">
+      <ul class="stack-list">
+        <li><span class="mk"></span>Stronger ideas survive</li>
+        <li><span class="mk"></span>Fewer defensive compromises are made</li>
+        <li><span class="mk"></span>Budgets are spent on execution, not correction</li>
+        <li><span class="mk"></span>Production risk decreases</li>
+      </ul>
+      <div class="megaquote">The teams that get there first don't just make better work. <span class="amber">They make more of it.</span></div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">18 — Why this matters</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 19 — Starting Where ROI Is Clear
+     ============================================================ -->
+<section data-screen-label="19 Where ROI Is Clear">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Starting Where ROI Is Clear</span>
+        <span class="crumb">Focused entry · controlled expansion</span>
+      </div>
+      <div class="counter">19 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 24px;">
+      <div class="rule"></div>
+      <h1>Advertising is the ideal proving ground.</h1>
+    </div>
+
+    <div class="panel-grid cols-4" style="margin-bottom: 24px;">
+      <div class="cell">
+        <div class="num">01</div>
+        <div class="ttl">Fast development cycles</div>
+      </div>
+      <div class="cell">
+        <div class="num">02</div>
+        <div class="ttl">Multiple stakeholders</div>
+      </div>
+      <div class="cell">
+        <div class="num">03</div>
+        <div class="ttl">Significant production budgets</div>
+      </div>
+      <div class="cell">
+        <div class="num">04</div>
+        <div class="ttl">High cost of late-stage change</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="flex: 0 1 auto;">
+      <div class="lede">
+        <p style="font-size: 20px;">Even modest improvements in early-stage clarity reduce unnecessary spend, minimize reshoots and revisions, and increase content output within the same budget.</p>
+      </div>
+      <div class="lede" style="align-self: center;">
+        <p class="closer">From advertising, we expand into episodic and film development. <span class="amber">Focused entry. Controlled expansion.</span></p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">19 — Where ROI is clear</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 20 — Real-World Deployment
+     ============================================================ -->
+<section data-screen-label="20 Deployment">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Real-World Deployment</span>
+        <span class="crumb">Built inside real creative work</span>
+      </div>
+      <div class="counter">20 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 26px;">
+      <div class="rule"></div>
+      <h1 class="small">We are not building in isolation. We are building inside real creative work.</h1>
+    </div>
+
+    <div class="two-col">
+      <div class="fin-account">
+        <div class="fa-tag">Deployed inside JANE</div>
+        <p style="color: var(--fg-1);">TENET is deployed immediately within JANE's professional production environment. JANE operates as:</p>
+        <ul class="stack-list tight" style="margin: 0;">
+          <li><span class="mk"></span>First paying customer</li>
+          <li><span class="mk"></span>Structured beta partner</li>
+          <li><span class="mk"></span>Live production test case</li>
+        </ul>
+        <p style="font-size: 14px; color: var(--fg-2);">We're collaborating with Lost Planet Editorial on active projects, and JANE is currently running commercial work for major brands including AT&amp;T and Cisco.</p>
+        <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 8px 12px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-accent); border: 1px solid var(--fg-accent); padding: 6px 12px;">JANE</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-1); border: 1px solid var(--rule); padding: 6px 12px;">AT&amp;T</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-1); border: 1px solid var(--rule); padding: 6px 12px;">Cisco</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-1); border: 1px solid var(--rule); padding: 6px 12px;">Lost Planet Editorial</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column;">
+        <div class="team-block-tag">This provides, from day one</div>
+        <ul class="stack-list">
+          <li><span class="mk"></span>Immediate revenue</li>
+          <li><span class="mk"></span>Continuous product feedback</li>
+          <li><span class="mk"></span>Real budget environments to validate quality and cost impact</li>
+          <li><span class="mk"></span>Natural exposure to major industry clients</li>
+        </ul>
+        <p style="font-family: var(--font-serif); font-style: italic; font-size: 18px; color: var(--fg-1); margin: 20px 0 0;">Our goal: make TENET the starting point of every project inside our production workflow.</p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span><span class="dot">·</span><span>JANE</span></div>
+      <div class="meta">20 — Real-world deployment</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 21 — Structure / Pricing
+     ============================================================ -->
+<section data-screen-label="21 Pricing Structure">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Pricing Structure</span>
+        <span class="crumb">Subscribe to the environment · run projects inside it</span>
+      </div>
+      <div class="counter">21 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 28px;">
+      <div class="rule"></div>
+      <h1>Base: subscription per team.<br>Expansion: usage per project.</h1>
+    </div>
+
+    <div class="rev-grid">
+      <div class="rev-col soft">
+        <div class="rtag"><span class="amber">01 · Core revenue</span></div>
+        <div class="rname">Team subscription<span class="price">$12K – $36K / team / year</span></div>
+        <p>Teams pay monthly or annually for access. Pricing scales with project volume — establishing predictable ARR.</p>
+        <ul class="rev-tiers">
+          <li><span class="t-nm">Direction</span><span class="t-meta">Small creative teams</span></li>
+          <li><span class="t-nm">Development</span><span class="t-meta">Agency teams</span></li>
+          <li><span class="t-nm">Production</span><span class="t-meta">Larger organizations</span></li>
+        </ul>
+        <div class="rfeat">Includes seats for collaborators, project environments, collaboration tools, and core validation features.</div>
+      </div>
+
+      <div class="rev-col">
+        <div class="rtag">02 · Expansion revenue</div>
+        <div class="rname">Project-based usage<span class="price">Tokens / credits per project</span></div>
+        <p>Creative work is project-driven. Each project consumes resources — so account value expands as a team runs more campaigns.</p>
+        <ul class="rev-tiers">
+          <li><span class="t-nm">Compute</span><span class="t-meta">AI generation</span></li>
+          <li><span class="t-nm">Sequences</span><span class="t-meta">Creation &amp; storage</span></li>
+          <li><span class="t-nm">Collaboration</span><span class="t-meta">Live session time</span></li>
+        </ul>
+        <div class="rfeat">More campaigns → more revenue. Usage expansion rides on top of the recurring base.</div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">21 — Pricing structure</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 22 — Market Opportunity
+     ============================================================ -->
+<section data-screen-label="22 Market Opportunity">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Market Opportunity</span>
+        <span class="crumb">Who buys first</span>
+      </div>
+      <div class="counter">22 / 26</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>Who buys first?</h1>
+    </div>
+
+    <div class="market-grid">
+      <div class="tam-viz">
+        <div class="tam-ring tam">
+          <div class="rk">TAM · total market</div>
+          <div class="rv">$8.2B</div>
+        </div>
+        <div class="tam-ring sam">
+          <div class="rk">SAM · serviceable</div>
+          <div class="rv">$2.1B</div>
+        </div>
+        <div class="tam-ring som">
+          <div class="rk">SOM · Yr 3</div>
+          <div class="rv">$25M ARR</div>
+        </div>
+      </div>
+
+      <div class="market-text">
+        <ul class="buyers">
+          <li><span class="i">01</span>Creative agencies</li>
+          <li><span class="i">02</span>Brand marketing teams</li>
+          <li><span class="i">03</span>Production companies</li>
+        </ul>
+        <div class="cagr">
+          <span class="big">~20.8%</span>
+          <span class="lbl">CAGR · creative collaboration &amp; AI production software</span>
+        </div>
+        <p>Early-mover advantage as AI shifts from tools to workflows.</p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">22 — Market opportunity</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 23 — Pilot SKUs & Go-To-Market
+     ============================================================ -->
+<section data-screen-label="23 Go-To-Market">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Pilot SKUs &amp; Go-To-Market</span>
+        <span class="crumb">Sell a pilot → convert to subscription</span>
+      </div>
+      <div class="counter">23 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 26px;">
+      <div class="rule"></div>
+      <h1 class="small">The entry point is not a subscription. It's a sprint.</h1>
+      <p class="standfirst">We get in the door with a fixed-fee project, prove value on a real brief, then convert to seats.</p>
+    </div>
+
+    <div class="gtm-skus">
+      <div class="sku-card">
+        <div class="sku-kicker">Pilot SKU · 01</div>
+        <div class="sku-nm">1-Day Diagnostic</div>
+        <div class="sku-price">$7K</div>
+      </div>
+      <div class="sku-card">
+        <div class="sku-kicker">Pilot SKU · 02</div>
+        <div class="sku-nm">48-Hour Moving-Boards</div>
+        <div class="sku-price">$12K</div>
+      </div>
+      <div class="sku-card">
+        <div class="sku-kicker">Pilot SKU · 03</div>
+        <div class="sku-nm">3-Week Creative-Validation Pilot</div>
+        <div class="sku-price">$45K</div>
+      </div>
+    </div>
+
+    <div class="gtm-cols">
+      <div class="gc">
+        <h4>The wedge</h4>
+        <ul>
+          <li>Services + pilot SKUs</li>
+          <li>Lighthouse logos</li>
+          <li>Convert to seats</li>
+        </ul>
+      </div>
+      <div class="gc">
+        <h4>Motions</h4>
+        <ul>
+          <li>Founder-led sales</li>
+          <li>Creative sprints</li>
+          <li>Conference demos</li>
+          <li>Creator community</li>
+        </ul>
+      </div>
+      <div class="gc">
+        <h4>Key KPIs</h4>
+        <ul>
+          <li>Pilot → paid conversion %</li>
+          <li>Logos · WAU/MAU · retained projects</li>
+          <li>Time-to-moving-board <span class="m">vs. baseline</span></li>
+          <li>Alignment &lt; 10 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">23 — Pilot SKUs &amp; go-to-market</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 24 — Team
+     ============================================================ -->
+<section data-screen-label="24 Team">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Team</span>
+        <span class="crumb">Founder &amp; advisors</span>
+      </div>
+      <div class="counter">24 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 24px;">
+      <div class="rule"></div>
+      <h1 class="small">Who's building it.</h1>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-lead">
+        <div class="tl-role">Founder / Owner</div>
+        <div class="tl-nm">David Parker</div>
+        <p>20+ years in VFX &amp; directing; led launches at The Mill NY &amp; LA; Cannes-winning work; built and ran Jogger at Cut+Run. Built and runs JANE Studios, 2017 to present — a 100% founder-owned vehicle for this product.</p>
+      </div>
+
+      <div class="team-advisors">
+        <div class="team-block-tag">Advisors</div>
+        <ul class="adv-list">
+          <li><span class="av-nm">JANE</span> <span class="av-meta">— production partner; live-job testing &amp; craft feedback</span></li>
+          <li><span class="av-nm">Laurent Ledru</span> <span class="av-meta">— Director / CD; immersive, animation, live-action; AI creator</span></li>
+          <li><span class="av-nm">Westley Sarokin</span> <span class="av-meta">— CD; Emmy-nominated; 14 yrs at The Mill</span></li>
+          <li><span class="av-nm">Cole Schreiber</span> <span class="av-meta">— CD; writer/director, advertising &amp; long-form</span></li>
+          <li><span class="av-nm">Rich Rama</span> <span class="av-meta">— Executive Producer; client development</span></li>
+          <li><span class="av-nm">Ben Sposato</span> <span class="av-meta">— Head of Production; fast-turn delivery</span></li>
+          <li><span class="av-nm">Lost Planet</span> <span class="av-meta">— Corwin (3× Oscar nom) · Klein (2× Oscar nom)</span></li>
+          <li><span class="av-nm">Don Parker</span> <span class="av-meta">— Product &amp; GTM counsel; Shotgun co-founder/CEO (exited)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">24 — Team</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 25 — Financial Projections
+     ============================================================ -->
+<section data-screen-label="25 Financial Projections">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Financial Projections</span>
+        <span class="crumb">Account value &amp; growth milestones</span>
+      </div>
+      <div class="counter">25 / 26</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 22px;">
+      <div class="rule"></div>
+      <h1 class="small">3-Year ARR ramp — scenario analysis.</h1>
+    </div>
+
+    <div class="arr-grid">
+      <div class="arr-chart">
+        <svg viewBox="0 0 760 470" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <!-- break-even band (months 12-14) -->
+          <rect x="287" y="40" width="36" height="360" fill="rgba(186,117,23,0.10)"/>
+          <!-- month-6 + month-24 guides -->
+          <line x1="178" y1="40" x2="178" y2="400" stroke="rgba(0,0,0,0.18)" stroke-width="1"/>
+          <line x1="503" y1="40" x2="503" y2="400" stroke="rgba(0,0,0,0.10)" stroke-width="1" stroke-dasharray="3 4"/>
+          <!-- horizontal gridlines -->
+          <g stroke="rgba(0,0,0,0.06)" stroke-width="1">
+            <line x1="70" y1="340" x2="720" y2="340"/>
+            <line x1="70" y1="280" x2="720" y2="280"/>
+            <line x1="70" y1="220" x2="720" y2="220"/>
+            <line x1="70" y1="160" x2="720" y2="160"/>
+            <line x1="70" y1="100" x2="720" y2="100"/>
+            <line x1="70" y1="40"  x2="720" y2="40"/>
+          </g>
+          <!-- axes -->
+          <line x1="70" y1="40" x2="70" y2="400" stroke="#1A1A1A" stroke-width="1.2"/>
+          <line x1="70" y1="400" x2="720" y2="400" stroke="#1A1A1A" stroke-width="1.2"/>
+          <!-- y labels -->
+          <g class="ax" text-anchor="end">
+            <text x="60" y="404">$0K</text>
+            <text x="60" y="344">$5M</text>
+            <text x="60" y="284">$10M</text>
+            <text x="60" y="224">$15M</text>
+            <text x="60" y="164">$20M</text>
+            <text x="60" y="104">$25M</text>
+            <text x="60" y="44">$30M</text>
+          </g>
+          <!-- x labels -->
+          <g class="ax" text-anchor="middle">
+            <text x="160" y="420">5</text>
+            <text x="251" y="420">10</text>
+            <text x="341" y="420">15</text>
+            <text x="431" y="420">20</text>
+            <text x="521" y="420">25</text>
+            <text x="612" y="420">30</text>
+            <text x="702" y="420">35</text>
+          </g>
+          <!-- axis titles -->
+          <text class="axt" text-anchor="middle" x="395" y="448">Months post-raise</text>
+          <text class="axt" text-anchor="middle" transform="rotate(-90 22 220)" x="22" y="220">Annual recurring revenue</text>
+          <!-- conservative (dashed black) -->
+          <path d="M70,346 C150,382 240,390 287,388 C380,386 450,360 503,330 C600,264 668,168 720,108" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-dasharray="6 5"/>
+          <!-- base (amber) -->
+          <path d="M70,328 C150,366 240,378 287,376 C380,372 450,338 503,304 C600,250 668,160 720,100" fill="none" stroke="#BA7517" stroke-width="3"/>
+          <!-- end + valley markers -->
+          <circle cx="287" cy="376" r="5" fill="#BA7517"/>
+          <circle cx="287" cy="388" r="4" fill="#1A1A1A"/>
+          <circle cx="720" cy="100" r="4" fill="#BA7517"/>
+          <!-- value labels -->
+          <text class="anno-am" text-anchor="end" font-size="26" x="712" y="86">$25M</text>
+          <text class="anno-ink" text-anchor="middle" font-size="18" x="503" y="290">$8M</text>
+          <text class="anno-am" text-anchor="start" font-size="13" letter-spacing="0.06em" x="247" y="372">$2M BASE</text>
+          <text class="anno-ink" text-anchor="middle" font-size="12" letter-spacing="0.04em" x="320" y="406">$1M CONS.</text>
+          <!-- break-even label -->
+          <text class="anno" text-anchor="middle" font-size="12" letter-spacing="0.08em" x="305" y="150">BREAK-EVEN</text>
+          <text class="anno" text-anchor="middle" font-size="12" letter-spacing="0.08em" x="305" y="166">(MONTH 12–14)</text>
+          <!-- pilot-revenue callout -->
+          <rect x="92" y="232" width="170" height="66" fill="#FFFFFF" stroke="rgba(0,0,0,0.18)"/>
+          <text class="anno" font-size="11" letter-spacing="0.04em" x="102" y="252">PILOT REVENUE COVERS</text>
+          <text class="anno" font-size="11" letter-spacing="0.04em" x="102" y="268">CORE OPS (MONTH 6)</text>
+          <text class="anno-am" font-size="11" letter-spacing="0.04em" x="102" y="286">JANE PAYING DAY ONE</text>
+          <path d="M210,298 C230,330 255,355 283,373" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1"/>
+          <polygon points="283,373 274,368 277,378" fill="rgba(0,0,0,0.5)"/>
+        </svg>
+      </div>
+
+      <div class="arr-box">
+        <h4>Growth strategy</h4>
+        <ul>
+          <li>Year 1: <strong>$1M–$2M</strong> range</li>
+          <li>Year 2: <strong>$8M</strong> scale-up</li>
+          <li>Year 3: <strong>$25M</strong> target</li>
+        </ul>
+        <h4>Efficiency</h4>
+        <ul>
+          <li>JANE: paying day one</li>
+          <li>Month 6: core ops covered</li>
+          <li>Month 12–14: break-even</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">25 — Financial projections</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 30 — Your Mind First (close)
+     ============================================================ -->
+<section data-screen-label="26 Close" class="close-slide">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="crumb">ANONA × TENET</span>
+      </div>
+      <div class="counter">26 / 26</div>
+    </div>
+
+    <div class="close-wrap">
+      <div class="amber-rule"></div>
+      <h1 class="big">Your Mind <em>First.</em></h1>
+      <div class="sub">Every technological wave improves execution. TENET improves decision-making.</div>
+      <div class="contact">
+        <span class="k">Contact</span>
+        <a href="mailto:david@anona.tv">david@anona.tv</a>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>TENET</span></div>
+      <div class="meta">Seed · $2.4M</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>
