@@ -21,32 +21,47 @@ function fmt(ts) {
   try { return new Date(ts).toLocaleString(); } catch { return ts; }
 }
 
+// Reject if a promise doesn't settle in time, so a silent hang becomes a
+// visible message instead of an endless "Loading…".
+function withTimeout(promise, ms, label) {
+  return Promise.race([
+    Promise.resolve(promise),
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error((label || 'request') + ' timed out after ' + ms + 'ms')), ms)),
+  ]);
+}
+
 async function main() {
-  const { data: sess } = await supabase.auth.getSession();
+  elStatus().textContent = 'Checking your session…';
+  const { data: sess } = await withTimeout(supabase.auth.getSession(), 8000, 'session check');
   if (!sess || !sess.session) { window.location.replace(LOGIN); return; }
 
   const uid = sess.session.user.id;
 
   // Are we an admin?
-  const { data: profile, error: pErr } = await supabase
-    .from('profiles')
-    .select('is_admin')
-    .eq('id', uid)
-    .maybeSingle();
+  elStatus().textContent = 'Verifying admin access…';
+  const { data: profile, error: pErr } = await withTimeout(
+    supabase.from('profiles').select('is_admin').eq('id', uid).maybeSingle(),
+    8000, 'admin check');
 
-  if (pErr || !profile || !profile.is_admin) {
+  if (pErr) {
+    elStatus().textContent = 'Could not verify admin access: ' + (pErr.message || pErr);
+    return;
+  }
+  if (!profile || !profile.is_admin) {
     elStatus().textContent = 'Not authorized. This page is for admins only.';
     return;
   }
 
-  elStatus().textContent = '';
+  elStatus().textContent = 'Loading login log…';
   setupInvite();
 
-  const { data: events, error } = await supabase
-    .from('login_events')
-    .select('email, created_at, user_id')
-    .order('created_at', { ascending: false })
-    .limit(2000);
+  const { data: events, error } = await withTimeout(
+    supabase.from('login_events')
+      .select('email, created_at, user_id')
+      .order('created_at', { ascending: false })
+      .limit(2000),
+    8000, 'login log');
 
   if (error) {
     elStatus().textContent = 'Could not load the login log: ' + error.message;
