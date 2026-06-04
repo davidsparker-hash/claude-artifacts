@@ -1,0 +1,48 @@
+ANONA  ·  SEED ROUND
+Cap Table at a Glance
+For the investor conversation. All figures reconcile to the Round & Investor Cap and Valuation Basis tabs of the seed model.
+ROUND AT A GLANCE
+
+--- TABLE ---
+Round | Seed (priced equity)
+Target raise | $3.75M  (floor $3.5M · ceiling $4.5M)
+Post-money valuation | $19.0M  (≈ pre-money $15.25M)
+Implied dilution | 19.7%  — market-standard ~20% for an AI-native seed
+Minimum check | $250,000
+Maximum investors | ~15  (at the minimum check)
+Instrument | Priced equity; ~$66K convertible bridge converts in at close
+--- END TABLE ---
+
+OWNERSHIP AT CLOSE
+
+--- TABLE ---
+Holder | New capital | Ownership
+Founders & existing holders | — | 80.3%
+New seed investors | $3,750,000 | 19.7%
+— of which bridge note (converts in) | ~$66,000 | ~0.3%
+Total | $3,750,000 | 100%
+--- END TABLE ---
+
+Bridge is a subset of the round, not additive — it converts into the seed at close. Founder / option-pool split within the 80.3% to be set with counsel.
+HOW THE ROUND CAN BE BUILT — by minimum check
+
+--- TABLE ---
+Min check | Investors (max) | Each owns at close | Each at exit (diluted) | Stake at exit (base) | Return
+$500K | 7 | 2.63% | 1.45% | ~$1.17M | 2.3×
+$250K | 15 | 1.32% | 0.72% | ~$584K | 2.3×
+$150K | 25 | 0.79% | 0.43% | ~$350K | 2.3×
+$100K | 37 | 0.53% | 0.29% | ~$233K | 2.3×
+--- END TABLE ---
+
+The return multiple is identical across check sizes — the minimum decides how many investors and how large each stake, not the return. Fewer, larger checks keep the table clean.
+WHAT A $250K CHECK RETURNS — by exit scenario
+
+--- TABLE ---
+Scenario | Exit ARR | Multiple | Stake at exit | Return
+Conservative | $3.0M | 8× | ~$174K | 0.7×
+Base case | $5.4M | 15× | ~$584K | 2.3×
+Upside | $10.0M | 22× | ~$1.59M | 6.4×
+--- END TABLE ---
+
+Base case returns ~2.3× at a defensible valuation; 3×+ comes from the upside — a higher exit multiple or ARR above ~$6.9M. Valuation triangulated by two independent methods (comparable seeds and a Series-A back-check), both near $19M.
+Illustrative; reconciles to the ANONA seed model. Exit stake assumes ~55% ownership retained through future dilution and a base 15× exit multiple. Figures and terms (including bridge cap/discount) to be finalized with counsel. Not investment or legal advice. · May 2026.

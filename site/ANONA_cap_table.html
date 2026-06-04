@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<title>ANONA — Cap Table at a Glance</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { min-height: 100vh; background: var(--paper); color: var(--fg-1); font-family: var(--font-sans); }
+
+  .chrome { position: fixed; left: 0; right: 0; display: flex; justify-content: space-between; align-items: baseline;
+    padding: 22px 64px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-3); z-index: 50; }
+  .chrome.top { top: 0; background: var(--paper-soft); border-bottom: 1px solid var(--rule); }
+  .chrome.top a { color: var(--fg-3); text-decoration: none; border: 0; }
+  .chrome.top a:hover { color: var(--fg-accent); }
+  .chrome.bot { bottom: 0; border-top: 1px solid var(--rule); background: var(--paper); }
+  .chrome .lockup .amber { color: var(--fg-accent); }
+  .chrome .lockup .dot { color: var(--rule-strong); margin: 0 10px; }
+
+  main { max-width: 1080px; margin: 0 auto; padding: 116px 64px 96px; }
+
+  .masthead { margin-bottom: 56px; }
+  .masthead .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-accent); margin-bottom: 22px; }
+  .masthead h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(44px, 5.5vw, 76px); line-height: 0.98; letter-spacing: -0.01em; margin: 0 0 20px; }
+  .masthead .sub { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 20px; color: var(--fg-2); margin: 0 0 28px; max-width: 620px; }
+  .dl { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-accent); text-decoration: none; border: 1px solid var(--fg-accent); padding: 12px 22px; background: rgba(186,117,23,0.05); transition: background .16s, color .16s; }
+  .dl:hover { background: var(--fg-accent); color: #fff; }
+
+  section.tab { margin-bottom: 64px; }
+  .tab-head { display: flex; align-items: baseline; gap: 18px; padding-bottom: 14px; margin-bottom: 24px; border-bottom: 1px solid var(--fg-1); }
+  .tab-head .no { font-family: var(--font-mono); font-size: 12px; color: var(--fg-accent); letter-spacing: 0.1em; }
+  .tab-head h2 { font-family: var(--font-display); font-weight: 300; font-size: 30px; letter-spacing: -0.005em; margin: 0; }
+  .tab-head .note { font-size: 13px; color: var(--fg-3); margin-left: auto; font-style: italic; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  th, td { text-align: left; padding: 12px 14px; font-size: 15px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3); font-weight: 400; border-bottom: 1px solid var(--rule-strong); }
+  td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.pct { text-align: right; font-family: var(--font-mono); color: var(--fg-3); white-space: nowrap; }
+  td .lbl { color: var(--fg-1); }
+  td .meta { color: var(--fg-3); font-size: 12.5px; }
+  tr.sub td { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-accent); padding-top: 22px; border-bottom: 1px solid var(--rule-strong); }
+  tr.total td { font-family: var(--font-display); font-weight: 400; font-size: 17px; color: var(--fg-1); border-top: 1px solid var(--fg-1); border-bottom: none; }
+  tr.total td.num { color: var(--fg-accent); }
+  tr.indent td:first-child { padding-left: 30px; }
+  .amt { color: var(--fg-accent); }
+
+  .kv { display: grid; grid-template-columns: 220px 1fr auto; gap: 0; }
+  .kv .row { display: contents; }
+  .kv .row > div { padding: 12px 14px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+  .kv .row .k { color: var(--fg-2); }
+  .kv .row .v { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .kv .row .f { color: var(--fg-3); font-size: 12.5px; font-style: italic; text-align: right; }
+
+  .callout { border: 1px solid var(--fg-accent); background: rgba(186,117,23,0.05); padding: 22px 26px; margin: 18px 0; }
+  .callout .t { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-accent); margin-bottom: 10px; }
+  .callout p { font-size: 15px; line-height: 1.6; color: var(--fg-1); margin: 0; }
+
+  .scrollx { overflow-x: auto; }
+
+  /* dense monthly tables (runway / revenue ramp) */
+  table.dense th, table.dense td { padding: 9px 10px; font-size: 12.5px; }
+  table.dense thead th { font-size: 11px; letter-spacing: 0.1em; }
+  table.dense td:first-child, table.dense th:first-child { position: sticky; left: 0; background: var(--paper); }
+  table.dense thead th:first-child { background: var(--paper); }
+  tr.posline td.num { color: var(--fg-accent); }
+  tr.negline td.num { color: var(--fg-2); }
+
+  /* two-up option compare */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); border-radius: var(--r-2); overflow: hidden; }
+  .compare .col { padding: 0; }
+  .compare .col + .col { border-left: 1px solid var(--rule); }
+  .compare .col .head { padding: 16px 22px; border-bottom: 1px solid var(--rule-strong); }
+  .compare .col .head .opt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-accent); }
+  .compare .col .head h3 { margin: 6px 0 0; font-family: var(--font-display); font-weight: 300; font-size: 21px; }
+  .compare .col dl { margin: 0; padding: 6px 22px 18px; }
+  .compare .col dt { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); margin-top: 16px; }
+  .compare .col dd { margin: 5px 0 0; font-size: 14px; line-height: 1.5; color: var(--fg-1); }
+
+  /* stat strip */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; border: 1px solid var(--rule); border-radius: var(--r-2); overflow: hidden; margin: 4px 0 18px; }
+  .stats .s { padding: 20px 22px; border-right: 1px solid var(--rule); }
+  .stats .s:last-child { border-right: 0; }
+  .stats .s .lab { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; }
+  .stats .s .big { font-family: var(--font-display); font-weight: 300; font-size: 30px; line-height: 1; color: var(--fg-1); }
+  .stats .s .big.amber { color: var(--fg-accent); }
+  .stats .s .cap { font-size: 12px; color: var(--fg-3); margin-top: 8px; font-style: italic; }
+
+  td.src { font-size: 12.5px; color: var(--fg-3); line-height: 1.45; }
+  .lead { font-family: var(--font-serif); font-weight: 300; font-size: 17px; line-height: 1.6; color: var(--fg-2); max-width: 760px; margin: -6px 0 24px; }
+  @media (max-width: 760px) { main { padding: 110px 24px 80px; } .chrome { padding: 20px 24px; } .compare { grid-template-columns: 1fr; } .compare .col + .col { border-left: 0; border-top: 1px solid var(--rule); } }
+</style>
+</head>
+<body>
+<header class="chrome top">
+  <a href="chooser.html">↩ overview</a>
+  <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Cap table</span></div>
+</header>
+
+<main>
+  <div class="masthead">
+    <div class="kicker">For the investor conversation · Seed round · May 2026</div>
+    <h1>Cap Table at a Glance</h1>
+    <p class="sub">The ownership view for the investor conversation — round terms, the table at close, how the round can be built by check size, and what a $250K check returns. All figures reconcile to the seed model.</p>
+    <a class="dl" href="ANONA_Cap_Table_View.docx" download>↓ Download the document (.docx)</a>
+  </div>
+
+  <!-- ── ROUND AT A GLANCE ───────────────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">01</span><h2>Round at a glance</h2></div>
+    <div class="kv">
+      <div class="row"><div class="k">Round</div><div class="v" style="font-family:var(--font-sans)">Seed — priced equity</div><div class="f"></div></div>
+      <div class="row"><div class="k">Target raise</div><div class="v amt">$3,750,000</div><div class="f">Floor $3.5M · ceiling $4.5M</div></div>
+      <div class="row"><div class="k">Post-money valuation</div><div class="v">$19,000,000</div><div class="f">≈ pre-money $15,250,000</div></div>
+      <div class="row"><div class="k">Implied dilution</div><div class="v">19.7%</div><div class="f">Market-standard ~20% for an AI-native seed</div></div>
+      <div class="row"><div class="k">Minimum check</div><div class="v">$250,000</div><div class="f"></div></div>
+      <div class="row"><div class="k">Maximum investors</div><div class="v">~15</div><div class="f">At the minimum check</div></div>
+      <div class="row"><div class="k">Instrument</div><div class="v" style="font-family:var(--font-sans)">Priced equity</div><div class="f">~$66K convertible bridge converts in at close</div></div>
+    </div>
+  </section>
+
+  <!-- ── OWNERSHIP AT CLOSE ──────────────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">02</span><h2>Ownership at close</h2><span class="note">fully diluted</span></div>
+    <div class="scrollx">
+    <table>
+      <thead><tr><th>Holder</th><th class="num">New capital</th><th class="num">Ownership</th></tr></thead>
+      <tbody>
+        <tr><td>Founders &amp; existing holders</td><td class="num">—</td><td class="num">80.3%</td></tr>
+        <tr><td>New seed investors</td><td class="num">$3,750,000</td><td class="num amt">19.7%</td></tr>
+        <tr class="indent"><td><span class="meta">— of which bridge note (converts in)</span></td><td class="num"><span class="meta">~$66,000</span></td><td class="num"><span class="meta">~0.3%</span></td></tr>
+        <tr class="total"><td>Total</td><td class="num">$3,750,000</td><td class="num">100%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--fg-3);font-style:italic;margin:0;">Bridge is a subset of the round, not additive — it converts into the seed at close. The founder / option-pool split within the 80.3% is to be set with counsel.</p>
+  </section>
+
+  <!-- ── HOW THE ROUND CAN BE BUILT ──────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">03</span><h2>How the round can be built</h2><span class="note">by minimum check</span></div>
+    <div class="scrollx">
+    <table>
+      <thead><tr><th>Min check</th><th class="num">Investors (max)</th><th class="num">Each owns at close</th><th class="num">Each at exit (diluted)</th><th class="num">Stake at exit (base)</th><th class="num">Return</th></tr></thead>
+      <tbody>
+        <tr><td>$500,000</td><td class="num">7</td><td class="num">2.63%</td><td class="num">1.45%</td><td class="num">~$1.17M</td><td class="num">2.3×</td></tr>
+        <tr class="total"><td>$250,000</td><td class="num">15</td><td class="num">1.32%</td><td class="num">0.72%</td><td class="num">~$584K</td><td class="num">2.3×</td></tr>
+        <tr><td>$150,000</td><td class="num">25</td><td class="num">0.79%</td><td class="num">0.43%</td><td class="num">~$350K</td><td class="num">2.3×</td></tr>
+        <tr><td>$100,000</td><td class="num">37</td><td class="num">0.53%</td><td class="num">0.29%</td><td class="num">~$233K</td><td class="num">2.3×</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--fg-3);font-style:italic;margin:0;">The return multiple is identical across check sizes — the minimum decides how many investors and how large each stake, not the return. Fewer, larger checks keep the table clean.</p>
+  </section>
+
+  <!-- ── WHAT A $250K CHECK RETURNS ──────────────────────── -->
+  <section class="tab">
+    <div class="tab-head"><span class="no">04</span><h2>What a $250K check returns</h2><span class="note">by exit scenario</span></div>
+    <div class="stats">
+      <div class="s"><div class="lab">Conservative · 8×</div><div class="big">0.7×</div><div class="cap">~$174K on $3.0M ARR</div></div>
+      <div class="s"><div class="lab">Base case · 15×</div><div class="big amber">2.3×</div><div class="cap">~$584K on $5.4M ARR</div></div>
+      <div class="s"><div class="lab">Upside · 22×</div><div class="big">6.4×</div><div class="cap">~$1.59M on $10.0M ARR</div></div>
+    </div>
+    <div class="scrollx">
+    <table>
+      <thead><tr><th>Scenario</th><th class="num">Exit ARR</th><th class="num">Multiple</th><th class="num">Stake at exit</th><th class="num">Return</th></tr></thead>
+      <tbody>
+        <tr><td>Conservative</td><td class="num">$3.0M</td><td class="num">8×</td><td class="num">~$174K</td><td class="num">0.7×</td></tr>
+        <tr class="total"><td>Base case</td><td class="num">$5.4M</td><td class="num">15×</td><td class="num">~$584K</td><td class="num">2.3×</td></tr>
+        <tr><td>Upside</td><td class="num">$10.0M</td><td class="num">22×</td><td class="num">~$1.59M</td><td class="num">6.4×</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout">
+      <div class="t">How to read it</div>
+      <p>The base case returns ~2.3× at a defensible valuation; 3×+ comes from the upside — a higher exit multiple or ARR above ~$6.9M. Valuation is triangulated by two independent methods (comparable seeds and a Series-A back-check), both landing near $19M.</p>
+    </div>
+    <p style="font-size:12.5px;color:var(--fg-3);font-style:italic;margin:0;">Illustrative; reconciles to the ANONA seed model. Exit stake assumes ~55% ownership retained through future dilution and a base 15× exit multiple. Figures and terms (including bridge cap / discount) to be finalized with counsel. Not investment or legal advice. · May 2026.</p>
+  </section>
+</main>
+
+<footer class="chrome bot">
+  <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span><span class="dot">·</span><span>Jane</span></div>
+  <span>2026 &nbsp;·&nbsp; v 1.0</span>
+</footer>
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+</body>
+</html>

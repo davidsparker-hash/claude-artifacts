@@ -1,0 +1,122 @@
+
+
+===== SHEET 1: TAM SAM SOM =====
+ANONA · TENET — Market Sizing (coordination layer)
+Sized on the coordination layer specifically — not the generation market. Build bottom-up from the production-management software SAM. June 2026.
+THE FUNNEL
+Layer | Definition | Size | Basis / source | TENET capture
+TAM | Global content production & coordination spend — the money flowing through production each year | ~$255B | Ampere: global content investment 2026 (~$255B); content-creation spend ~$144B as a tighter cut | The pool TENET sits on; not a serviceable target
+SAM | Production-management & coordination software for media & entertainment (budgeting/cost-tracking + collaboration) | ~$4.9B by 2030 | 360iResearch: M&E production-mgmt software $2.73B (2023) → $4.90B (2030), 8.69% CAGR. Functions incl. Budgeting & Cost Tracking, Collaboration | The layer TENET competes in — the serviceable market
+SOM | Near-term beachhead: JANE anchor + early enterprise on platform contracts | ~$5.4M ARR | ANONA seed model base case (exit-rate ARR by month 18). ~0.1% of SAM | What the base case requires — ~one-tenth of one percent of SAM
+MARKET ANCHORS (for triangulation)
+Market | Size (2026) | Growth | Source
+Global content investment | ~$255B | Streamers ~$101B of it | Ampere Analysis / TV Tech
+Content-creation spend | ~$144B → $331B (2035) | 9.72% CAGR | Business Research Insights
+Global video ad spend | ~$236B | ~15–18% annually | Statista / SaaSUltra
+Video production services | ~$37.7B | 8.9% CAGR | Global Growth Insights
+M&E production-mgmt software (SAM) | $2.73B (2023) → $4.90B (2030) | 8.69% CAGR | 360iResearch
+Digital media production software | ~$16.6B | 11.5% CAGR | TBRC / GII
+AI gen-content market | $11B (2023) → $175B (2033) | ~31% CAGR | Companies History
+WHY SIZE IT THIS WAY
+The deck currently sizes off the generation market (Magnific’s ~$230M, the ~$175B AI-content TAM). That market is real, but it is the layer TENET sits ABOVE — the wrong serviceable market for a coordination tool.
+The honest SAM is production-management & coordination software: the category Autodesk Flow, ftrack, NIM, Wrapbook and Saturation already sell into. 360iResearch sizes it at ~$4.9B by 2030, and its own function taxonomy lists Budgeting & Cost Tracking and Collaboration — exactly TENET’s scope.
+TENET’s base case (~$5.4M ARR) is ~0.1% of that SAM. The argument to investors: we need a sliver of the software layer, not a slice of the $255B production economy — and the layer is growing ~9% annually with no player yet owning translation + client cost control.
+Upside lever: per-project / value-based pricing sits on the TAM, not the SAM. Because TENET rides the project’s money flow, a small take-rate on coordinated spend reframes the ceiling well above the software SAM — the optionality the deck can flag without underwriting it.
+Figures are market context as of June 2026 triangulated from third-party reports; private/forecast values are estimates. The ~$5.4M SOM reconciles to the ANONA seed model base case. Not investment advice.
+
+
+===== SHEET 2: Competitive Comparison =====
+ANONA · TENET — Competitive Comparison
+All players across the four layers · financials & pricing as of June 2026 · anchor rows shaded · overlap = qualitative positioning estimate, not market share
+Company | Layer | Category / what it offers | Pricing (2026) | Revenue / ARR | Valuation | Funding raised | Customers / scale | Overlap w/ TENET | Why it matters to TENET
+TENET | L3 Coordination | Translation layer between production specialists + live client cost/timeline control | TBD (seed-stage); enterprise ~$20K/mo anchor, $79/seat self-serve, +25% usage | Pre-revenue (JANE anchor live) | $19M post (target) | $3.75M seed (raising) | 1 anchor (JANE) | — (anchor) | The product being funded; only player both in L3 and client-facing on cost
+Autodesk Flow (ShotGrid) | L3 Coordination | VFX/animation pipeline tracking; tasks, scheduling, review, single source of truth | ~$50/user/mo or ~$390/user/yr | Part of Autodesk (FY rev ~$6.1B) | Public (ADBE peer; ~$45B+ mkt cap) | Acquired by Autodesk 2016 (as ShotGrid) | Studios across film/TV/games | Medium | The incumbent tracker; producer-facing, adding AI — the obvious &apos;why not them&apos; objection
+ftrack (Backlight) | L3 Coordination | Production tracking + media review; Review/Studio/cineSync tiers | Review $10–$15/user/mo; Studio $25–$30/user/mo; Enterprise custom | Private (Backlight portfolio) | Private | Owned by Backlight | MPC, Netflix Animation, boutique→global studios | Medium | Mid-market tracker; emmy/academy-award tooling, strong review UX, no cost engine
+NIM Studios | L3 Coordination | VFX/commercial production + financial mgmt; bid-vs-actual alongside pipeline | Tiered SaaS (~mid-double-digit/seat/mo) | Private / niche | Private | Bootstrapped/niche | Post & commercial facilities | Medium | Bid-vs-actual is the nearest existing analog to TENET&apos;s cost view (internal, not client-side)
+monday.com | L3 Coordination | Work OS + AI Work Platform w/ native agents; targeting AI-video coordination | Seats $9/$12/$19/seat/mo (Basic/Std/Pro, annual, 3-seat min) + AI credits; Ent ~$30K+/yr | $351.3M Q1&apos;26 rev (+24% YoY); ~$1.4B+ ARR run-rate | Public (MNDY); ~$15B+ mkt cap | Public (IPO 2021) | NDR 110%; 99 customers >$500K ARR | Low-Med | Distribution + capital extending DOWN into orchestration; AI = ~10% of net-new ARR
+Make (Celonis) | L3 Coordination | No-code automation; chains generation steps into triggered pipelines | Core $9–$10.59/mo, Pro $16/mo, Teams $29/mo; credits/operations-based; Ent custom | Parent Celonis ~$771M+ rev (est.) | Parent Celonis ~$7.7B secondary (was $13.2B &apos;22) | Parent raised ~$2.4B | Parent: 25%+ of Fortune 500 | Low-Med | The &apos;conductor&apos; layer; cheap, ubiquitous — can wire generators together without translation
+Wrapbook | L4 Prod-finance | Production payroll + accounting + real-time cost tracking (actuals vs budget) | Custom / per-production (EOR + platform) | ~50% YoY growth (undisclosed $) | $750M (2024; was $1B in 2021) | ~$151–157M over 4 rounds | 1,000+ companies; 175K+ workers; 402 staff | High | Owns the live money flow TENET wants visibility into; strongest sober valuation comp
+Saturation.io | L4 Prod-finance | Cloud film budgeting + expense cards + real-time actuals; simultaneous editing | Free tier; paid from ~$20/mo | Private (undisclosed) | Private | Undisclosed | 8,000+ producers | High | Real-time budget transparency is TENET&apos;s exact wedge, minus cross-vertical translation
+Frame.io (Adobe) | L4 Prod-finance | Creative review & collaboration; versioning, frame-accurate comments, approvals, workflow builder | ~$15–$25/seat/mo; free w/ Creative Cloud; Ent ~$5K–$70K/yr | Part of Adobe | Acquired ~$1.275B (2021) | Adobe-owned | Agencies, studios, freelancers | Medium | Manages handoffs + client review; now wired to Firefly Creative Production — no cost engine
+Cast & Crew | L4 Prod-finance | Legacy entertainment payroll & production accounting (since 1976) | Custom / per-production | Private (PE-owned) | ~$700M acq. value (2018) | PE-owned (EQT) | Industry-standard incumbent | Med (finance only) | Owns legacy payroll relationships + client trust TENET must displace or integrate
+Magnific (Freepik) | L2 Suite | Model-agnostic AI image+video suite; real-time collab; pre-production asset tools | From ~$39/mo individual → enterprise; Business plan 2026 | ~$230M ARR (~50% video) | Bootstrapped (no VC) | $0 raised | 1M+ subs; 290+ enterprise (BBC, Puma, Prime Video); ~400 staff | Low-Med | TENET&apos;s cited proof of market; ASCENDING toward L3 — most credible to add coordination
+Adobe Firefly | L2 Suite | Generative AI across Creative Cloud + Firefly Enterprise/Services/Foundry; Creative Production workflows | Consumer $9.99–$199.99/mo (credits); API ~$0.02–$0.10/image, ~$1K/mo min; Ent $5K–$100K+/yr | Firefly ARR +75% QoQ (Q1&apos;26); ~$3B+ CC ARR influenced | Strategic ~$5–7B within Adobe ($280B+) | Part of Adobe | 22B+ assets created; 30+ enterprise APIs | Low-Med | The enterprise-suite threat: model-agnostic, workflow builder, brand governance, wired to Frame.io
+Runway | L2 Suite | Text/image-to-video + editing suite; Gen-4.5 with API | Free tier; ~$15–$95/mo; enterprise custom | Undisclosed (growing) | ~$3B+ (2024 raises) | Well-funded (a16z, Google, etc.) | Filmmakers, agencies | Low | Cinematic generation w/ suite features; no doc-ingestion or coordination layer
+ElevenLabs | L1 Generation | Voice / audio generation; agents that talk, type, act | Free; creator from ~$22/mo; enterprise custom | ~$500M ARR (2026) | $11B (Feb 2026) | $781M over 5 rounds | Enterprise: Meta, Salesforce, publishers | Low | Pure generation engine (audio); a substrate input — cited for its ~25–33x revenue multiple
+Synthesia | L1 Generation | AI avatar / presenter video for L&D and corporate comms | Free → ~$30+/mo → enterprise custom | Undisclosed (growing fast) | ~$2B+ (2025) | Well-funded | 50,000+ companies | Low | Avatar output; overlaps only on enterprise training budget (per Golpo report)
+HeyGen | L1 Generation | AI avatar video; 100+ presenters, voice cloning, 40+ language translation, API | Free → paid tiers → enterprise | Undisclosed | ~$500M+ (2024) | Well-funded | Enterprise sales/marketing/L&D | Low | Avatar/presenter format, not whiteboard or coordination (per Golpo report)
+Golpo | L1–L2 | Document → animated explainer video; technical-accuracy focus | Not publicly disclosed (early-stage) | Early-stage | Early-stage | Undisclosed (YC profile) | L&D / technical content teams | Low layer / shared thesis | Neighbor not rival: shares &apos;practical not cinematic&apos; + &apos;displaces agencies&apos; thesis
+Sora / Veo / Kling / Luma / Pika | L1 Generation | Foundation text-to-video models | Bundled (ChatGPT, Gemini) or per-credit | Backed by parents | OpenAI/Google/ByteDance/VCs | n/a | Mass-market + developers | None | Pure substrate TENET sits on top of; their proliferation worsens the coordination problem
+Layers: L1 generation engines · L2 integrated suites/aggregators · L3 coordination/orchestration (TENET&apos;s home) · L4 production finance & review (closest functional analogs).
+Private-company revenue is self-reported or estimated where noted. Figures are market context as of June 2026 and reconcile to no values in the ANONA seed model. Not investment advice.
+
+
+===== SHEET 3: Deep Dives =====
+Deep Dives — monday.com · Make · Autodesk Flow · ftrack · NIM · Adobe Firefly
+The platforms closest to TENET&apos;s orchestration & enterprise-suite edges, in detail. Pulled from our own research, June 2026.
+Attribute | monday.com | Make (Celonis) | Autodesk Flow | ftrack (Backlight) | NIM Studios | Adobe Firefly
+Layer / role | L3 work-OS w/ AI agents | L3 automation &apos;conductor&apos; | L3 pipeline tracker (incumbent) | L3 tracker + media review | L3 tracker + bid-vs-actual | L2 enterprise gen-AI suite
+Ownership | Public (NASDAQ: MNDY, 2021) | Owned by Celonis (private) | Owned by Autodesk (public) | Backlight business (private) | Private / niche | Adobe (NASDAQ: ADBE)
+Revenue / ARR | $351.3M Q1&apos;26 rev, +24% YoY; ~$1.4B+ ARR run-rate | Parent Celonis ~$771M (2023 est.) | Within Autodesk FY rev ~$6.1B | Undisclosed (private) | Undisclosed (private) | Firefly ARR +75% QoQ (Q1&apos;26); ~$3B+ CC ARR AI-influenced
+Valuation | ~$15B+ market cap | ~$7.7B secondary (was $13.2B &apos;22) | Autodesk ~$45B+ mkt cap | Private | Private | ~$5–7B strategic within Adobe ($280B+)
+Funding | Public; IPO&apos;d 2021 | Parent Celonis ~$2.4B raised | n/a (Autodesk) | Backlight-backed | Bootstrapped/niche | n/a (Adobe)
+Pricing model | Seats + AI credits (hybrid, new since May&apos;26) | Per-operation / credit consumption | Per-seat subscription | Per-seat, 3 tiers | Tiered SaaS per seat | Subscription + generative credits + enterprise API
+Entry pricing | $9/$12/$19 per seat/mo (annual, 3-seat min) | Core $9–$10.59/mo (10K ops) | ~$50/user/mo or ~$390/yr | Review $10–$15/user/mo | ~mid-double-digit/seat/mo | Consumer $9.99–$199.99/mo
+Mid/high pricing | Enterprise ~$30K+/yr (100+ seats); credits 1K–20K/mo | Pro $16, Teams $29/mo; Ent custom | Enterprise via Autodesk | Studio $25–$30/user/mo; Ent custom | Enterprise custom | API ~$0.02–$0.10/img, ~$1K/mo min; Ent $5K–$100K+/yr
+AI monetization | AI = ~10% of net-new ARR; credits launching | AI credits vary by token usage | AI scheduling features added | Limited | Limited | Credit packs ramping; gen actions +8x YoY; ARR +75% QoQ
+Customers / scale | NDR 110%; 99 cust >$500K ARR; CRM >$100M ARR | Parent: 25%+ Fortune 500 | Film/TV/games studios | MPC, Netflix Animation, etc. | Post & commercial facilities | 22B+ assets; 30+ enterprise APIs; WPP, Publicis, etc.
+Overlap w/ TENET | Low-Med: orchestration, no domain translation | Low-Med: wiring, no translation | Medium: tracker, producer-facing | Medium: tracker + review | Medium: nearest cost analog | Low-Med: suite + workflow builder
+Key threat / read | Capital + distribution moving down into the layer | Cheap glue; commoditizes the &apos;connect&apos; step | &apos;Why not them&apos; default objection; adding AI | Strong review UX; could extend to cost | Bid-vs-actual proves cost-tracking demand | Model-agnostic + brand governance + Frame.io tie-in
+Sources: company Q1 2026 earnings (monday.com, Adobe), pricing pages, G2/Capterra, Tracxn/PitchBook/CB Insights, Contrary Research. Estimates noted where revenue is private.
+
+
+===== SHEET 4: Numbers Library =====
+Numbers Library — sourced metrics for market research
+Clean, citable figures to pull into decks and the model narrative. One row per metric. Blue = figure; grey = source.
+Company | Metric | Value | As of | Source
+Magnific (Freepik) | ARR | ~$230M | Apr 2026 | Fortune / TechCrunch
+Magnific (Freepik) | Paying subscribers | 1M+ | Apr 2026 | TheNextWeb / Tech.eu
+Magnific (Freepik) | Enterprise customers | 250–290+ | 2026 | Tech.eu / company
+Magnific (Freepik) | Outside funding | $0 (bootstrapped) | 2026 | Fortune
+Magnific (Freepik) | Video share of revenue | ~50% | Apr 2026 | Fortune
+Magnific (Freepik) | Headcount | ~400 | Apr 2026 | Fortune
+ElevenLabs | ARR | ~$500M | Apr 2026 | Sacra / GetLatka
+ElevenLabs | Valuation | $11B | Feb 2026 | TechCrunch / CNBC
+ElevenLabs | Revenue multiple (impl.) | ~25–33x | Feb 2026 | MEXC / Sacra
+ElevenLabs | Total funding | $781M (5 rounds) | Feb 2026 | ElevenLabs blog
+Wrapbook | Valuation | $750M (was $1B in &apos;21) | Sep 2024 | Hollywood Reporter / PRNewswire
+Wrapbook | Total funding | ~$151–157M | 2026 | Tracxn / PitchBook
+Wrapbook | Revenue growth | ~50% YoY | Sep 2024 | PRNewswire
+Wrapbook | Companies served | 1,000+ | 2024 | PRNewswire
+Wrapbook | Workers onboarded | 175,000+ | 2024 | PRNewswire
+monday.com | Q1 2026 revenue | $351.3M (+24% YoY) | May 2026 | Q1&apos;26 earnings
+monday.com | Operating income (Q1) | $49M | May 2026 | Q1&apos;26 earnings
+monday.com | Net dollar retention | 110% (116% >$50K ARR) | Q1 2026 | Q1&apos;26 earnings
+monday.com | Customers >$500K ARR | 99 (+74% YoY) | Q1 2026 | Q1&apos;26 earnings
+monday.com | AI share of net-new ARR | ~10% | Q1 2026 | Earnings call
+monday.com | RPO | $880M (+33% YoY) | Q1 2026 | Subscription Insider
+monday.com | Entry seat pricing | $9/$12/$19 per seat/mo | 2026 | Pricing page
+Make (Celonis) | Parent revenue (est.) | ~$771M | 2023 | GetLatka
+Make (Celonis) | Parent valuation | ~$7.7B secondary (was $13.2B) | 2024 | Contrary Research
+Make (Celonis) | Parent funding | ~$2.4B | 2022 | CB Insights
+Make (Celonis) | Core plan pricing | $9–$10.59/mo (10K ops) | 2026 | Make pricing / G2
+Autodesk Flow | Pricing | ~$50/mo or ~$390/yr | 2026 | Evercast / Autodesk
+Autodesk Flow | Parent FY revenue | ~$6.1B | FY2025 | Autodesk filings
+ftrack (Backlight) | Review tier | $10–$15/user/mo | 2026 | G2 / SoftwareFinder
+ftrack (Backlight) | Studio tier | $25–$30/user/mo | 2026 | G2 / SoftwareFinder
+Adobe Firefly | Firefly ARR growth | +75% QoQ | Q1 FY2026 | Adobe Q1&apos;26 call
+Adobe Firefly | Strategic value (est.) | ~$5–7B | 2026 | Fueler / analyst est.
+Adobe Firefly | Assets generated | 22B+ | Apr 2025 | Adobe MAX
+Adobe Firefly | Consumer pricing | $9.99–$199.99/mo | 2026 | SudoMock / Adobe
+Adobe Firefly | Enterprise API min | ~$1,000/mo | 2026 | SudoMock
+Adobe (parent) | Q1 FY2026 revenue | $6.40B (+11% YoY) | Mar 2026 | Adobe Q1&apos;26 call
+Adobe (parent) | FY2026 revenue guide | $25.9–$26.1B | Dec 2025 | Futurum / Adobe
+Frame.io (Adobe) | Acquisition price | ~$1.275B | 2021 | Adobe / press
+Frame.io (Adobe) | Seat pricing | ~$15–$25/seat/mo | 2026 | G2
+Synthesia | Companies served | 50,000+ | 2026 | Golpo report / company
+Synthesia | Valuation (est.) | ~$2B+ | 2025 | Press
+Cast & Crew | Acquisition value | ~$700M | 2018 | Hollywood Reporter
+Saturation.io | Producers served | 8,000+ | 2026 | Saturation.io
+Market | AI gen-content market | $11B (2023) → $175B (2033) | 2026 | Companies History
+Market | Enterprise software spend | $1.4T (+15%) | 2026 | UC Today
+Blue = the figure to quote. Private-company values are self-reported or estimated where noted. Quote consistently with the master set&apos;s rounding conventions.

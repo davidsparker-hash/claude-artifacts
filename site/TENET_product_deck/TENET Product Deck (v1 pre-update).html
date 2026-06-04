@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<title>TENET — CTO / Investor Deck</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="deck.css">
+<style>
+  /* Exit affordance — outside deck-stage so it's not scaled */
+  .session-nav {
+    position: fixed;
+    top: 14px;
+    z-index: 1000;
+    display: flex; align-items: center; gap: 10px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(107,107,107,0.7);
+    background: rgba(246,244,239,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .session-nav:hover {
+    color: var(--fg-accent, #BA7517);
+    border-color: var(--fg-accent, #BA7517);
+  }
+  .session-overview { left: 16px; }
+  .session-exit     { right: 16px; }
+  .session-nav .arrow { color: inherit; }
+  .session-nav .who   { color: rgba(107,107,107,0.55); }
+  @media print { .session-nav { display: none !important; } }
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<a class="session-nav session-overview" href="../chooser.html" title="Back to overview">
+  <span class="arrow">↩ overview</span>
+</a>
+<button class="session-nav session-exit" id="sessionExit" type="button" title="Sign out">
+  <span class="who" id="sessionWho"></span>
+  <span class="arrow">exit ↩</span>
+</button>
+<!-- AUTH (not design): the design's #sessionExit wiring + anona-auth read has been removed. /_auth/guard.js fills #sessionWho and handles sign-out. -->
+<deck-stage>
+
+<!-- ============================================================
+     SLIDE 1 — Cover
+     ============================================================ -->
+<section data-screen-label="01 Cover" class="cover">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="crumb">Investor &amp; CTO conversation</span>
+      </div>
+      <div class="counter">01 / 13</div>
+    </div>
+
+    <div class="cover-grid">
+      <div class="pane">
+        <div class="label">Parent company</div>
+        <div class="wm">ANONA</div>
+        <p class="tag">A collaborative creative software company.</p>
+      </div>
+      <div class="pane">
+        <div class="label">First product</div>
+        <div class="wm amber">TENET</div>
+        <p class="tag">The platform that sits upstream of generation — where the creative decision actually happens.</p>
+      </div>
+    </div>
+
+    <div class="credentialing">
+      <div class="left">
+        Built by David Parker — a founder with twenty-six years of experience solving production, storytelling, and visual execution problems across advertising and film.
+      </div>
+      <div class="right">Tuesday</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 2 — Why I'm Building This
+     ============================================================ -->
+<section data-screen-label="02 Why I'm Building This">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Origin</span>
+        <span class="crumb">Twenty-six years in the room</span>
+      </div>
+      <div class="counter">02 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>Why we're building this.</h1>
+    </div>
+
+    <div class="prose-grid">
+      <div class="prose">
+        <p class="lede">For twenty-six years we've watched the same thing happen in the same rooms.</p>
+        <p class="muted">Money moves before clarity does. Decisions get made in the dark. Strong ideas die because no one can feel them yet — and weaker ideas survive because they're the only thing on the table when the clock runs out.</p>
+        <p class="muted">Across every one of those rooms, the same fault line: the moment between someone's idea and the version everyone can finally see.</p>
+        <p class="serif">TENET is the tool we've wished we could hand someone since the first time we watched a creative call cost a client three hundred thousand dollars they didn't need to spend.</p>
+      </div>
+
+      <div class="career">
+        <div class="row">
+          <div class="year">1999 →</div>
+          <div class="org">The Mill</div>
+          <div class="role">Visual effects on major campaigns</div>
+        </div>
+        <div class="row">
+          <div class="year">→</div>
+          <div class="org">PSYOP</div>
+          <div class="role">Direction and visual effects</div>
+        </div>
+        <div class="row">
+          <div class="year">→</div>
+          <div class="org">MPC</div>
+          <div class="role">VFX, brand &amp; film</div>
+        </div>
+        <div class="row">
+          <div class="year">→</div>
+          <div class="org">Method</div>
+          <div class="role">VFX, episodic &amp; brand</div>
+        </div>
+        <div class="row">
+          <div class="year">→</div>
+          <div class="org">MJZ</div>
+          <div class="role">Director, DGA member</div>
+        </div>
+        <div class="row">
+          <div class="year">→</div>
+          <div class="org">Jogger</div>
+          <div class="role">Built inside Cut+Run</div>
+        </div>
+        <div class="row current">
+          <div class="year">2017 — today</div>
+          <div class="org">JANE</div>
+          <div class="role">Founder &amp; operator</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">02 — Origin</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 3 — The Real Problem
+     ============================================================ -->
+<section data-screen-label="03 The Real Problem">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">The Problem</span>
+        <span class="crumb">Cost of change over time</span>
+      </div>
+      <div class="counter">03 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>Once production starts moving,<br>flexibility disappears fast.</h1>
+    </div>
+
+    <div class="prose-grid" style="grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;">
+      <div class="prose">
+        <p class="serif" style="font-size: 26px;">It's like realizing you want the bedroom two feet larger after the roof is already on the house.</p>
+        <p class="muted">The bedroom never gets bigger. The house just gets uglier and more expensive every day you keep trying to fix it.</p>
+        <p>AI can generate beautiful images and video faster than ever — but the core problem hasn't changed.</p>
+        <ul style="margin-top: 16px;">
+          <li><span class="idx">01</span>Scripts still evolve.</li>
+          <li><span class="idx">02</span>Clients still react.</li>
+          <li><span class="idx">03</span>Teams still struggle to align.</li>
+          <li><span class="idx">04</span>The strongest ideas still arrive too late.</li>
+        </ul>
+      </div>
+
+      <div class="cost-diagram" style="height: 460px;">
+        <svg viewBox="0 0 720 470" preserveAspectRatio="none">
+          <!-- frame -->
+          <line x1="60" y1="40" x2="60" y2="400" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="60" y1="400" x2="700" y2="400" stroke="#1A1A1A" stroke-width="1"/>
+
+          <!-- Y axis label -->
+          <text class="axis-label" x="60" y="28" text-anchor="start">Cost of change →</text>
+          <text class="axis-label" x="700" y="462" text-anchor="end">Time →</text>
+
+          <!-- horizontal guides -->
+          <line x1="60" y1="320" x2="700" y2="320" stroke="rgba(0,0,0,0.06)"/>
+          <line x1="60" y1="240" x2="700" y2="240" stroke="rgba(0,0,0,0.06)"/>
+          <line x1="60" y1="160" x2="700" y2="160" stroke="rgba(0,0,0,0.06)"/>
+          <line x1="60" y1="80"  x2="700" y2="80"  stroke="rgba(0,0,0,0.06)"/>
+
+          <!-- exponential curve: Script(60,390) → Boards(190,360) → Production(320,300) → Editorial(450,200) → Delivery(580,70) -->
+          <path d="M60,390 C 140,388 170,378 200,360 C 240,340 290,320 320,300 C 360,280 410,240 450,200 C 490,160 530,110 580,70" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+
+          <!-- end-of-curve flare -->
+          <path d="M580,70 C 600,60 620,55 640,52" fill="none" stroke="#BA7517" stroke-width="2"/>
+          <circle cx="640" cy="52" r="3" fill="#BA7517"/>
+
+          <!-- stage ticks -->
+          <g>
+            <line x1="60"  y1="400" x2="60"  y2="408" stroke="#1A1A1A"/>
+            <line x1="220" y1="400" x2="220" y2="408" stroke="#1A1A1A"/>
+            <line x1="370" y1="400" x2="370" y2="408" stroke="#1A1A1A"/>
+            <line x1="500" y1="400" x2="500" y2="408" stroke="#1A1A1A"/>
+            <line x1="640" y1="400" x2="640" y2="408" stroke="#1A1A1A"/>
+          </g>
+
+          <!-- stage labels -->
+          <text class="stage-label" x="60"  y="424" text-anchor="middle">Script</text>
+          <text class="stage-label" x="220" y="424" text-anchor="middle">Boards</text>
+          <text class="stage-label" x="370" y="424" text-anchor="middle">Production</text>
+          <text class="stage-label" x="500" y="424" text-anchor="middle">Editorial</text>
+          <text class="stage-label" x="640" y="424" text-anchor="middle">Delivery</text>
+
+          <!-- annotations -->
+          <line x1="120" y1="372" x2="120" y2="340" stroke="rgba(0,0,0,0.25)"/>
+          <text class="anno" x="120" y="332" text-anchor="middle">Change is cheap</text>
+
+          <line x1="600" y1="80" x2="600" y2="120" stroke="rgba(0,0,0,0.25)"/>
+          <text class="anno anno-amber" x="600" y="138" text-anchor="middle">Change is catastrophic</text>
+
+          <!-- TENET window of operation -->
+          <rect x="60" y="360" width="180" height="56" fill="rgba(186,117,23,0.08)" stroke="rgba(186,117,23,0.45)" stroke-dasharray="2 3"/>
+          <text class="anno-amber" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.18em" x="150" y="392" text-anchor="middle">TENET OPERATES HERE</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">03 — The Real Problem</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 4 — What TENET Actually Is
+     ============================================================ -->
+<section data-screen-label="04 What TENET Is">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Definition</span>
+        <span class="crumb">The clarity slide</span>
+      </div>
+      <div class="counter">04 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>What TENET actually is.</h1>
+      <p class="standfirst">A collaborative creative development platform. The upstream layer where scripts and ideas become editable visual sequences — before expensive production decisions get locked.</p>
+    </div>
+
+    <div class="def-grid">
+      <!-- TENET as the upstream hero block -->
+      <aside class="def-hero">
+        <div class="def-hero-tag">The upstream creative layer</div>
+        <div class="def-hero-mark">TENET</div>
+        <ul class="def-hero-list">
+          <li><span class="bull"></span>Explore ideas quickly</li>
+          <li><span class="bull"></span>Test pacing and structure</li>
+          <li><span class="bull"></span>Collaborate in real time</li>
+          <li><span class="bull"></span>Shape creative direction together</li>
+          <li><span class="bull"></span>Refine only the shots that survive editorial</li>
+        </ul>
+        <div class="def-hero-stamp">
+          <span class="stamp-rule"></span>
+          <span class="stamp-text">Upstream</span>
+          <span class="stamp-arrow">→</span>
+        </div>
+      </aside>
+
+      <!-- Flow: animated arrows showing TENET → downstream -->
+      <div class="def-flow">
+        <div class="flow-feeds">
+          <div class="flow-feeds-tag">Feeds in</div>
+          <div class="flow-feeds-list">Script&nbsp;·&nbsp;Ideas&nbsp;·&nbsp;References&nbsp;·&nbsp;Client constraints</div>
+        </div>
+        <svg class="flow-svg" viewBox="0 0 200 220" preserveAspectRatio="none">
+          <!-- three horizontal flow lines -->
+          <g>
+            <!-- baseline faint -->
+            <line x1="0" y1="60" x2="190" y2="60" stroke="rgba(186,117,23,0.18)" stroke-width="1"/>
+            <line x1="0" y1="60" x2="190" y2="60" stroke="#BA7517" stroke-width="1.4" stroke-dasharray="14 60" stroke-linecap="round">
+              <animate attributeName="stroke-dashoffset" from="0" to="-74" dur="2.4s" repeatCount="indefinite"/>
+            </line>
+            <polygon points="190,60 180,55 182,65" fill="#BA7517"/>
+            <circle r="2.4" fill="#BA7517">
+              <animateMotion dur="2.4s" repeatCount="indefinite" path="M0,60 L 190,60"/>
+            </circle>
+          </g>
+          <g>
+            <line x1="0" y1="110" x2="190" y2="110" stroke="rgba(26,26,26,0.18)" stroke-width="1"/>
+            <line x1="0" y1="110" x2="190" y2="110" stroke="#1A1A1A" stroke-width="1.4" stroke-dasharray="14 60" stroke-linecap="round">
+              <animate attributeName="stroke-dashoffset" from="0" to="-74" dur="2.4s" begin="-0.4s" repeatCount="indefinite"/>
+            </line>
+            <polygon points="190,110 180,105 182,115" fill="#1A1A1A"/>
+            <circle r="2.4" fill="#1A1A1A">
+              <animateMotion dur="2.4s" begin="-0.4s" repeatCount="indefinite" path="M0,110 L 190,110"/>
+            </circle>
+          </g>
+          <g>
+            <line x1="0" y1="160" x2="190" y2="160" stroke="rgba(186,117,23,0.18)" stroke-width="1"/>
+            <line x1="0" y1="160" x2="190" y2="160" stroke="#BA7517" stroke-width="1.4" stroke-dasharray="14 60" stroke-linecap="round">
+              <animate attributeName="stroke-dashoffset" from="0" to="-74" dur="2.4s" begin="-0.8s" repeatCount="indefinite"/>
+            </line>
+            <polygon points="190,160 180,155 182,165" fill="#BA7517"/>
+            <circle r="2.4" fill="#BA7517">
+              <animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M0,160 L 190,160"/>
+            </circle>
+          </g>
+        </svg>
+        <div class="flow-foot">Downstream production &nbsp;→</div>
+      </div>
+
+      <!-- Downstream column -->
+      <aside class="def-down">
+        <div class="def-down-tag">Flows downstream</div>
+        <ul class="def-down-list">
+          <li>
+            <span class="dn-nm">Editorial</span>
+            <span class="dn-meta">Premiere · Avid · Resolve</span>
+          </li>
+          <li>
+            <span class="dn-nm">VFX &amp; finishing</span>
+            <span class="dn-meta">Compositing · pipelines</span>
+          </li>
+          <li>
+            <span class="dn-nm">Production</span>
+            <span class="dn-meta">Practical &amp; on-set</span>
+          </li>
+          <li>
+            <span class="dn-nm">AI generation</span>
+            <span class="dn-meta">Model-agnostic</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">04 — Definition</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 5 — Two Companies. One Feedback Loop.
+     ============================================================ -->
+<section data-screen-label="05 Two Companies">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Structure</span>
+        <span class="crumb">Product ↔ production</span>
+      </div>
+      <div class="counter">05 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1>Two companies. One feedback loop.</h1>
+      <p class="standfirst">One builds the product. The other lives inside the problem every day.</p>
+    </div>
+
+    <div class="split">
+      <div class="pane">
+        <div class="head">
+          <div class="name amber">TENET</div>
+          <div class="role">The software platform</div>
+        </div>
+        <p class="body">TENET helps creative teams move from script to shared visual understanding before expensive production decisions are locked in.</p>
+        <p class="body muted">It lets teams rapidly test pacing, structure, tone, and production implications while ideas are still flexible.</p>
+        <div class="roster">
+          <span>Collaboration</span><span>Editorial sync</span><span>Versioning</span><span>Brand integrity</span>
+        </div>
+      </div>
+
+      <div class="loop">
+        <svg viewBox="0 0 80 220" preserveAspectRatio="xMidYMid meet">
+          <!-- top arrow: TENET → JANE (SHIPS) -->
+          <path id="loopTop" d="M8,60 C 30,52 50,52 72,60" fill="none" stroke="rgba(26,26,26,0.18)" stroke-width="1"/>
+          <path d="M8,60 C 30,52 50,52 72,60" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-dasharray="10 58" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="0" to="-68" dur="2.6s" repeatCount="indefinite"/>
+          </path>
+          <polygon points="72,60 64,56 66,64" fill="#1A1A1A"/>
+          <circle r="2.2" fill="#1A1A1A">
+            <animateMotion dur="2.6s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#loopTop"/>
+            </animateMotion>
+          </circle>
+          <text x="40" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#6B6B6B" letter-spacing="1">SHIPS</text>
+
+          <!-- bottom arrow: JANE → TENET (LEARNS) -->
+          <path id="loopBot" d="M72,160 C 50,168 30,168 8,160" fill="none" stroke="rgba(186,117,23,0.22)" stroke-width="1"/>
+          <path d="M72,160 C 50,168 30,168 8,160" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-dasharray="10 58" stroke-linecap="round">
+            <animate attributeName="stroke-dashoffset" from="0" to="-68" dur="2.6s" begin="-1.3s" repeatCount="indefinite"/>
+          </path>
+          <polygon points="8,160 16,156 14,164" fill="#BA7517"/>
+          <circle r="2.2" fill="#BA7517">
+            <animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#loopBot"/>
+            </animateMotion>
+          </circle>
+          <text x="40" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#BA7517" letter-spacing="1">LEARNS</text>
+        </svg>
+      </div>
+
+      <div class="pane pane--soft">
+        <div class="head">
+          <div class="name">JANE</div>
+          <div class="role">The production environment</div>
+        </div>
+        <p class="body">JANE began as a high-end visual effects and production company in advertising. Over the last year we've been actively integrating generative AI into real commercial workflows for brands including AT&amp;T and Cisco.</p>
+        <p class="body muted">Working inside those productions, very specific advantages, bottlenecks, and workflow problems emerge in real time. That experience became the foundation for TENET.</p>
+        <div class="roster">
+          <span>Real campaigns</span><span>Real deadlines</span><span>Real budgets</span><span>Real craft</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px; text-align: center; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 22px; color: var(--fg-2);">Every feature is shaped inside active productions by teams solving real creative and production problems under actual deadlines.</p>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span><span class="dot">·</span><span>JANE</span></div>
+      <div class="meta">05 — Structure</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 6 — Four Problems We Kept Finding
+     ============================================================ -->
+<section data-screen-label="06 Four Problems">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Production Reality</span>
+        <span class="crumb">The part no one talks about</span>
+      </div>
+      <div class="counter">06 / 13</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 12px;">
+      <div class="rule"></div>
+      <h1 class="small" style="font-size: 32px;">You type a prompt, a finished shot appears. In real production, that's fiction.</h1>
+    </div>
+
+    <div class="fourgrid">
+      <div class="tile t1">
+        <div class="num">01 — Editorial waste</div>
+        <h3>Hundreds of frames generated. Three survive the cut.</h3>
+        <div class="viz">
+          <div class="fg-frames">
+            <div class="f"></div><div class="f"></div><div class="f"></div><div class="f keep"></div><div class="f"></div><div class="f"></div>
+            <div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div>
+            <div class="f"></div><div class="f"></div><div class="f keep"></div><div class="f"></div><div class="f"></div><div class="f"></div>
+            <div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div><div class="f keep"></div>
+            <div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div><div class="f"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t2">
+        <div class="num">02 — Photoreal ≠ production-ready</div>
+        <h3>Beautiful frame. Wrong logo. Wrong tagline. Wrong color.</h3>
+        <div class="viz">
+          <div class="fg-flag" style="background-image: url('media/bad-branding.jpg');">
+            <div class="violation" style="top: 8%; left: 6%;">Logo · oversize</div>
+            <div class="violation" style="top: 36%; right: 6%;">Wrong color · not brand</div>
+            <div class="violation" style="bottom: 8%; left: 6%;">Tagline · wrong face</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t3">
+        <div class="num">03 — Craft is the difference</div>
+        <h3>Lens. Light. Deliberate imperfection. The things AI doesn't know to do.</h3>
+        <div class="viz">
+          <div class="fg-compare">
+            <div class="still" style="background-image: url('media/dog-prompt-only.png');"><span class="lbl">Prompt-only</span></div>
+            <div class="still" style="background-image: url('media/dog-pano.jpg');"><span class="lbl">Craft-led</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t4">
+        <div class="num">04 — Departments work in series</div>
+        <h3>Sequential workflows. Each team waits for the last one to finish.</h3>
+        <div class="viz">
+          <div class="fg-serial">
+            <div class="dept cycle active">
+              <div class="head"><span class="nm">DP</span><span class="role">Camera · blocking</span></div>
+              <span class="status">live</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">PD</span><span class="role">Set · props</span></div>
+              <span class="status">waiting…</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">Loc</span><span class="role">Scout · refs</span></div>
+              <span class="status">waiting…</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">Cast</span><span class="role">Casting · wardrobe</span></div>
+              <span class="status">waiting…</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">Cos</span><span class="role">Styling · fitting</span></div>
+              <span class="status">waiting…</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">VFX</span><span class="role">Layer planning</span></div>
+              <span class="status">waiting…</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">Color</span><span class="role">Grade · continuity</span></div>
+              <span class="status">waiting…</span>
+            </div>
+            <div class="dept cycle waiting">
+              <div class="head"><span class="nm">Snd</span><span class="role">Atmosphere · tone</span></div>
+              <span class="status">waiting…</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">06 — Production reality</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 7 — Built Around Existing Editorial Workflows
+     ============================================================ -->
+<section data-screen-label="07 Editorial Integration">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Integration</span>
+        <span class="crumb">The moat</span>
+      </div>
+      <div class="counter">07 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1 class="small">Built around existing editorial workflows.</h1>
+      <p class="standfirst">TENET is not an editing platform. Editors stay in Premiere, Avid, Resolve. TENET feeds those tools — and learns from them.</p>
+    </div>
+
+    <div class="edit-diagram">
+      <div class="col col--left">
+        <div class="tool" style="text-align: right;">
+          <div class="nm">Generated sequence</div>
+          <div class="meta">Rough cut · v0.3</div>
+        </div>
+        <div class="tool" style="text-align: right;">
+          <div class="nm">Asset metadata</div>
+          <div class="meta">Shot · take · version</div>
+        </div>
+        <div class="tool" style="text-align: right;">
+          <div class="nm">Version history</div>
+          <div class="meta">Branch / merge / revert</div>
+        </div>
+      </div>
+
+      <div class="hub">
+        <div class="core">
+          <div class="wm">TENET</div>
+          <div class="sub">Collaborative<br>development</div>
+        </div>
+        <div class="arrow-row ar-out" style="top: 30%;">
+          <div class="arrow-line right">
+            <span class="lbl">Generated assets &amp; metadata</span>
+          </div>
+        </div>
+        <div class="arrow-row ar-in" style="bottom: 30%;">
+          <div class="arrow-line left">
+            <span class="lbl">EDL · XML · cut decisions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col--right">
+        <div class="tool">
+          <div class="nm">Premiere</div>
+          <div class="meta">Adobe</div>
+        </div>
+        <div class="tool">
+          <div class="nm">Avid</div>
+          <div class="meta">Media Composer</div>
+        </div>
+        <div class="tool">
+          <div class="nm">Resolve</div>
+          <div class="meta">DaVinci</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edit-legend">
+      <div class="lg-col">
+        <h4>TENET tracks</h4>
+        <ul>
+          <li>generated assets</li>
+          <li>metadata</li>
+          <li>version history</li>
+        </ul>
+      </div>
+      <div class="lg-col">
+        <h4>Editorial returns</h4>
+        <ul>
+          <li>which shots survived</li>
+          <li>which didn't</li>
+          <li>where craft refinement is worth the money</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">07 — Integration</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 8 — Why This Position Matters
+     ============================================================ -->
+<section data-screen-label="08 Position">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Strategic Position</span>
+        <span class="crumb">Upstream of generation</span>
+      </div>
+      <div class="counter">08 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1 class="small">Most AI companies optimize execution.</h1>
+    </div>
+
+    <div class="stack-diag">
+      <div class="viz">
+        <div class="crown">
+          <div class="wm">TENET</div>
+          <div class="sub">Creative decisions</div>
+        </div>
+        <div class="down-stem"></div>
+        <div class="fan">
+          <div class="branch"><div class="box">High-fidelity generation</div></div>
+          <div class="branch"><div class="box">Practical production</div></div>
+          <div class="branch"><div class="box">VFX</div></div>
+          <div class="branch"><div class="box">Editorial refinement</div></div>
+          <div class="branch"><div class="box">Final execution</div></div>
+        </div>
+      </div>
+
+      <div class="quote">
+        <div class="line1">Most AI companies optimize execution.</div>
+        <div class="line2">TENET optimizes <span class="amber">alignment</span>.</div>
+        <div class="line3">The output is <span style="color: var(--fg-accent);">conviction</span>.</div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">08 — Strategic position</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 9 — TENET Starts Before Production (live session)
+     ============================================================ -->
+<section data-screen-label="09 Live Session">
+  <div class="slide-pad slide-pad--wide">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Working Session</span>
+        <span class="crumb">Rapid creative exploration</span>
+      </div>
+      <div class="counter">09 / 13</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 28px;">
+      <div class="rule"></div>
+      <h1 class="small">TENET starts before production.</h1>
+      <p class="standfirst" style="font-size: 18px; max-width: 1200px;">The first stage is rapid creative exploration. Final rendering comes much later — and only on the shots that earn it. The sequence evolves live during reviews.</p>
+    </div>
+
+    <div class="live-ui">
+      <div class="ui-tab">
+        <div class="traf"><div class="d"></div><div class="d"></div><div class="d"></div></div>
+        <div class="crumbs"><span>MOJO · JETT_JOURNEY</span><span style="color: var(--fg-3);">/</span><span class="here">Sequence · v0.3</span></div>
+        <div class="right">
+          <span>LIVE · 4 in session</span>
+          <div class="avatars">
+            <div class="avatar amber">DP</div>
+            <div class="avatar ink">ED</div>
+            <div class="avatar" style="background: #6B6B6B;">DR</div>
+            <div class="avatar" style="background: #9A9A9A;">CL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-script">
+        <div class="sh">Script · Scene 14</div>
+        <div class="slug">EXT. STREET CORNER — DAY</div>
+        <p>JETT blasts through the city. He threads past skaters and pull-up bars, weightless. The energy builds.</p>
+        <p>A dance circle forms. Beats stack. <span class="hi">JETT crashes straight into the middle</span> — and the crowd LOCKS IN.</p>
+        <div class="slug">CUT TO:</div>
+        <p>Top shot. Battle mode. Spins, slides, chaos in rhythm. One final move freezes the circle.</p>
+        <p style="color: var(--fg-3); font-size: 11px; margin-top: 16px;">Editor noted: hold longer on 14a before the cut to crowd reaction. Currently 6 frames short.</p>
+      </div>
+
+      <div class="ui-stage">
+        <div class="canvas" style="background-image: url('media/board-14.jpg');">
+          <span class="ph">SHOT 14a · ACTIVE · BOARDED</span>
+
+          <div class="pin" style="top: 12%; left: 8%;">
+            <div class="dot"></div>
+            <div class="bubble">
+              <div class="who">Editor · 4m ago</div>
+              Hold 14a another six frames before cutting to 14b. The impact has to land before the crowd locks in.
+            </div>
+          </div>
+
+          <div class="pin" style="top: 8%; right: 6%;">
+            <div class="dot" style="background: var(--ink);"></div>
+            <div class="bubble">
+              <div class="who">Director · 2m ago</div>
+              Crash angle is right. Bring the CAM arrow energy into the next two frames — keep the kinetic line.
+            </div>
+          </div>
+
+          <div class="pin" style="bottom: 16%; left: 18%;">
+            <div class="dot" style="background: #6B6B6B;"></div>
+            <div class="bubble">
+              <div class="who">Brand · 30s ago</div>
+              MOJO tablets need to read in 3a–3c. Confirm headphone tone matches the brand orange across the sequence.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-timeline">
+        <div class="tl-head">
+          <div>Timeline · Reel 01</div>
+          <div class="tc">00:14:08</div>
+        </div>
+        <div class="tl-track">
+          <div class="frame locked" style="background-image: url('media/board-01.jpg');"><span class="badge">1a</span></div>
+          <div class="frame locked" style="background-image: url('media/board-02.jpg');"><span class="badge">1b</span></div>
+          <div class="frame locked" style="background-image: url('media/board-03.jpg');"><span class="badge">2</span></div>
+          <div class="frame locked" style="background-image: url('media/board-04.jpg');"><span class="badge">3a</span></div>
+          <div class="frame locked" style="background-image: url('media/board-05.jpg');"><span class="badge">3b</span></div>
+          <div class="frame locked" style="background-image: url('media/board-06.jpg');"><span class="badge">3c</span></div>
+          <div class="frame" style="background-image: url('media/board-07.jpg');"><span class="badge">11b</span></div>
+          <div class="frame" style="background-image: url('media/board-08.jpg');"><span class="badge">11c</span></div>
+          <div class="frame" style="background-image: url('media/board-09.jpg');"><span class="badge">11d</span></div>
+          <div class="frame draft" style="background-image: url('media/board-10.jpg');"><span class="badge">12a</span></div>
+          <div class="frame" style="background-image: url('media/board-11.jpg');"><span class="badge">12b</span></div>
+          <div class="frame" style="background-image: url('media/board-12.jpg');"><span class="badge">12c</span></div>
+          <div class="frame" style="background-image: url('media/board-13.jpg');"><span class="badge">13</span></div>
+          <div class="frame active" style="background-image: url('media/board-14.jpg');"><span class="badge">14a</span></div>
+          <div class="frame draft" style="background-image: url('media/board-15.jpg');"><span class="badge">14b</span></div>
+          <div class="frame draft" style="background-image: url('media/board-16.jpg');"><span class="badge">15a</span></div>
+          <div class="frame draft" style="background-image: url('media/board-17.jpg');"><span class="badge">15b</span></div>
+          <div class="frame draft" style="background-image: url('media/board-18.jpg');"><span class="badge">16</span></div>
+          <div class="frame" style="background-image: url('media/board-19.jpg');"><span class="badge">17</span></div>
+          <div class="frame" style="background-image: url('media/board-20.jpg');"><span class="badge">18</span></div>
+          <div class="frame" style="background-image: url('media/board-21.jpg');"><span class="badge">19</span></div>
+          <div class="frame draft" style="background-image: url('media/board-22.jpg');"><span class="badge">20a</span></div>
+          <div class="frame draft" style="background-image: url('media/board-23.jpg');"><span class="badge">20b</span></div>
+          <div class="frame draft" style="background-image: url('media/board-24.jpg');"><span class="badge">20c</span></div>
+          <div class="frame" style="background-image: url('media/board-25.jpg');"><span class="badge">21a</span></div>
+          <div class="frame" style="background-image: url('media/board-26.jpg');"><span class="badge">21b</span></div>
+          <div class="frame" style="background-image: url('media/board-27.jpg');"><span class="badge">22</span></div>
+          <div class="frame" style="background-image: url('media/board-28.jpg');"><span class="badge">23</span></div>
+          <div class="frame" style="background-image: url('media/board-29.jpg');"><span class="badge">24</span></div>
+          <div class="frame draft" style="background-image: url('media/board-30.jpg');"><span class="badge">25a</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">09 — Working session · UI is interpretive</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 10 — Refinement Starts After the Story Works
+     ============================================================ -->
+<section data-screen-label="10 Refinement">
+  <div class="slide-pad">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Refinement</span>
+        <span class="crumb">Decision precedes prompt</span>
+      </div>
+      <div class="counter">10 / 13</div>
+    </div>
+
+    <div class="titleblock">
+      <div class="rule"></div>
+      <h1 class="small">Refinement starts after the story works.</h1>
+      <p class="standfirst">Once the editorial structure is approved, visual refinement begins. Most AI workflows start with a text prompt. TENET starts with a creative decision.</p>
+    </div>
+
+    <div class="six-step">
+      <div class="step amber">
+        <div class="nx">00</div>
+        <div class="lbl">Alignment</div>
+      </div>
+      <div class="step amber">
+        <div class="nx">01</div>
+        <div class="lbl">Editorial</div>
+      </div>
+      <div class="step amber">
+        <div class="nx">02</div>
+        <div class="lbl">Hero still</div>
+      </div>
+      <div class="step">
+        <div class="nx">03</div>
+        <div class="lbl">Prompt</div>
+      </div>
+      <div class="step">
+        <div class="nx">04</div>
+        <div class="lbl">Motion</div>
+      </div>
+      <div class="step">
+        <div class="nx">05</div>
+        <div class="lbl">Reintegration</div>
+      </div>
+    </div>
+
+    <div class="s10-closing">
+      <div class="l1">Every other AI workflow starts with a guess.</div>
+      <div class="l2">TENET starts with <span class="amber">intent</span>.</div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">10 — Refinement</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 11 — Single-Artist Workflow
+     ============================================================ -->
+<section data-screen-label="11 Single Artist">
+  <div class="slide-pad slide-pad--wide">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">One Eye</span>
+        <span class="crumb">Single-artist workflow</span>
+      </div>
+      <div class="counter">11 / 13</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 28px;">
+      <div class="rule"></div>
+      <h1 class="small">One craftsperson locks the frame. Then generation begins.</h1>
+    </div>
+
+    <div class="canvas-wrap">
+      <div class="canvas-text">
+        <div class="frame-pair-mini">
+          <div class="mini" style="background-image: url('media/first-frame.jpg');"></div>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24"><line x1="2" y1="12" x2="22" y2="12" stroke="#6B6B6B" stroke-width="1"/><polyline points="18,7 22,12 18,17" fill="none" stroke="#6B6B6B" stroke-width="1"/></svg>
+          </div>
+          <div class="mini" style="background-image: url('media/last-frame.jpg');"></div>
+        </div>
+        <div class="pair-cap">First frame &nbsp;→&nbsp; last frame · the stills we developed before making them move</div>
+
+        <p class="ks">A craftsperson develops a still frame first — composition, lighting, lensing, production design, tone.</p>
+
+        <ul class="input-list">
+          <li><span class="num">01</span><span>Composition</span><span class="role">Block · frame</span></li>
+          <li><span class="num">02</span><span>Lighting</span><span class="role">Hour · direction</span></li>
+          <li><span class="num">03</span><span>Lens language</span><span class="role">Optics · grain</span></li>
+          <li><span class="num">04</span><span>Production design</span><span class="role">Set · props · wardrobe</span></li>
+          <li><span class="num">05</span><span>Tone</span><span class="role">Mood · grade</span></li>
+        </ul>
+
+        <p class="ks amber-pull" style="margin-top: 4px;">One eye shaping the shot until it feels right.</p>
+      </div>
+
+      <div class="video-stage">
+        <div class="video-frame">
+          <video
+            src="media/windshield.mp4"
+            poster="media/first-frame.jpg"
+            controls
+            playsinline
+            preload="metadata"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#000;">
+          </video>
+        </div>
+        <div class="video-caption">
+          <span>Locked still &nbsp;→&nbsp; generated motion</span>
+          <span class="pill">One eye · five decisions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">11 — Locked still · generated motion</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 12 — Collaborative Workflow
+     ============================================================ -->
+<section data-screen-label="12 Collaborative">
+  <div class="slide-pad slide-pad--wide">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Same Canvas</span>
+        <span class="crumb">Collaborative workflow</span>
+      </div>
+      <div class="counter">12 / 13</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 28px;">
+      <div class="rule"></div>
+      <h1 class="small">Same canvas. Same hero shot. Eight departments.</h1>
+    </div>
+
+    <div class="canvas-wrap canvas-wrap--orbit-big">
+      <div class="video-stage">
+        <div class="orbit-canvas">
+          <div class="orbit-pin pin-n">
+            <div class="tag"><span class="nm">DP</span><span class="role">Camera · blocking</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-ne">
+            <div class="tag"><span class="nm">Sound</span><span class="role">Atmosphere · tone</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-e">
+            <div class="tag"><span class="nm">Color</span><span class="role">Grade · continuity</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-se">
+            <div class="tag"><span class="nm">VFX</span><span class="role">Layer planning</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-s">
+            <div class="tag"><span class="nm">Costume</span><span class="role">Styling · fitting</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-sw">
+            <div class="tag"><span class="nm">Talent</span><span class="role">Casting · wardrobe</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-w">
+            <div class="tag"><span class="nm">Locations</span><span class="role">Scouting · refs</span></div>
+            <div class="swatch"></div>
+          </div>
+          <div class="orbit-pin pin-nw">
+            <div class="tag"><span class="nm">Production design</span><span class="role">Set · props · palette</span></div>
+            <div class="swatch"></div>
+          </div>
+
+          <div class="hero-frame" style="background-image: url('media/hero-frame-12.jpg');">
+            <div class="frame-tag">Same locked frame</div>
+            <div class="tc">04:21:08</div>
+          </div>
+        </div>
+
+        <div class="video-caption" style="margin-top: 20px;">
+          <span>Revisions propagate across departments — against the same evolving target.</span>
+          <span class="pill">Eight eyes · one canvas</span>
+        </div>
+      </div>
+
+      <div class="canvas-text">
+        <p class="ks">Same canvas. Same hero shot.</p>
+        <p class="ks muted">More craft people, working at the same time, against the same evolving target.</p>
+        <p class="ks">This is where TENET expands from advertising into feature films, episodic storytelling, and large-scale collaborative productions.</p>
+
+        <ul class="dept-list">
+          <li><span class="num">01</span><span>DP</span><span class="role">Camera · blocking</span></li>
+          <li><span class="num">02</span><span>Production design</span><span class="role">Set · props · palette</span></li>
+          <li><span class="num">03</span><span>Locations</span><span class="role">Scouting · refs</span></li>
+          <li><span class="num">04</span><span>Talent</span><span class="role">Casting · wardrobe</span></li>
+          <li><span class="num">05</span><span>Costume</span><span class="role">Styling · fitting</span></li>
+          <li><span class="num">06</span><span>VFX</span><span class="role">Layer planning</span></li>
+          <li><span class="num">07</span><span>Color</span><span class="role">Grade · continuity</span></li>
+          <li><span class="num">08</span><span>Sound</span><span class="role">Atmosphere · tone</span></li>
+        </ul>
+
+        <p class="ks amber-pull" style="margin-top: 8px;">More departments earlier — not fewer.</p>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span></div>
+      <div class="meta">12 — Eight departments · one canvas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 13 — Brand Integrity Layer (Cisco profile)
+     ============================================================ -->
+<section data-screen-label="13 Brand Integrity">
+  <div class="slide-pad slide-pad--wide">
+    <div class="chrome-top">
+      <div class="left">
+        <span class="kicker">Enterprise</span>
+        <span class="crumb">Brand integrity layer · Cisco profile</span>
+      </div>
+      <div class="counter">13 / 13</div>
+    </div>
+
+    <div class="titleblock" style="margin-bottom: 22px;">
+      <div class="rule"></div>
+      <h1 class="small">Brand integrity layer.</h1>
+      <p class="standfirst" style="font-size: 16px; max-width: 1200px; margin-top: 12px;">Upload the brand system once. TENET turns rules into structured production logic — applied automatically across every generated asset, edit, cutdown, and regional variant.</p>
+    </div>
+
+    <div class="brand-layer">
+      <div class="brand-dashboard">
+        <!-- LEFT: brand profile rules -->
+        <aside class="brand-panel">
+          <header>
+            <span class="label">Brand profile</span>
+            <span class="id">CISCO · v 1.4</span>
+          </header>
+          <div class="rule-row"><span class="k">Subtitle face</span><span class="v">CiscoSansTT Reg</span></div>
+          <div class="rule-row"><span class="k">Title face</span><span class="v">CiscoSansTT XLt</span></div>
+          <div class="rule-row"><span class="k">Lower-third</span><span class="v">CiscoTT Medium</span></div>
+          <div class="rule-row"><span class="k">Subtitle limit</span><span class="v amber">42 char · long</span></div>
+          <div class="rule-row"><span class="k">Subtitle limit</span><span class="v amber">33 char · social</span></div>
+          <div class="rule-row"><span class="k">Subtitle outline</span><span class="v">1 px black</span></div>
+          <div class="rule-row"><span class="k">Logo height</span><span class="v">16.7 % H</span></div>
+          <div class="rule-row"><span class="k">Bug (16:9)</span><span class="v">br · ≥ 5 s</span></div>
+          <div class="rule-row"><span class="k">Bug (9:16, 1:1)</span><span class="v">tr · 5 s</span></div>
+          <div class="rule-row"><span class="k">LinkedIn</span><span class="v">logo top-left</span></div>
+          <div class="rule-row"><span class="k">CTA placement</span><span class="v">10 % from btm</span></div>
+          <div class="rule-row"><span class="k">Partner logos</span><span class="v">≤ 12 % H</span></div>
+        </aside>
+
+        <!-- CENTER: master annotated frame -->
+        <div class="master-frame-wrap">
+          <div class="bg" style="background-image: url('media/cisco-cubes.png');"></div>
+
+          <div class="cisco-overlay">
+            <div class="cisco-subtitle">This is a single line of text.</div>
+
+            <div class="cisco-logobug">
+              <span class="h">CISCO</span>
+              <span class="meta">5 s · 16.7%H</span>
+            </div>
+
+            <div class="cisco-lowerthird">
+              <div class="name">Sekizawa Seisakusho</div>
+              <div class="title">Surfboard Shaper, Kanagawa</div>
+            </div>
+
+            <!-- Spec annotations (positioned to not collide w/ overlays) -->
+            <div class="anno-callout" style="left: 4%; top: 6%;">MASTER · 1920 × 1080 · CISCO PROFILE LOADED</div>
+            <div class="anno-callout" style="left: 4%; bottom: 14%;">SUBTITLE · 27 PX · 90 PX FROM BOTTOM</div>
+            <div class="anno-callout" style="right: 4%; top: 6%;">LOGO BUG · 5 S · BR (16:9)</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: outputs queue -->
+        <aside class="brand-panel">
+          <header>
+            <span class="label">Outputs</span>
+            <span class="id">12 / 12 OK</span>
+          </header>
+          <div class="rule-row"><span class="k">16:9 · 1920×1080</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">16:9 · 4K UHD</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">16:9 · 8K UHD</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">9:16 · vertical</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">1:1 · square</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">15 s cutdown</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">6 s bumper</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">LinkedIn · TL bug</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">End card A / B</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">CTA · cisco.com</span><span class="v amber">✓</span></div>
+          <div class="rule-row"><span class="k">Lower-third</span><span class="v amber">✓</span></div>
+          <div class="rule-row" style="border-top: 1px solid var(--rule); padding-top: 8px; margin-top: 2px;"><span class="k" style="color: var(--fg-1);">From</span><span class="v" style="color: var(--fg-1);">1 master</span></div>
+        </aside>
+      </div>
+
+      <!-- Brand-system tiles -->
+      <div class="brand-systems">
+        <div class="sys">
+          <div class="nm">Typography</div>
+          <div class="cap">Locked faces and weights, per Cisco context — subtitle, title, lower third — applied automatically.</div>
+          <div class="spec">
+            <span>SUBTITLE</span><span>CiscoSansTT Reg · 27 px</span>
+            <span>TITLE</span><span>CiscoSansTT XLt · 45 px</span>
+            <span>LOWER THIRD</span><span>CiscoTT Medium · 15 px</span>
+          </div>
+        </div>
+        <div class="sys">
+          <div class="nm">Color &amp; treatment</div>
+          <div class="cap">White type on black, Midnight Blue, or image. Subtitles always with 1 px black outline. No grey bars behind titles.</div>
+          <div class="spec">
+            <span>BACKGROUND</span><span>black · midnight · img</span>
+            <span>SUBTITLE</span><span>white + 1 px outline</span>
+          </div>
+        </div>
+        <div class="sys">
+          <div class="nm">Legal &amp; placement</div>
+          <div class="cap">Logo bug, CTA, and partner logos placed to spec per aspect ratio. Confidential watermark where required.</div>
+          <div class="spec">
+            <span>LOGO H</span><span>screen × 0.167</span>
+            <span>CTA</span><span>10 % from bottom</span>
+            <span>PARTNER</span><span>≤ 12 % H</span>
+          </div>
+        </div>
+        <div class="sys">
+          <div class="nm">Versioning</div>
+          <div class="cap">One master resolves to every Cisco format: HD, 4K, 8K, 9:16, 1:1, 15 s, 6 s. No rebuilds.</div>
+          <div class="spec">
+            <span>RES</span><span>HD · 4K · 8K</span>
+            <span>RATIOS</span><span>16:9 · 9:16 · 1:1</span>
+            <span>CUTS</span><span>30 · 15 · 6 s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chrome-bottom">
+      <div class="lockup"><span>Anona</span><span class="dot">·</span><span class="amber">TENET</span><span class="dot">·</span><span>Cisco profile</span></div>
+      <div class="meta">13 — Brand integrity · 12 outputs from 1 master</div>
+    </div>
+  </div>
+</section>
+
+
+
+</deck-stage>
+
+<script>
+/* Slide 6 — animate the amber highlight down the serial workflow.
+   Every 2s the active dept hands off to the next, showing the bottleneck. */
+(function () {
+  function startSerialCycle() {
+    const cycleNodes = document.querySelectorAll('.fg-serial .dept.cycle');
+    if (!cycleNodes.length) return;
+
+    const STATUS = {
+      waiting: "waiting…",
+      active:  "live",
+      done:    "queued ✓"
+    };
+
+    // total = number of cycle depts + 1 "all done" pause frame
+    const total = cycleNodes.length + 1;
+    let step = 0;
+
+    function render() {
+      cycleNodes.forEach(function (d, i) {
+        d.classList.remove("active", "done", "waiting");
+        const status = d.querySelector(".status");
+        if (i < step) {
+          d.classList.add("done");
+          if (status) status.textContent = STATUS.done;
+        } else if (i === step) {
+          d.classList.add("active");
+          if (status) status.textContent = STATUS.active;
+        } else {
+          d.classList.add("waiting");
+          if (status) status.textContent = STATUS.waiting;
+        }
+      });
+      step = (step + 1) % total;
+    }
+
+    render();
+    setInterval(render, 2000);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startSerialCycle);
+  } else {
+    startSerialCycle();
+  }
+})();
+</script>
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+</body>
+</html>

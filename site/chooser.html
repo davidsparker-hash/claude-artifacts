@@ -25,7 +25,7 @@
     display: flex; justify-content: space-between; align-items: baseline;
     padding: 38px 64px;
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--fg-3);
     z-index: 50;
     pointer-events: none;
@@ -49,7 +49,7 @@
     display: flex; align-items: baseline; gap: 0;
     font-family: var(--font-mono); font-weight: 400;
     letter-spacing: 0.14em; text-transform: uppercase;
-    font-size: 11px; color: var(--fg-3);
+    font-size: 12px; color: var(--fg-3);
   }
   .chrome .lockup .dot { color: var(--rule-strong); margin: 0 12px; }
   .chrome .lockup .amber { color: var(--fg-accent); transition: color 130ms ease; }
@@ -64,7 +64,7 @@
   .signout {
     background: none; border: 0;
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--fg-3);
     cursor: pointer;
     padding: 0;
@@ -104,7 +104,7 @@
   }
   .mast-company .kicker {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-3);
     margin-bottom: 26px;
   }
@@ -131,7 +131,7 @@
   /* RIGHT — Tenet, the product under review */
   .mast-product .kicker {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-accent);
     margin-bottom: 18px;
     display: inline-flex; align-items: center; gap: 16px;
@@ -177,12 +177,16 @@
   /* ── Cards ─────────────────────────────────────────────── */
   .section-divide { height: 1px; background: var(--rule); border: 0; margin: -6px 0 46px; }
   .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
     align-items: stretch;
   }
   .card {
+    flex: 1 1 258px;
+    min-width: 258px;
+    max-width: 420px;
     position: relative;
     display: flex; flex-direction: column;
     background: var(--bg-2);
@@ -216,7 +220,7 @@
   }
   .card-kicker {
     font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-accent);
     margin-bottom: 16px;
   }
@@ -258,7 +262,7 @@
   }
   .meta-item {
     font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--fg-3);
   }
   .meta-item strong {
@@ -337,7 +341,7 @@
   .thumb-calc .calc-slot { width: 116px; height: 200px; overflow: hidden; position: relative; margin-bottom: -3px;
     -webkit-mask-image: linear-gradient(to top, #000 64%, transparent 100%); mask-image: linear-gradient(to top, #000 64%, transparent 100%); }
   .thumb-calc .calc-paper { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border: 1px solid var(--rule); border-bottom: none; padding: 4px 12px; box-shadow: 0 0 14px rgba(0,0,0,0.06); animation: calc-tape 9s linear infinite; }
-  .thumb-calc .tl { display: flex; justify-content: space-between; gap: 10px; font-family: var(--font-mono); font-size: 9px; color: #1A1A1A; padding: 5px 0; border-bottom: 1px dashed rgba(0,0,0,0.12); }
+  .thumb-calc .tl { display: flex; justify-content: space-between; gap: 10px; font-family: var(--font-mono); font-size: 11px; color: #1A1A1A; padding: 5px 0; border-bottom: 1px dashed rgba(0,0,0,0.12); }
   .thumb-calc .tl span:first-child { color: #6B6B6B; letter-spacing: 0.1em; }
   .thumb-calc .tl.total { border-bottom: none; border-top: 1px solid #1A1A1A; margin-top: 2px; padding-top: 6px; }
   .thumb-calc .tl.total span { color: #BA7517; font-weight: 700; }
@@ -376,7 +380,7 @@
     padding: 14px 18px;
     display: flex; justify-content: space-between; align-items: center;
     font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.20em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase;
     background: rgba(255,255,255,0.92);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -423,7 +427,7 @@
     top: 26px; right: 32px;
     display: flex; align-items: center; gap: 12px;
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-accent);
   }
@@ -460,7 +464,7 @@
   }
   .thumb-stage1 .script-mini .lbl {
     font-family: var(--font-mono);
-    font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-accent);
     margin-bottom: 8px;
   }
@@ -506,6 +510,31 @@
     transform: translateX(-50%);
     width: 86px; height: 54px;
   }
+
+  /* ── Thumb: Cap table — top hat on a table ─────────────── */
+  .thumb-hat { position: absolute; inset: 0; background: var(--paper-soft); overflow: hidden; }
+  .thumb-hat .surface { position: absolute; left: 0; right: 0; bottom: 38px; height: 1px; background: var(--rule-strong); }
+  .thumb-hat .face { position: absolute; left: 0; right: 0; bottom: 0; height: 38px; background: linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 100%); }
+  .thumb-hat .hat { position: absolute; left: 50%; bottom: 38px; transform: translateX(-50%); width: 150px; height: 104px; animation: hat-bob 5.2s ease-in-out infinite; transform-origin: bottom center; }
+  .thumb-hat .brim { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 150px; height: 20px; background: #1A1A1A; border-radius: 50%; }
+  .thumb-hat .crown { position: absolute; left: 50%; bottom: 9px; transform: translateX(-50%); width: 84px; height: 92px; background: #1A1A1A; border-radius: 9px 9px 3px 3px; }
+  .thumb-hat .band { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); width: 84px; height: 13px; background: var(--fg-accent); }
+  .thumb-hat .shadow { position: absolute; left: 50%; bottom: 31px; transform: translateX(-50%); width: 134px; height: 12px; background: rgba(0,0,0,0.13); border-radius: 50%; filter: blur(3px); }
+  @keyframes hat-bob { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-5px); } }
+  @media (prefers-reduced-motion: reduce) { .thumb-hat .hat { animation: none; } }
+
+  /* ── Thumb: Competition — sight target / reticle ───────── */
+  .thumb-target { position: absolute; inset: 0; background: var(--paper-soft); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .thumb-target svg { width: 188px; height: 188px; display: block; }
+  .thumb-target .ring { fill: none; stroke: rgba(0,0,0,0.14); }
+  .thumb-target .ring-am { stroke: var(--fg-accent); }
+  .thumb-target .tick { stroke: rgba(0,0,0,0.32); stroke-width: 2; }
+  .thumb-target .dot { fill: var(--fg-accent); }
+  .thumb-target .spin { transform-origin: 100px 100px; animation: tgt-spin 24s linear infinite; }
+  .thumb-target .pulse { transform-origin: 100px 100px; animation: tgt-pulse 3.2s ease-in-out infinite; }
+  @keyframes tgt-spin { to { transform: rotate(360deg); } }
+  @keyframes tgt-pulse { 0%, 100% { opacity: 0.5; transform: scale(0.86); } 50% { opacity: 1; transform: scale(1.12); } }
+  @media (prefers-reduced-motion: reduce) { .thumb-target .spin, .thumb-target .pulse { animation: none; } }
 
   /* ── Responsive ────────────────────────────────────────── */
   @media (max-width: 1080px) {
@@ -752,6 +781,71 @@
       </div>
     </a>
 
+    <!-- ─────────── CARD 5: Cap Table at a Glance ─────────── -->
+    <a class="card" href="ANONA_cap_table.html">
+      <div class="thumb">
+        <div class="thumb-hat">
+          <div class="surface"></div>
+          <div class="face"></div>
+          <div class="shadow"></div>
+          <div class="hat">
+            <div class="brim"></div>
+            <div class="crown"></div>
+            <div class="band"></div>
+          </div>
+        </div>
+      </div>
+      <div class="body-area">
+        <div class="card-kicker">The ownership</div>
+        <h2 class="card-title">Cap Table <em>at a Glance</em></h2>
+        <p class="card-tagline">Who owns what, at close.</p>
+        <p class="card-desc">The investor-facing ownership view — round terms, the table at close, how the round builds by check size, and what a $250K check returns. Reconciles to the seed model.</p>
+        <div class="meta-row">
+          <div class="meta-item">Post-money<strong>$19.0M</strong></div>
+          <div class="meta-item">Min check<strong>$250K</strong></div>
+          <div class="meta-item">Format<strong>Live + .docx</strong></div>
+        </div>
+        <div class="open-cta">
+          Open the view
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- ─────────── CARD 6: Competitive Landscape deck ─────────── -->
+    <a class="card" href="competition_deck/TENET%20Competitive%20Landscape.html">
+      <div class="thumb">
+        <div class="thumb-target">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="ring spin" cx="100" cy="100" r="86" stroke-width="1.5" stroke-dasharray="3 9"></circle>
+            <circle class="ring" cx="100" cy="100" r="64" stroke-width="1.5"></circle>
+            <circle class="ring ring-am" cx="100" cy="100" r="40" stroke-width="2"></circle>
+            <circle class="ring pulse" cx="100" cy="100" r="22" stroke-width="1.5"></circle>
+            <line class="tick" x1="100" y1="2" x2="100" y2="26"></line>
+            <line class="tick" x1="100" y1="174" x2="100" y2="198"></line>
+            <line class="tick" x1="2" y1="100" x2="26" y2="100"></line>
+            <line class="tick" x1="174" y1="100" x2="198" y2="100"></line>
+            <circle class="dot" cx="100" cy="100" r="5"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="body-area">
+        <div class="card-kicker">The competition</div>
+        <h2 class="card-title">Competitive <em>Landscape</em></h2>
+        <p class="card-tagline">The contested center.</p>
+        <p class="card-desc">Where TENET sits, the four categories converging on the layer, the “why not them” rebuttal, and how the market is sized — distilled from the full research, with downloads.</p>
+        <div class="meta-row">
+          <div class="meta-item">Slides<strong>8</strong></div>
+          <div class="meta-item">Read time<strong>~6 min</strong></div>
+          <div class="meta-item">Sources<strong>3 docs</strong></div>
+        </div>
+        <div class="open-cta">
+          Open the deck
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
   </div>
 </main>
 
@@ -763,9 +857,8 @@
 </footer>
 
 <script>
-  // AUTH (not design): the real session check, "signed in as" (#who) fill,
-  // and sign-out (#signout) are handled by /_auth/guard.js, loaded below.
-  // The previous anona-auth localStorage check + sign-out have been removed.
+  // AUTH (not design): the design's anona-auth check + sign-out has been removed.
+  // /_auth/guard.js handles the session check, "signed in as" (#who), and sign-out (#signout).
 
   // ── Animate the tiny voice waveform in Stage 1 thumb ─────
   (function buildWaves() {
@@ -936,6 +1029,5 @@ ReactDOM.render(<InvestorThumbTweaks />, document.getElementById('tweaks-root'))
 <!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
 <script src="/_auth/config.js"></script>
 <script type="module" src="/_auth/guard.js"></script>
-
 </body>
 </html>

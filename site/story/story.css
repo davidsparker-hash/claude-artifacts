@@ -1,0 +1,408 @@
+/* ============================================================
+   TENET — The Complete Story
+   Editorial document layout, built on the Anona foundations.
+   Imports the shared token sheet; defines page + section system.
+   ============================================================ */
+
+@import url("../colors_and_type.css");
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+/* ---------- The page ---------- */
+/* A single tall reading sheet. Centered, with internal asymmetry:
+   content is left-anchored; the right column is left to breathe. */
+.sheet {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 96px) clamp(28px, 7vw, 120px) 0;
+}
+
+/* The editorial grid: a narrow left rail for numerals/meta,
+   a wide measure for prose, and open air on the right. */
+.row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 640px) 1fr;
+  column-gap: clamp(24px, 4vw, 56px);
+}
+
+/* ============================================================
+   Masthead
+   ============================================================ */
+.masthead {
+  padding-bottom: var(--s-8);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: var(--s-9);
+}
+.masthead__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-9);
+}
+.brandline {
+  font-family: var(--font-display);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wordmark);
+  font-size: var(--fs-h4);
+  color: var(--fg-1);
+}
+.brandline .tenet { color: var(--fg-accent); }
+.brandline .dot { color: var(--fg-3); margin: 0 var(--s-3); }
+.masthead__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.04em;
+  color: var(--fg-3);
+  text-transform: uppercase;
+}
+
+.amber-rule {
+  height: 1px;
+  width: 48px;
+  background: var(--fg-accent);
+  margin-bottom: var(--s-5);
+}
+
+.masthead__kicker {
+  font-size: var(--fs-kicker);
+  font-weight: 400;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+  margin: 0 0 var(--s-5);
+}
+.masthead__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display-l);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--s-6);
+  max-width: 16ch;
+}
+.masthead__deck {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg-2);
+  font-weight: 300;
+  max-width: 52ch;
+  margin: 0;
+}
+
+/* ============================================================
+   Section
+   Canonical Anona stack: kicker → headline → body.
+   Number lives in the left rail; prose in the measure.
+   ============================================================ */
+.sec { margin-bottom: var(--s-9); }
+.sec__num {
+  grid-column: 1;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--fg-accent);
+  letter-spacing: 0;
+  padding-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.sec__head {
+  grid-column: 2;
+}
+.sec__kicker {
+  font-size: var(--fs-kicker);
+  font-weight: 400;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+  margin: 0 0 var(--s-3);
+}
+.sec__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+.sec__head { margin-bottom: var(--s-6); }
+.sec__body { grid-column: 2; }
+
+/* Body prose */
+.sec__body p,
+.lead,
+.prose p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  color: var(--fg-1);
+  margin: 0 0 var(--s-5);
+  text-wrap: pretty;
+}
+.sec__body p:last-child { margin-bottom: 0; }
+
+/* Lead / standfirst — the thesis paragraph, set larger */
+.lead {
+  font-size: clamp(20px, 1.9vw, 26px);
+  line-height: 1.45;
+  font-weight: 300;
+  color: var(--fg-1);
+  letter-spacing: -0.005em;
+}
+
+/* Emphasis: amber, never weight (per guide) */
+.amber { color: var(--fg-accent); }
+strong, .b { font-weight: 400; color: var(--fg-accent); }
+
+/* ---------- Lists ---------- */
+.sec__body ul {
+  list-style: none;
+  margin: var(--s-5) 0;
+  padding: 0;
+}
+.sec__body li {
+  position: relative;
+  padding-left: var(--s-6);
+  margin-bottom: var(--s-4);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+.sec__body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 14px;
+  height: 1px;
+  background: var(--fg-accent);
+}
+.sec__body li .lead-term { color: var(--fg-1); }
+
+/* ---------- Pull quote ---------- */
+.pull {
+  grid-column: 2;
+  border-left: 2px solid var(--fg-accent);
+  padding: var(--s-3) 0 var(--s-3) var(--s-5);
+  margin: var(--s-7) 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(23px, 2.3vw, 31px);
+  line-height: 1.32;
+  color: var(--fg-1);
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+/* A wider pull quote that uses the breathing column too */
+.pull--wide { grid-column: 2 / 4; max-width: 22ch; }
+
+/* ============================================================
+   Tables — unruled; horizontal hairlines only
+   ============================================================ */
+.tbl-wrap { grid-column: 2 / 4; margin: var(--s-6) 0 0; }
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+.tbl caption {
+  text-align: left;
+  font-size: var(--fs-kicker);
+  font-weight: 400;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  padding-bottom: var(--s-3);
+}
+.tbl th {
+  text-align: left;
+  font-weight: 400;
+  font-size: var(--fs-meta);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  padding: 0 var(--s-5) var(--s-3) 0;
+  border-bottom: 1px solid var(--rule-strong);
+  vertical-align: bottom;
+}
+.tbl td {
+  padding: var(--s-4) var(--s-5) var(--s-4) 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.4;
+  color: var(--fg-1);
+}
+.tbl td:last-child, .tbl th:last-child { padding-right: 0; }
+.tbl .num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tbl .rowlabel { color: var(--fg-1); }
+.tbl .desc { color: var(--fg-2); }
+.tbl tr.total td {
+  border-bottom: none;
+  border-top: 1px solid var(--rule-strong);
+  padding-top: var(--s-4);
+  color: var(--fg-1);
+}
+.tbl tr.total .rowlabel,
+.tbl tr.total .num { color: var(--fg-accent); }
+
+/* Share bar (where-it-goes) — two-color, flat */
+.sharebar {
+  position: relative;
+  height: 4px;
+  background: var(--amber-50);
+  min-width: 120px;
+}
+.sharebar > span {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--fg-accent);
+}
+.tbl tr.total .sharebar { background: transparent; }
+.tbl tr.total .sharebar > span { background: var(--ink); }
+
+/* ============================================================
+   The Ask — three-column comparison
+   ============================================================ */
+.ask {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: var(--s-6);
+}
+.ask__col {
+  background: var(--bg-1);
+  padding: var(--s-6) var(--s-5);
+}
+.ask__col--target { background: var(--bg-2); }
+.ask__label {
+  font-size: var(--fs-kicker);
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin: 0 0 var(--s-4);
+}
+.ask__col--target .ask__label { color: var(--fg-accent); }
+.ask__amt {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s-4);
+}
+.ask__col--target .ask__amt { color: var(--fg-accent); }
+.ask__note {
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* ============================================================
+   Callout — the structure / lens blocks
+   ============================================================ */
+.note {
+  grid-column: 2 / 4;
+  background: var(--bg-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-2);
+  padding: var(--s-6);
+  margin-top: var(--s-5);
+}
+.note + .note { margin-top: var(--s-4); }
+.note h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h3);
+  margin: 0 0 var(--s-3);
+}
+.note p { margin: 0; line-height: var(--lh-body); color: var(--fg-1); }
+.note p .amber { font-weight: 400; }
+
+/* ============================================================
+   Footer + cross-link
+   ============================================================ */
+.next {
+  grid-column: 2 / 4;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-5);
+  border-top: 1px solid var(--rule-strong);
+  padding-top: var(--s-5);
+  margin-top: var(--s-8);
+}
+.next a {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h2);
+  color: var(--fg-1);
+  border: none;
+  letter-spacing: -0.01em;
+}
+.next a:hover { color: var(--fg-accent); }
+.next .next__kicker {
+  font-size: var(--fs-kicker);
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+  white-space: nowrap;
+}
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  margin-top: var(--s-9);
+  padding: var(--s-6) 0 var(--s-10);
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: var(--fg-3);
+  font-style: normal;
+}
+
+/* ============================================================
+   Responsive — collapse the rail
+   ============================================================ */
+@media (max-width: 860px) {
+  .row { grid-template-columns: 1fr; }
+  .sec__num { grid-column: 1; margin-bottom: var(--s-3); }
+  .sec__head, .sec__body, .pull, .pull--wide,
+  .tbl-wrap, .ask, .note, .next { grid-column: 1; }
+  .ask { grid-template-columns: 1fr; }
+  .masthead__top { margin-bottom: var(--s-7); }
+}
+
+/* ============================================================
+   Print — clean PDF, one continuous document
+   ============================================================ */
+@media print {
+  @page { margin: 18mm 16mm; }
+  html, body { background: #fff; }
+  .sheet { max-width: none; padding: 0; }
+  .sec, .masthead { break-inside: avoid-page; }
+  .sec__title, .masthead__title { break-after: avoid; }
+  .pull, .tbl-wrap, .ask, .note { break-inside: avoid; }
+  .next { display: none; }
+  .row { grid-template-columns: 72px minmax(0, 1fr) 0; column-gap: 32px; }
+  .pull--wide, .tbl-wrap, .ask, .note, .colophon { grid-column: 2 / 3; }
+}

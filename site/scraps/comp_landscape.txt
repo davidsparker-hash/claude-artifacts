@@ -1,0 +1,110 @@
+ANONA · TENET
+Competitive Landscape & Comparable-Company Analysis
+Who competes in this space, what they charge, and where each overlaps TENET · June 2026
+This report maps the companies operating around TENET across three structural layers — generation engines, integrated creative suites, and the coordination / orchestration layer where TENET sits — and adds a fourth group of production-finance and review platforms that are the closest existing analogs to TENET’s real-time cost-transparency pitch. It folds in the players from the attached Golpo competitive report, names additional companies worth tracking, and pulls financial and pricing data for the ones we can source. It is meant to read alongside the four-document master set and reconciles to no numbers in the model — it is qualitative market context, not a change to the return math.
+[Heading1] 1. How the field is layered
+Both our own landscape work and the Golpo report sort the same companies, just with different vocabulary. They reconcile onto two axes: how far a tool sits above raw generation (the stack layer), and whether its output is cinematic / general or structured / practical. TENET sits alone in the top-right: the only player that is both in the coordination layer and oriented to client-facing cost-and-timeline control. Everything else in that layer is a producer-facing tracker.
+
+--- TABLE ---
+Layer | What it does | Representative players | Relationship to TENET
+L3 — Coordination / orchestration | Routes work between specialists; manages dependencies and (in TENET’s case) live cost & timeline | TENET, Autodesk Flow, ftrack, NIM Studios, monday.com, Make | TENET’s home. Incumbents track status; none do bidirectional translation or client-facing cost control
+L4 — Production finance & review | Tracks the money and the approvals on a live production | Wrapbook, Saturation.io, Frame.io, Movie Magic, Cast & Crew | Closest analogs to the “end the change-order black box” pitch — but finance/review only, no cross-vertical translation
+L2 — Integrated suites / aggregators | Model-agnostic generation plus collaboration in one workspace | Magnific, Steve AI, Runway (suite features) | Magnific is ascending toward L3 — the most credible company to add TENET-style coordination
+L1 — Generation engines | Produce the raw assets: clips, voices, frames | Sora, Google Veo, Runway, Kling, Luma, Pika, ElevenLabs, HeyGen, Synthesia, DeepBrain, Golpo | Substrate, not competitors. Their proliferation is what worsens the coordination problem TENET solves
+--- END TABLE ---
+
+Note: L1–L3 are our framing; the Golpo report’s “direct / foundation / avatar” tiers all collapse into L1–L2 here. L4 is added because production-finance tools are TENET’s nearest functional neighbors even though they aren’t “AI video” companies.
+[Heading1] 2. Closest competitors — financials & pricing
+These are the companies we can pull hard data on and that overlap TENET most directly on function (coordinating production, tracking cost, managing handoffs) rather than just sharing the “AI video” label. Overlap % is a qualitative positioning estimate, not measured market share.
+[Heading2] 2a. Coordination & production-finance layer (highest functional overlap)
+
+--- TABLE ---
+Company | What it offers | Pricing | Financials | Overlap
+Wrapbook | Production payroll + accounting + real-time cost tracking; “actuals vs budget” as money is spent | Custom / per-production; not publicly listed | ~$151–157M raised; $750M val (2024, down from $1B in 2021); 1,000+ companies; ~50% YoY growth; 400 staff | High — owns the live money flow TENET wants visibility into
+Saturation.io | Cloud film budgeting + expense cards + real-time actuals; simultaneous multi-user editing | Free tier; paid from ~$20/mo; competitor Filmustage to $199/mo | Private, undisclosed; 8,000+ producers cited | High — real-time budget transparency is TENET’s exact wedge, minus translation
+Frame.io (Adobe) | Creative review & collaboration; versioning, frame-accurate comments, client approvals, workflow builder | ~$15–$25/seat/mo; free w/ Creative Cloud; enterprise ~$5K–$70K/yr | Owned by Adobe (acq. ~$1.275B, 2021) | Medium — manages handoffs & client review, but no cost engine or cross-vertical translation
+Autodesk Flow (ShotGrid) | VFX/animation pipeline tracking; tasks, scheduling, review, single source of truth | ~$50/mo or ~$390/yr per seat | Part of Autodesk (public, ~$6B+ rev) | Medium — the incumbent tracker, producer-facing; adding AI features
+ftrack / NIM Studios | Pipeline + review; NIM adds bid-vs-actual financial tracking for post/commercial facilities | Tiered SaaS, ~$mid-double-digit/seat/mo | Private / niche | Medium — NIM’s bid-vs-actual is the nearest internal analog to TENET’s cost view
+--- END TABLE ---
+
+[Heading2] 2b. Generation & suite layer (mindshare overlap, different job)
+
+--- TABLE ---
+Company | What it offers | Pricing | Financials | Overlap
+Magnific (Freepik) | Model-agnostic AI image+video suite; real-time collaboration; pre-production asset tools | From ~$39/mo individual → enterprise; Business plan launched 2026 | ~$230M ARR, bootstrapped; 1M+ subs; 290+ enterprise (BBC, Puma, Prime Video); ~400 staff | Low–Med — TENET’s cited proof of market; ascending toward coordination
+Runway | Text/image-to-video + editing suite; Gen-4.5 with API | Free tier; ~$15–$95/mo; enterprise custom | ~$3B+ valuation (2024 raises); well-funded | Low — cinematic generation; no doc/coordination layer
+ElevenLabs | Voice / audio generation; agents that talk, type, act | Free tier; creator from ~$22/mo; enterprise custom | ~$500M ARR (2026); $11B val; $781M raised | Low — pure generation engine (audio); a substrate input
+Synthesia / HeyGen | AI avatar / presenter video for L&D and corporate comms | Synthesia free→~$30+/mo→enterprise; HeyGen similar | Synthesia ~$2B+ val, 50K+ companies; both well-funded | Low — avatar output; overlap only on enterprise training budget
+Golpo | Document → animated explainer video; technical-accuracy focus | Not publicly disclosed (early-stage) | Early-stage (YC-profile) | Low on layer, shared thesis — “practical not cinematic,” displaces agencies
+Sora / Veo / Kling / Luma / Pika | Foundation text-to-video models | Bundled (ChatGPT, Gemini) or per-credit | Backed by OpenAI / Google / ByteDance / VCs | None — pure substrate TENET sits on top of
+--- END TABLE ---
+
+
+[Heading1] 3. Who else we should be watching
+Beyond the players already mapped, four groups are worth adding to the tracker — each touches a different edge of TENET’s claimed position:
+[ListParagraph] Production-finance incumbents — Cast & Crew (1976, PE-owned by EQT; reportedly ~$700M acquisition value), Entertainment Partners, Greenslate, and Movie Magic / Showbiz. These own the legacy budgeting and payroll relationships TENET would need to displace or integrate with. They are slow but entrenched and hold the client trust.
+[ListParagraph] Agentic work-orchestration platforms — monday.com (autonomous agents on top of its workspace, explicitly targeting AI-video coordination), Make, Asana AI, and Notion AI. These are extending general work-management down into creative production. They lack domain translation but have distribution and capital.
+[ListParagraph] Creative-ops / DAM + workflow — Air, Ziflow, Filestage, and Wrike. They handle asset management, review, and approval routing for brand and agency teams — the “handoff” problem from the marketing side rather than the studio side.
+[ListParagraph] Construction-tech analogs — Procore, Autodesk Construction Cloud, and Buildertrend. Worth watching precisely because TENET’s own analogy is construction: these companies already solved real-time cost/change-order transparency for buildings, and the pattern (and possibly the playbook or an acquirer) could cross into production.
+Data we can pull reliably: Wrapbook, Magnific, ElevenLabs, Runway, Synthesia, Frame.io/Adobe, Autodesk, Procore (public). Data that is thin or private: Saturation.io, ftrack, NIM, Golpo, Cast & Crew internals — for these we rely on disclosed customer counts and pricing pages, not audited revenue.
+[Heading1] 4. Net read for the investor conversation
+The market premise is well-evidenced: AI creative tooling is a large, paying market today (Magnific at ~$230M ARR bootstrapped; ElevenLabs at ~$500M ARR), and proliferating generators genuinely worsen coordination. The vulnerability is competitive positioning, not market size.
+[ListParagraph] The “layer above the tools” is being squeezed from both sides. Magnific is climbing up into integrated infrastructure; monday.com and Make are extending down into orchestration; Autodesk is adding AI to Flow. TENET’s white space is real but contested.
+[ListParagraph] The two genuinely unique assets are translation and client-facing cost transparency. Bidirectional cross-vertical translation with cascading dependency reconciliation is not a solved category among the trackers. Live client-facing cost/timeline control is served only partially by Wrapbook and Saturation (and only internally, not client-side). Lead with these, not the generic “above the tools” framing.
+[ListParagraph] Expect the comparable-multiple objection. Part II anchors on ElevenLabs’ ~25–33× revenue multiple, but that is a frontier-model company. TENET’s economics look closer to a coordination/finance SaaS — Wrapbook raised at ~$750M against ~50% growth, a more sober comp. An investor anchored on the audio-AI multiple will pressure the exit assumption in exactly the direction the README already flags as load-bearing (the 8×/15×/22× range).
+[ListParagraph] Golpo is a neighbor, not a rival. It shares the “practical, not cinematic” thesis and the “we displace agencies” framing, but it generates explainer videos (L1–L2) while TENET coordinates specialists and money flow (L3). Useful as confirmation the practical-output thesis has multiple credible believers.
+[Heading1] 5. The convergence: four categories pressing on one layer
+The single most important strategic fact from the deep-dive research is that TENET’s coordination layer is not empty white space being approached from one direction — it is a contested center that four well-funded categories are converging on simultaneously, from four different starting points:
+[ListParagraph] From above — work-OS & automation. monday.com (public, $351M Q1’26 revenue, +24% YoY, AI now ~10% of net-new ARR) explicitly repriced around “the work the agents perform, not the person in the seat.” Make (Celonis-owned, ~$7.7B parent) is the cheap glue that wires generators together. Capital and distribution, descending into orchestration.
+[ListParagraph] From the left — studio pipeline trackers. Autodesk Flow, ftrack ($10–$30/seat/mo), and NIM are the entrenched incumbents. They track status today and are bolting on AI; NIM’s bid-vs-actual already proves demand for cost tracking.
+[ListParagraph] From the right — the enterprise gen-AI suite. Adobe Firefly (ARR +75% QoQ in Q1 FY2026) plus Frame.io (Adobe-owned, ~$1.275B) is building a Creative Production workflow builder that connects generation, review, and asset management inside a $280B company.
+[ListParagraph] From below — production finance. Wrapbook ($750M val, ~50% growth) and Saturation.io already own the live money flow and real-time actuals — the closest thing to TENET’s cost-transparency pitch that ships today.
+What this means for the raise: the “why won’t an incumbent just build this” question now has four credible faces, not zero. But none of the four currently holds TENET’s two unique assets — bidirectional cross-vertical translation and client-side cost & timeline control. The defensible story is the intersection of those two, and the deck should name the four converging categories directly rather than claim an empty field.
+[Heading1] 6. Sizing the coordination layer (not the generation market)
+Part II currently sizes the opportunity off the generation market — Magnific’s ~$230M, the ~$175B AI-content TAM. That market is real, but it is the layer TENET sits above. For a coordination tool, the honest serviceable market is production-management & coordination software — the category Autodesk Flow, ftrack, NIM, Wrapbook, and Saturation already sell into. Sizing it there makes the capture story far more defensible.
+
+--- TABLE ---
+Layer | Definition | Size | TENET capture
+TAM · ~$255B | Global content production & coordination spend — the money flowing through production each year (Ampere; content-creation spend ~$144B as a tighter cut) | ~$255B | The pool TENET rides on — not a serviceable target
+SAM · ~$4.9B | Production-management & coordination software for M&E — budgeting/cost-tracking + collaboration (360iResearch: $2.73B in 2023 → $4.90B by 2030, 8.69% CAGR) | ~$4.9B by 2030 | The layer TENET competes in — the serviceable market
+SOM · ~$5.4M | Near-term beachhead: JANE anchor + early enterprise on platform contracts (ANONA seed model base case, exit-rate ARR by month 18) | ~$5.4M ARR | ~0.1% of SAM — what the base case requires
+--- END TABLE ---
+
+The argument: TENET needs roughly one-tenth of one percent of the software layer to hit base case — a sliver of a ~$4.9B market growing ~9% annually, in which no player yet owns translation plus client cost control. The bet is owning the coordination layer, not capturing the $255B production economy beneath it.
+Upside lever (optionality, not underwritten): per-project or value-based pricing sits on the TAM, not the SAM. Because TENET rides the project’s money flow, a small take-rate on coordinated spend reframes the ceiling well above the software SAM — worth flagging without building it into the base case.
+
+[Heading1] Appendix — Numbers library (sourced)
+Citable figures for the market-research narrative. Quote consistently with the master set’s rounding. Private-company values are self-reported or estimated where noted. Full version lives in the companion spreadsheet (Numbers Library tab).
+
+--- TABLE ---
+Company | Metric | Value | Source
+Magnific (Freepik) | ARR | ~$230M | Fortune / TechCrunch
+Magnific (Freepik) | Paying subscribers | 1M+ | TheNextWeb / Tech.eu
+Magnific (Freepik) | Enterprise customers | 250–290+ | Tech.eu / company
+Magnific (Freepik) | Outside funding | $0 (bootstrapped) | Fortune
+ElevenLabs | ARR | ~$500M | Sacra / GetLatka
+ElevenLabs | Valuation | $11B | TechCrunch / CNBC
+ElevenLabs | Revenue multiple (impl.) | ~25–33× | MEXC / Sacra
+Wrapbook | Valuation | $750M (was $1B in ’21) | Hollywood Reporter
+Wrapbook | Total funding | ~$151–157M | Tracxn / PitchBook
+Wrapbook | Revenue growth | ~50% YoY | PRNewswire
+Wrapbook | Companies served | 1,000+ | PRNewswire
+monday.com | Q1 2026 revenue | $351.3M (+24% YoY) | Q1’26 earnings
+monday.com | Net dollar retention | 110% (116% >$50K ARR) | Q1’26 earnings
+monday.com | AI share of net-new ARR | ~10% | Earnings call
+monday.com | Entry seat pricing | $9/$12/$19 per seat/mo | Pricing page
+Make (Celonis) | Parent valuation | ~$7.7B (was $13.2B) | Contrary Research
+Make (Celonis) | Core plan pricing | $9–$10.59/mo (10K ops) | Make / G2
+Autodesk Flow | Pricing | ~$50/mo or ~$390/yr | Evercast / Autodesk
+ftrack (Backlight) | Review / Studio tiers | $10–$15 / $25–$30 per seat/mo | G2 / SoftwareFinder
+Adobe Firefly | Firefly ARR growth | +75% QoQ | Adobe Q1’26 call
+Adobe Firefly | Strategic value (est.) | ~$5–7B | Analyst est.
+Adobe Firefly | Consumer pricing | $9.99–$199.99/mo | SudoMock / Adobe
+Frame.io (Adobe) | Acquisition price | ~$1.275B | Adobe / press
+Synthesia | Companies served | 50,000+ | Golpo report
+Cast & Crew | Acquisition value | ~$700M | Hollywood Reporter
+Market | AI gen-content market | $11B (’23) → $175B (’33) | Companies History
+--- END TABLE ---
+
+Blue = the figure to quote.
+Sources: company Q1 2026 earnings (monday.com, Adobe), company pricing pages, Fortune, TechCrunch, CNBC, Tracxn, PitchBook, CB Insights, Contrary Research, Hollywood Reporter, Autodesk, Adobe, Saturation.io, Wrapbook, G2/Capterra, and the attached Golpo Competitive Landscape report (May 2026). Figures are market context as of June 2026; private-company revenue is self-reported or estimated where noted. Not investment advice. Reconciles to no values in the ANONA seed model.

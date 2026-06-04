@@ -1,0 +1,273 @@
+
+
+===== SHEET 1: Summary =====
+B=ANONA / TENET
+B=Seed Round Investment Plan
+B=Prepared for investor + legal review  |  May 2026  |  Notes & comparables refreshed June 2026 (no inputs changed)
+B=ROUND OVERVIEW
+B=Round | C=Seed
+B=Target raise | C=3750000 | F=Primary target
+B=Floor | C=3500000 | F=Executes plan on tighter ~16-mo runway
+B=Ceiling | C=4500000 | F=Oversubscribed; extends toward 22 mo
+B=Runway target | C=18–22 months | F=To credible Series A
+B=Instrument | C=TBD — see Funding Mechanism tab | F=Bridge vs. accelerated first close
+B=USE OF FUNDS — $3.75M TARGET | C=Allocation | D=% of Raise
+B=Engineering & infrastructure | C=1800000 | D=0.48
+B=Design & product | C=400000 | D=0.106666666666667
+B=Founder & operations | C=735000 | D=0.196
+B=Brand & strategy | C=396000 | D=0.1056 | F=Brand build + strategy; thesis post-close
+B=Reserves / contingency | C=419000 | D=0.111733333333333 | F=~11% buffer to extend runway
+B=Total | C=3750000 | D=1
+
+B=IMMEDIATE CAPITAL ASK (BRIDGE — FIRST 90 DAYS)
+B=Roger Obando — fractional CTO retainer | C=42000 | F=$14K/mo × 3 months (bridge window)
+B=Immediate operating costs (legal, setup, infra) | C=24000 | F=Estimate — refine on call
+B=Immediate ask total | C=66000 | F=Bridge only: Roger + legal/setup. Operating plan funded by seed.
+
+
+===== SHEET 2: Use of Funds =====
+B=Use of Funds — Detail
+B=Line-item breakdown supporting the $3.75M allocation
+B=Category / line item | C=Amount | D=% of Raise | E=Notes
+B=ENGINEERING & INFRASTRUCTURE
+B=   Engineering Lead (senior, AI orchestration) | C=320000 | D=0.0853333333333333 | E=Top hire priority — fully loaded yr1
+B=   Senior Frontend / Product Engineer (NLE-adjacent) | C=260000 | D=0.0693333333333333 | E=Loaded yr1
+B=   Second engineer (from month 4–5) | C=200000 | D=0.0533333333333333 | E=Partial-year
+B=   Cloud / GPU / model inference infra | C=480000 | D=0.128 | E=Generation + orchestration compute
+B=   Tooling, licenses, dev infrastructure | C=140000 | D=0.0373333333333333
+B=   Fractional CTO / eng-lead seat (5 mo + held) | C=70000 | D=0.0186666666666667 | E=Roger M1–5; hands off to full-time Eng Lead (recruit from month 3)
+B=   Engineering contingency | C=330000 | D=0.088 | E=Within engineering envelope
+B=   Subtotal | C=1800000 | D=0.48
+B=DESIGN & PRODUCT
+B=   Product Designer (multi-state UI / motion) | C=280000 | D=0.0746666666666667 | E=Loaded yr1
+B=   Design tooling & prototyping | C=40000 | D=0.0106666666666667
+B=   Product validation (test sessions, instrumentation) | C=80000 | D=0.0213333333333333 | E=ANONA-run; JANE provides live jobs as anchor customer
+B=   Subtotal | C=400000 | D=0.106666666666667
+B=FOUNDER & OPERATIONS
+B=   Founder compensation | C=390000 | D=0.104 | E=$20K/mo M1–3, $30K/mo M4–18
+B=   Legal, accounting, corporate formation | C=70000 | D=0.0186666666666667 | E=Incl. round + ongoing counsel
+B=   Producer / Operations (full-time, day 15) | C=225000 | D=0.06 | E=$225K/yr loaded, full-time from day 15
+B=   Office / operations / misc. | C=50000 | D=0.0133333333333333
+B=   Subtotal | C=735000 | D=0.196
+
+B=BRAND & STRATEGY
+B=   Strategy (positioning, GTM, advisory team) | C=280000 | D=0.0746666666666667 | E=Team supporting founder from day 15
+B=   Brand development (website, identity, system) | C=116000 | D=0.0309333333333333 | E=Site, logo, design system; starts month 3
+B=   Subtotal | C=396000 | D=0.1056
+
+B=RESERVES / CONTINGENCY
+B=   Unallocated reserve | C=419000 | D=0.111733333333333 | E=~11% buffer to extend runway
+B=   Subtotal | C=419000 | D=0.111733333333333
+
+
+
+
+B=TOTAL RAISE | C=3750000 | D=1
+
+B=Salary figures are fully-loaded yr1 estimates (incl. benefits/taxes). Headcount per Section 7 hiring plan.
+
+
+
+
+===== SHEET 3: Funding Mechanism =====
+B=Funding Mechanism — Our Recommendation
+B=How we propose to fund the first 60–90 days while the full seed closes
+B=80 | D=Option 2 — Accelerated First Close
+B=What it is | C=Short-term note covering immediate operating expenses; converts into the seed round at close. | D=Pull a tranche of the seed forward to fund first 90 days; balance closes on normal timeline.
+B=Covers | C=Covers Roger and immediate operating costs through close. | D=Covers Roger plus first-90-day operations against the priced round.
+B=Speed to deploy | C=Fast — note docs are lighter than full round close. | D=Depends on first-close readiness; can be quick if leads are committed.
+B=Legal lift | C=Lower upfront; note + cap/discount terms. | D=Higher — requires priced/structured round docs sooner.
+B=Dilution clarity | C=Deferred — converts later at cap/discount. | D=Immediate — priced at close.
+B=Best when | C=We use this to preserve momentum without locking full round terms before close. | D=We use this when leads are ready to commit and prefer a single clean instrument.
+B=Why it fits here | C=Fastest way to get the team operational and the build moving immediately. | D=Cleanest cap-table outcome if the round prices on the near-term timeline.
+B=RECOMMENDED PATH
+B=We recommend a HYBRID: a short-term bridge note funds the first 90 days (Roger + legal/setup, ~$66K), then converts into the priced seed at the round close. This protects the start date without locking full round terms early. Note terms (cap, discount, conversion trigger) to be finalized with counsel — see below.
+B=BRIDGE SCOPE
+B=The bridge funds only Roger’s engagement (3 months) and legal/corporate setup (~$66K) during the 90-day window while the full seed closes. It does NOT fund the 18-month operating plan, team buildout, or infrastructure — those are funded by the seed itself.
+B=HYBRID TERMS (to finalize with counsel)
+B=Bridge amount | C=~$66K (Roger 3 mo + legal/setup)
+B=Instrument | C=Convertible note — TBD
+B=Conversion cap / discount | C=TBD with counsel
+B=Conversion trigger | C=Close of priced seed — TBD
+B=Exclusivity / timeline | C=TBD with counsel
+
+
+===== SHEET 4: Runway =====
+B=18-Month Runway — Illustrative Burn
+B=Simplified monthly view. Hiring ramps per Section 7. Refine on weekend call.
+B=($ per month) | C=M1 | D=M2 | E=M3 | F=M4 | G=M5 | H=M6 | I=M7 | J=M8 | K=M9 | L=M10 | M=M11 | N=M12 | O=M13 | P=M14 | Q=M15 | R=M16 | S=M17 | T=M18
+B=Founder | C=20000 | D=20000 | E=20000 | F=30000 | G=30000 | H=30000 | I=30000 | J=30000 | K=30000 | L=30000 | M=30000 | N=30000 | O=30000 | P=30000 | Q=30000 | R=30000 | S=30000 | T=30000
+B=Producer / Operations | C=18750 | D=18750 | E=18750 | F=18750 | G=18750 | H=18750 | I=18750 | J=18750 | K=18750 | L=18750 | M=18750 | N=18750 | O=18750 | P=18750 | Q=18750 | R=18750 | S=18750 | T=18750
+B=Eng Lead | C=26667 | D=26667 | E=26667 | F=26667 | G=26667 | H=26667 | I=26667 | J=26667 | K=26667 | L=26667 | M=26667 | N=26667 | O=26667 | P=26667 | Q=26667 | R=26667 | S=26667 | T=26667
+B=Sr Frontend Eng | C=21667 | D=21667 | E=21667 | F=21667 | G=21667 | H=21667 | I=21667 | J=21667 | K=21667 | L=21667 | M=21667 | N=21667 | O=21667 | P=21667 | Q=21667 | R=21667 | S=21667 | T=21667
+B=Second Eng | C=0 | D=0 | E=0 | F=16667 | G=16667 | H=16667 | I=16667 | J=16667 | K=16667 | L=16667 | M=16667 | N=16667 | O=16667 | P=16667 | Q=16667 | R=16667 | S=16667 | T=16667
+B=Product Designer | C=23333 | D=23333 | E=23333 | F=23333 | G=23333 | H=23333 | I=23333 | J=23333 | K=23333 | L=23333 | M=23333 | N=23333 | O=23333 | P=23333 | Q=23333 | R=23333 | S=23333 | T=23333
+B=Eng-lead seat (Roger M1–5, then held) | C=14000 | D=14000 | E=14000 | F=14000 | G=14000 | H=14000 | I=14000 | J=14000 | K=14000 | L=14000 | M=14000 | N=14000 | O=14000 | P=14000 | Q=14000 | R=14000 | S=14000 | T=14000
+B=Infra / compute / tooling | C=34000 | D=34000 | E=34000 | F=34000 | G=34000 | H=34000 | I=34000 | J=34000 | K=34000 | L=34000 | M=34000 | N=34000 | O=34000 | P=34000 | Q=34000 | R=34000 | S=34000 | T=34000
+B=Brand & strategy | C=0 | D=0 | E=8000 | F=8000 | G=14000 | H=14000 | I=14000 | J=19000 | K=19000 | L=19000 | M=19000 | N=19000 | O=19000 | P=19000 | Q=19000 | R=19000 | S=19000 | T=19000
+
+B=Legal / ops / misc | C=8000 | D=8000 | E=8000 | F=14000 | G=14000 | H=14000 | I=14000 | J=14000 | K=14000 | L=9000 | M=9000 | N=9000 | O=9000 | P=9000 | Q=9000 | R=9000 | S=9000 | T=9000
+B=Monthly burn | C=166417 | D=166417 | E=174417 | F=207084 | G=213084 | H=213084 | I=213084 | J=218084 | K=218084 | L=213084 | M=213084 | N=213084 | O=213084 | P=213084 | Q=213084 | R=213084 | S=213084 | T=213084
+B=Capital remaining | C=3583583 | D=3417166 | E=3242749 | F=3035665 | G=2822581 | H=2609497 | I=2396413 | J=2178329 | K=1960245 | L=1747161 | M=1534077 | N=1320993 | O=1107909 | P=894825 | Q=681741 | R=468657 | S=255573 | T=42489
+
+B=Blue = input assumptions. Adjust monthly figures to model scenarios. Capital remaining stays positive across 18 months at $3.75M raise.
+
+
+===== SHEET 5: Pricing Assumptions =====
+B=ANONA / TENET
+B=Revenue Assumptions — inputs in blue
+B=Edit the blue cells to model scenarios. Everything on Revenue Ramp & Return Math flows from here.
+B=PRICING | C=Value | D=Source / note
+B=Anchor / enterprise account ACV ($/month) | C=20000 | D=INPUT — JANE-type studio contract. Verify vs. actual JANE terms.
+B=Self-serve seat price ($/month) | C=79 | D=INPUT — priced as production-grade. Benchmark: Magnific (ex-Freepik) individual tiers, repriced 2026 post-rebrand (Business plan launched early 2026); $79 sits above entry self-serve. Source: Magnific/Fortune, 2026.
+B=Usage / credits uplift (% of subscription) | C=0.25 | D=INPUT — add-on compute/credits, like Magnific&apos;s token model (~$0.32/image).
+B=RETURN ASSUMPTIONS
+B=Seed raise ($) | C=3750000 | D=From Summary tab — target round.
+B=Post-money valuation ($) | C=19000000 | D=INPUT — base case at market-standard ~20% dilution (AI-seed median, per Valuation Basis). Supported by four funded categories now entering the coordination layer (see Comparable Companies). $15M is the conservative downside.
+B=Ownership retained through dilution (%) | C=0.55 | D=INPUT — fraction of seed stake kept after future rounds to exit.
+B=Valuation multiple — conservative (x ARR) | C=8 | D=INPUT — low end for creative-AI / vertical SaaS.
+B=Valuation multiple — base (x ARR) | C=15 | D=INPUT — mid-teens. Frontier-model comp ElevenLabs ~22x ($11B / ~$500M ARR, Feb 2026); soberer coordination-layer comp Wrapbook ~$750M val on ~50% growth. Our 15x sits between. Source: TechCrunch / Hollywood Reporter, 2026.
+B=Valuation multiple — upside (x ARR) | C=22 | D=INPUT — high end for fast-growing creative-AI infra.
+
+
+===== SHEET 6: Revenue Ramp =====
+B=ANONA / TENET
+B=18-Month Revenue Ramp — illustrative
+B=Enterprise-led, JANE-anchored. Counts in blue are inputs; revenue lines are formulas off Pricing Assumptions. Gross burn links live to the Runway tab.
+B=($ per month) | C=M1 | D=M2 | E=M3 | F=M4 | G=M5 | H=M6 | I=M7 | J=M8 | K=M9 | L=M10 | M=M11 | N=M12 | O=M13 | P=M14 | Q=M15 | R=M16 | S=M17 | T=M18
+B=Anchor / enterprise accounts (#) | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=1 | J=1 | K=2 | L=3 | M=4 | N=5 | O=6 | P=7 | Q=8 | R=9 | S=10 | T=12
+B=Self-serve seats (#) | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=0 | J=0 | K=25 | L=60 | M=120 | N=200 | O=320 | P=480 | Q=680 | R=920 | S=1200 | T=1500
+B=Anchor MRR | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=20000 | J=20000 | K=40000 | L=60000 | M=80000 | N=100000 | O=120000 | P=140000 | Q=160000 | R=180000 | S=200000 | T=240000
+B=Self-serve subscription MRR | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=0 | J=0 | K=1975 | L=4740 | M=9480 | N=15800 | O=25280 | P=37920 | Q=53720 | R=72680 | S=94800 | T=118500
+B=Usage / credits MRR | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=5000 | J=5000 | K=10493.75 | L=16185 | M=22370 | N=28950 | O=36320 | P=44480 | Q=53430 | R=63170 | S=73700 | T=89625
+B=Total MRR | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=25000 | J=25000 | K=52468.75 | L=80925 | M=111850 | N=144750 | O=181600 | P=222400 | Q=267150 | R=315850 | S=368500 | T=448125
+B=Revenue (monthly) | C=0 | D=0 | E=0 | F=0 | G=0 | H=0 | I=25000 | J=25000 | K=52468.75 | L=80925 | M=111850 | N=144750 | O=181600 | P=222400 | Q=267150 | R=315850 | S=368500 | T=448125
+B=Gross burn (Runway tab) | C=166417 | D=166417 | E=174417 | F=207084 | G=213084 | H=213084 | I=213084 | J=218084 | K=218084 | L=213084 | M=213084 | N=213084 | O=213084 | P=213084 | Q=213084 | R=213084 | S=213084 | T=213084
+B=Net burn (burn − revenue) | C=166417 | D=166417 | E=174417 | F=207084 | G=213084 | H=213084 | I=188084 | J=193084 | K=165615.25 | L=132159 | M=101234 | N=68334 | O=31484 | P=-9316 | Q=-54066 | R=-102766 | S=-155416 | T=-235041
+B=HEADLINE
+B=Exit-rate ARR (Month 18 MRR × 12) | C=5377500
+B=Cumulative revenue (18 mo) | C=2243618.75
+B=Total gross burn (18 mo) | C=3707511
+B=Revenue offset to burn | C=0.605154981333838
+B=First revenue month | C=Month 7
+
+
+===== SHEET 7: Return Math =====
+B=ANONA / TENET
+B=Return Math — what it takes to return your capital
+B=Think of it as a development pro forma: capital in → build the asset → asset has an exit value (ARR × multiple) → your return = stake value ÷ capital in.
+B=OWNERSHIP
+B=Seed raise | C=3750000
+B=Post-money valuation | C=19000000
+B=Seed ownership at close | C=0.197368421052632
+B=Ownership retained to exit | C=0.55
+B=Effective ownership at exit | C=0.108552631578947
+B=INVESTOR RETURN (MOIC) — exit ARR × valuation multiple
+C=Conservative | D=Base (from ramp) | E=Upside
+B=Exit ARR → | C=3000000 | D=5377500 | E=10000000 | F=Multiple ↓
+B=Conservative multiple | C=0.694736842105263 | D=1.24531578947368 | E=2.31578947368421 | F=8
+B=Base multiple | C=1.30263157894737 | D=2.33496710526316 | E=4.3421052631579 | F=15
+B=Upside multiple | C=1.91052631578947 | D=3.42461842105263 | E=6.36842105263158 | F=22
+B=WHAT ARR DO WE NEED — at base multiple
+B=ARR needed to return 1.0x (capital back) | C=2303030.3030303
+B=ARR needed to return 3.0x | C=6909090.90909091
+B=ARR needed to return 5.0x | C=11515151.5151515
+B=For scale: the coordination-layer software market (production-mgmt incl. cost-tracking + collaboration) is ~$4.9B by 2030, growing ~9%/yr; the ARR above is ~0.1–0.3% of it. The broader category is proven — Magnific reached $230M ARR bootstrapped — but the serviceable target is the layer, not the generators.
+
+
+===== SHEET 8: Round & Investor Cap =====
+B=ANONA / TENET
+B=Round Construction — investor cap, minimum check, dilution at exit
+B=How many investors, how big each check, and what each stake is worth at exit after dilution (&apos;watered-down&apos;). Blue = inputs.
+B=ROUND INPUTS
+B=Target raise | C=3750000
+B=Post-money valuation | C=19000000
+B=Minimum investment (check) | C=250000
+B=Ownership retained to exit | C=0.55
+B=Exit ARR (base) | C=5377500
+B=Exit valuation multiple (base) | C=15
+B=COMPUTED
+B=Seed ownership pool at close | C=0.197368421052632
+B=Pool ownership at exit (after dilution) | C=0.108552631578947
+B=Exit enterprise value (base) | C=80662500
+B=Maximum number of investors (cap) | C=15
+B=PER INVESTOR — at the minimum check
+B=Investment | C=250000
+B=Ownership at close | C=0.0131578947368421
+B=Ownership at exit (watered down) | C=0.00723684210526316
+B=Stake value at exit (base) | C=583741.776315789
+B=Gain at exit | C=333741.776315789
+B=Return multiple (MOIC) | C=2.33496710526316
+B=ROUND SHAPE — by minimum check (watered-down at exit)
+B=Min check | C=Max investors | D=Own % at close | E=Own % at exit | F=Stake at exit | G=MOIC
+B=500000 | C=7 | D=0.0263157894736842 | E=0.0144736842105263 | F=1167483.55263158 | G=2.33496710526316
+B=250000 | C=15 | D=0.0131578947368421 | E=0.00723684210526316 | F=583741.776315789 | G=2.33496710526316
+B=150000 | C=25 | D=0.00789473684210526 | E=0.0043421052631579 | F=350245.065789474 | G=2.33496710526316
+B=100000 | C=37 | D=0.00526315789473684 | E=0.00289473684210526 | F=233496.710526316 | G=2.33496710526316
+B=MOIC is identical across check sizes — the cap and minimum decide how many investors and how big each stake, not the return. Watering-down is the dilution from &apos;own % at close&apos; to &apos;own % at exit&apos;.
+B=AGGREGATE — does it clear the expected return?
+B=Total invested (the round) | C=3750000
+B=Total investor stake at exit (base) | C=8756126.64473684
+B=If investors expect 3.0x, return &apos;owed&apos; | C=11250000
+B=Base case covers the 3x expectation? | C=Short by $2,493,873
+B=OWNERSHIP AT CLOSE — FULLY DILUTED
+B=Holder | C=New capital | D=Ownership
+B=Founders | C=— | D=0.702631578947369
+B=Option pool (unallocated) | C=— | D=0.1
+B=New seed investors | C=3750000 | D=0.197368421052632
+B=    — of which bridge note (converts in) | C=66000 | D=0.00347368421052632
+B=Total | C=3750000 | D=1
+B=Option pool (blue) is carved from the pre-money, so it dilutes founders, not new investors — seed still holds ~19.7%. Bridge is a subset of the seed (converts at close), not additive.
+
+
+===== SHEET 9: Valuation Basis =====
+B=ANONA / TENET
+B=Valuation Basis — defending a current valuation
+B=A seed valuation is negotiated, not calculated — but two independent methods bracket a defensible range. Blue = our choices; black = 2025 market data.
+B=METHOD A — COMPARABLE SEED ROUNDS (2025 market data)
+B=Median seed post-money valuation | C=20000000 | F=Carta / SaaStr, 2025
+B=AI-software median seed post-money | C=19000000 | F=Carta / FutureSight, 2025 — AI premium vs ~$15M market
+B=Seed post-money — 25th percentile | C=13800000 | F=Carta, 2025
+B=Seed post-money — 95th percentile | C=80500000 | F=Carta, 2025 — hot AI deals stretch the top
+B=Median seed cash raised | C=4000000 | F=Carta, 2025 — our $3.75M is ~median
+B=Typical seed dilution | C=0.2 | F=Carta, 2025 — founders sell ~20%
+B=→ Post-money implied by our $3.75M at 20% dilution | C=18750000 | F=raise ÷ standard dilution
+B=METHOD B — FORWARD CROSS-CHECK (Series A, backward)
+B=Projected ARR at Series A (~Month 18) | C=5377500 | F=from Revenue Ramp
+B=Median Series A post-money (SaaS, 2025) | C=50000000 | F=Carta Q3 2025 — $45–60M range
+B=Median seed→Series A step-up | C=2.6 | F=Carta, 2025
+B=→ Implied seed post (Series A ÷ step-up) | C=19230769.2307692
+B=DEFENSIBLE RANGE (post-money)
+C=Conservative | D=Base | E=Aggressive
+B=Post-money valuation | C=15000000 | D=19000000 | E=22000000
+B=Dilution at $3.75M raise | C=0.25 | D=0.197368421052632 | E=0.170454545454545
+B=Conservative = investor-favorable (more dilution); Base ≈ AI-seed median at market-standard ~20% dilution; Aggressive = anchor + AI-native premium, still below the 95th percentile.
+B=WHAT IT MEANS FOR INVESTOR RETURN (base-case exit)
+B=Base-case exit enterprise value | C=80662500 | F=exit ARR × base multiple
+B=Investor MOIC at base-case exit | C=2.957625 | D=2.33496710526316 | E=2.0165625
+B=The tension: a higher valuation means less dilution for you but a lower multiple for investors. At a market-standard ~$19M post, the base case returns ~2.3x; holding 3x+ at that valuation leans on the upside exit (higher ARR or multiple).
+B=RECOMMENDATION
+B=The data supports a $15M–$22M post-money. The model runs the base ~$19M (Pricing Assumptions C13) — the market-standard ~20% dilution and AI-seed median. To stress-test, switch C13 to the $15M conservative or $22M aggressive case and every return re-prices automatically.
+B=Negotiated, not computed. Market figures: Carta / SaaStr / FutureSight 2025. Not investment advice.
+
+
+===== SHEET 10: Benchmarks =====
+B=ANONA / TENET
+B=Comparable proof points — the category is real
+B=Metric | C=Figure | D=Source
+B=Magnific (formerly Freepik) ARR | C=$230M | D=Fortune / TNW, 2026 — ~$230M ARR, bootstrapped; ~half from video post-rebrand
+B=Magnific paying subscribers | C=1,000,000+ | D=TNW, 2026
+B=Magnific enterprise customers | C=250+ | D=incl. BBC, Puma, Carl&apos;s Jr, Delivery Hero, R/GA, Amazon Prime Video. TNW, 2026
+B=Magnific images generated / day | C=4,000,000+ | D=TNW, 2026
+B=Magnific capital raised (VC) | C=$0 (bootstrapped) | D=TNW / Fortune, 2026
+B=Magnific model | C=Model-agnostic orchestration layer | D=dealflow.es, 2026 — aggregates 3rd-party AI models
+B=Magnific individual pricing | C=~$39/mo; ~$0.32/image credits | D=pangea.app, Feb 2026
+B=ElevenLabs (valuation anchor) | C=$11B on ~$500M ARR (~22x) | D=TechCrunch / CNBC, Feb 2026 — prior model note ($430M/25x) now superseded
+B=ANONA wedge vs. Magnific | C=JANE-anchored production vertical | D=Magnific is image-first, expanding to video — ANONA&apos;s edge is the live anchor customer + workflow depth
+
+B=Wrapbook (sober valuation comp) | C=$750M val; ~50% YoY growth | D=Hollywood Reporter / Tracxn, 2024–26 — production payroll + real-time cost tracking; closest functional analog
+B=monday.com (orchestration, public) | C=$351M Q1’26 rev (+24% YoY) | D=Q1 2026 earnings — AI ~10% of net-new ARR; work-OS pressing into the layer from above
+B=Adobe Firefly (enterprise suite) | C=Firefly ARR +75% QoQ | D=Adobe Q1 FY2026 call — + Frame.io (~$1.275B acq.); model-agnostic, converging from the suite side
+B=Coordination-layer SAM | C=$2.73B (2023) → $4.90B (2030) | D=360iResearch — M&E production-mgmt software (incl. budgeting/cost-tracking + collaboration). 8.69% CAGR
+B=TENET base-case SOM | C=~$5.4M ARR (~0.1% of SAM) | D=ANONA model, this workbook — a sliver of the software layer, not the $255B production economy
+B=Note: figures are from public reporting as of June 2026; private/forecast values are self-reported or estimated. ANONA revenue figures in this model are illustrative inputs to be validated. Comparable-company detail also lives in the Competitive Comparison workbook.

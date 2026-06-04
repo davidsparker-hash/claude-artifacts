@@ -49,7 +49,7 @@
     display: flex; justify-content: space-between; align-items: baseline;
     padding: 34px 56px;
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--fg-3);
     z-index: 3;
   }
@@ -66,7 +66,7 @@
   }
   .brand-side .kicker {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-3);
     margin: 0 0 34px;
   }
@@ -109,7 +109,7 @@
   }
   .brand-side .tenet-label {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-3);
     margin: 14px 0 0;
   }
@@ -124,7 +124,7 @@
   .login-side .head { margin-bottom: 44px; }
   .login-side .head .small-kicker {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-accent);
     margin: 0 0 16px;
   }
@@ -157,7 +157,7 @@
   .field.hide { display: none; }
   .field label {
     font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-3);
   }
   .field input {
@@ -187,7 +187,7 @@
   }
   .err {
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--fg-accent);
     min-height: 16px;
     margin: 0;
@@ -236,7 +236,7 @@
     grid-template-columns: var(--split) var(--split-2);
     border-top: 1px solid var(--rule);
     font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--fg-3);
   }
   .gate-footer .f-left {
@@ -272,7 +272,7 @@
     .gate-footer .f-right { padding: 26px 48px; justify-content: flex-start; }
   }
   @media (max-width: 600px) {
-    .chrome { padding: 22px 26px; font-size: 10px; }
+    .chrome { padding: 22px 26px; font-size: 11px; }
     .brand-side, .login-side { padding: 104px 26px 56px; }
     .wordmark-lg { font-size: 64px; }
     .login-side .head h1 { font-size: 28px; }
@@ -313,7 +313,7 @@
         <input type="email" id="email" name="email" autocomplete="email" required spellcheck="false" placeholder="you@example.com">
       </div>
 
-      <div class="field hide" id="inviteField">
+      <div class="field" id="inviteField">
         <label for="invite">Invite code</label>
         <input type="text" id="invite" name="invite" spellcheck="false" placeholder="ANONA-XXXX" autocapitalize="characters">
       </div>
@@ -352,8 +352,9 @@
      AUTH WIRING — points to the protected /_auth/ folder (NOT design).
      The real login/signup logic lives in /_auth/auth.js. This page only
      provides the form markup (#gateForm, #email, #password, #invite,
-     #enterBtn>#btnLabel, #modeToggle, #formTitle, etc.); auth.js drives it.
-     The previous "demo gate" script that faked a login has been removed.
+     #enterBtn>#btnLabel, #modeToggle, #formTitle, #toggleLead, etc.);
+     auth.js drives it. The previous "demo gate" that faked a login and
+     wrote the anona-auth localStorage key has been removed.
      (see /_auth/README-AUTH.md §6).
      ===================================================================== -->
 <script src="/_auth/config.js"></script>

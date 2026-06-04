@@ -1,0 +1,496 @@
+/* ============================================================
+   TENET — Competitive deck
+   Slide-local styles. Builds on deck.css + colors_and_type.css.
+   1920×1080 fixed canvas inside <deck-stage>.
+   ============================================================ */
+
+/* ---- Cover --------------------------------------------------- */
+.cvr { background: var(--paper-soft); }
+.cvr .slide-pad { justify-content: space-between; }
+.cvr .cvr-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1500px; }
+.cvr .cvr-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-accent); margin-bottom: 30px;
+  display: flex; align-items: center; gap: 18px;
+}
+.cvr .cvr-eyebrow::before { content: ""; width: 48px; height: 1px; background: var(--fg-accent); }
+.cvr h1 {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: 132px; line-height: 0.96; letter-spacing: -0.02em;
+  margin: 0 0 36px; color: var(--fg-1);
+}
+.cvr h1 .amber { color: var(--fg-accent); }
+.cvr .cvr-sub {
+  font-family: var(--font-serif); font-style: italic; font-weight: 300;
+  font-size: 34px; line-height: 1.35; color: var(--fg-2);
+  max-width: 1080px; margin: 0;
+}
+.cvr .cvr-dl {
+  margin-top: 44px;
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: 14px;
+}
+.cvr .cvr-dl .dl-label {
+  display: flex; align-items: center;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--fg-3); margin-right: 6px;
+}
+.cvr .cvr-dl a {
+  display: inline-flex; align-items: center; gap: 14px; white-space: nowrap;
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--fg-accent); text-decoration: none;
+  border: 1px solid var(--fg-accent); padding: 14px 22px;
+  background: rgba(186,117,23,0.05);
+  transition: background .16s ease, color .16s ease;
+}
+.cvr .cvr-dl a:hover { background: var(--fg-accent); color: #fff; }
+.cvr .cvr-dl a .ext {
+  font-size: 11px; letter-spacing: 0.14em; opacity: 0.7;
+}
+.cvr .cvr-dl a .arw { font-size: 14px; }
+.cvr .cvr-foot {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-top: 26px; border-top: 1px solid var(--rule);
+  font-size: 15px; color: var(--fg-2);
+}
+.cvr .cvr-foot .mono {
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3);
+}
+
+/* ---- Generic stat emphasis ---------------------------------- */
+.amber { color: var(--fg-accent); }
+.lead-note {
+  font-size: 20px; line-height: 1.5; color: var(--fg-2);
+  max-width: 1100px; margin: 0 0 30px; text-wrap: pretty;
+}
+
+/* ---- Slide 2: layer map ------------------------------------- */
+.layers { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.layer {
+  display: grid;
+  grid-template-columns: 132px 1.5fr 1.5fr 150px;
+  align-items: center; gap: 28px;
+  padding: 22px 28px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.layer .code {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: 34px; letter-spacing: 0.02em; color: var(--fg-3);
+}
+.layer .nm {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--fg-1);
+}
+.layer .nm .what {
+  display: block; font-family: var(--font-sans); font-size: 15px;
+  color: var(--fg-2); margin-top: 6px; line-height: 1.4;
+}
+.layer .players {
+  font-size: 16px; color: var(--fg-2); line-height: 1.5;
+}
+.layer .players b { color: var(--fg-1); font-weight: 400; }
+.layer .ov {
+  justify-self: end;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--fg-3); text-align: right;
+}
+.layer.home {
+  border-color: var(--fg-accent);
+  background: rgba(186,117,23,0.06);
+  box-shadow: 0 0 0 1px var(--fg-accent);
+}
+.layer.home .code { color: var(--fg-accent); }
+.layer.home .nm { color: var(--fg-1); }
+.layer.home .ov { color: var(--fg-accent); }
+.layer .ov.tag-home {
+  display: inline-flex; padding: 5px 10px;
+  border: 1px solid var(--fg-accent); color: var(--fg-accent);
+  white-space: nowrap;
+}
+
+/* ---- Slide 3: convergence cross ----------------------------- */
+.converge {
+  flex: 1; display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  grid-template-rows: 1fr 1.25fr 1fr;
+  gap: 22px; align-items: stretch;
+}
+.cvg-card {
+  border: 1px solid var(--rule); background: var(--paper);
+  padding: 22px 26px; display: flex; flex-direction: column; gap: 8px;
+  position: relative;
+}
+.cvg-card .dir {
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-accent);
+}
+.cvg-card .cat {
+  font-family: var(--font-display); font-weight: 300; font-size: 26px;
+  letter-spacing: -0.005em; color: var(--fg-1); line-height: 1.08;
+}
+.cvg-card .who {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em;
+  color: var(--fg-2); margin-top: 2px;
+}
+.cvg-card .brings {
+  font-size: 15px; line-height: 1.45; color: var(--fg-2);
+  margin-top: auto;
+}
+.cvg-above { grid-column: 2; grid-row: 1; }
+.cvg-left  { grid-column: 1; grid-row: 2; }
+.cvg-right { grid-column: 3; grid-row: 2; }
+.cvg-below { grid-column: 2; grid-row: 3; }
+.cvg-core {
+  grid-column: 2; grid-row: 2;
+  border: 1px solid var(--fg-1); background: var(--paper-soft);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 10px; padding: 24px;
+}
+.cvg-core .wm {
+  font-family: var(--font-display); font-weight: 300; font-size: 52px;
+  letter-spacing: 0.05em; color: var(--fg-accent);
+}
+.cvg-core .ly {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.cvg-core .hold {
+  font-size: 15px; line-height: 1.4; color: var(--fg-1); max-width: 240px;
+}
+.cvg-corner {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.cvg-nw { grid-column: 1; grid-row: 1; }
+.cvg-se { grid-column: 3; grid-row: 3; }
+.converge-foot {
+  margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--fg-accent);
+  font-size: 20px; line-height: 1.45; color: var(--fg-1);
+}
+.converge-foot b { color: var(--fg-accent); font-weight: 400; }
+
+/* ---- Slide 4: rebuttal grid --------------------------------- */
+.rebut { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.rebut .cell {
+  border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 30px 36px; display: flex; flex-direction: column; gap: 14px;
+}
+.rebut .cell .tag {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-accent);
+}
+.rebut .cell .obj {
+  font-size: 16px; line-height: 1.45; color: var(--fg-2);
+  font-style: italic; font-family: var(--font-serif);
+}
+.rebut .cell .ans {
+  font-family: var(--font-display); font-weight: 300; font-size: 28px;
+  line-height: 1.2; letter-spacing: -0.008em; color: var(--fg-1);
+  margin-top: auto; text-wrap: pretty;
+}
+.rebut .cell .ans b { color: var(--fg-accent); font-weight: 400; }
+
+/* ---- Slide 5: the two assets (moat) ------------------------- */
+.moat { flex: 1; display: flex; flex-direction: column; }
+.moat-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; flex: 1; }
+.moat-item {
+  padding: 12px 56px 12px 0; display: flex; flex-direction: column; gap: 18px;
+  justify-content: center;
+}
+.moat-item + .moat-item { padding-left: 56px; border-left: 1px solid var(--rule); }
+.moat-item .ix {
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.14em;
+  color: var(--fg-accent);
+}
+.moat-item h2 {
+  font-family: var(--font-display); font-weight: 300; font-size: 44px;
+  line-height: 1.04; letter-spacing: -0.015em; color: var(--fg-1); margin: 0;
+}
+.moat-item p { font-size: 21px; line-height: 1.5; color: var(--fg-2); margin: 0; max-width: 540px; }
+.moat-item .punch {
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em;
+  color: var(--fg-1); margin-top: 4px;
+}
+.moat-close {
+  margin-top: 36px; padding-top: 30px; border-top: 1px solid var(--fg-accent);
+  font-family: var(--font-serif); font-style: italic; font-weight: 300;
+  font-size: 36px; line-height: 1.3; color: var(--fg-1); text-wrap: balance;
+}
+.moat-close .amber { color: var(--fg-accent); }
+
+/* ---- Slide 6: TAM/SAM/SOM funnel ---------------------------- */
+.funnel { flex: 1; display: grid; grid-template-columns: 1.35fr 1fr; gap: 72px; align-items: center; }
+.funnel-bars { display: flex; flex-direction: column; gap: 22px; }
+.fbar { position: relative; }
+.fbar .bar {
+  border: 1px solid var(--rule); background: var(--paper-soft);
+  padding: 22px 28px; display: flex; align-items: baseline; justify-content: space-between;
+}
+.fbar.tam .bar { width: 100%; }
+.fbar.sam .bar { width: 66%; background: rgba(186,117,23,0.06); border-color: var(--fg-accent); }
+.fbar.som .bar { width: 34%; background: var(--fg-accent); border-color: var(--fg-accent); }
+.fbar .tier {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.fbar.sam .tier { color: var(--fg-accent); }
+.fbar.som .tier { color: rgba(255,255,255,0.85); }
+.fbar .val {
+  font-family: var(--font-display); font-weight: 300; font-size: 40px;
+  letter-spacing: -0.01em; color: var(--fg-1);
+}
+.fbar.som .val { color: #fff; }
+.fbar .def {
+  margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--fg-2);
+  max-width: 640px;
+}
+.funnel-arg { display: flex; flex-direction: column; gap: 24px; }
+.funnel-arg .big {
+  font-family: var(--font-display); font-weight: 300; font-size: 46px;
+  line-height: 1.08; letter-spacing: -0.012em; color: var(--fg-1); margin: 0;
+  text-wrap: balance;
+}
+.funnel-arg .big .amber { color: var(--fg-accent); }
+.funnel-arg p { font-size: 18px; line-height: 1.55; color: var(--fg-2); margin: 0; max-width: 480px; }
+
+/* ---- Slide 7: proof / comps grid ---------------------------- */
+.proof { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 0;
+  border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.proof .pc {
+  border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 30px 34px; display: flex; flex-direction: column; gap: 10px;
+}
+.proof .pc .co {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.proof .pc .stat {
+  font-family: var(--font-display); font-weight: 300; font-size: 56px;
+  line-height: 0.98; letter-spacing: -0.02em; color: var(--fg-accent);
+}
+.proof .pc .desc { font-size: 16px; line-height: 1.45; color: var(--fg-2); margin-top: auto; }
+.proof .pc .desc b { color: var(--fg-1); font-weight: 400; }
+
+/* ---- Slide 8: downloads / sources --------------------------- */
+.dls { flex: 1; display: flex; flex-direction: column; gap: 28px; }
+.dl-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dl-card {
+  display: flex; flex-direction: column; gap: 16px;
+  border: 1px solid var(--rule); background: var(--paper);
+  padding: 30px 32px; text-decoration: none; color: inherit;
+  transition: border-color .16s, background .16s, transform .16s;
+}
+.dl-card:hover { border-color: var(--fg-accent); background: rgba(186,117,23,0.05); transform: translateY(-2px); }
+.dl-card .ext {
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-accent);
+  border: 1px solid var(--fg-accent); padding: 5px 11px;
+}
+.dl-card .nm {
+  font-family: var(--font-display); font-weight: 300; font-size: 28px;
+  line-height: 1.12; letter-spacing: -0.008em; color: var(--fg-1);
+}
+.dl-card .desc { font-size: 15px; line-height: 1.5; color: var(--fg-2); }
+.dl-card .go {
+  margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-accent);
+  display: flex; align-items: center; gap: 10px;
+}
+.dls-note {
+  padding: 22px 26px; border: 1px solid var(--rule); background: var(--paper-soft);
+  font-size: 16px; line-height: 1.55; color: var(--fg-2);
+}
+.dls-note b { color: var(--fg-1); font-weight: 400; }
+
+/* ============================================================
+   Slide 4 — rebuttal, spiced
+   ============================================================ */
+.rebut .cell {
+  position: relative; overflow: hidden;
+  transition: background .22s ease;
+}
+section[data-deck-active] .rebut .cell {
+  animation: rbIn .55s cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes rbIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rebut .cell:hover { background: rgba(186,117,23,0.045); }
+.rebut .cell .idx {
+  position: absolute; top: 2px; right: 22px;
+  font-family: var(--font-display); font-weight: 300;
+  font-size: 118px; line-height: 1; color: var(--fg-1);
+  opacity: 0.05; letter-spacing: -0.03em; pointer-events: none;
+  transition: opacity .22s ease, color .22s ease;
+}
+.rebut .cell:hover .idx { opacity: 0.13; color: var(--fg-accent); }
+.rebut .cell .dir {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-accent);
+  position: relative; z-index: 1;
+}
+.rebut .cell .dir .ar {
+  width: 25px; height: 25px; border: 1px solid var(--fg-accent);
+  border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.rebut .cell .obj {
+  position: relative; font-family: var(--font-serif); font-style: italic;
+  font-size: 20px; line-height: 1.4; color: var(--fg-2);
+  padding-left: 36px; margin-top: 8px; max-width: 560px;
+}
+.rebut .cell .obj::before {
+  content: "\201C"; position: absolute; left: 0; top: 6px;
+  font-family: var(--font-serif); font-size: 54px; color: var(--fg-accent);
+  opacity: 0.42; line-height: .7;
+}
+.rebut .cell .piv {
+  margin-top: auto; display: flex; align-items: center; gap: 16px; padding-top: 8px;
+}
+.rebut .cell .piv .w {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--fg-accent);
+}
+.rebut .cell .piv .ln { flex: 1; height: 1px; background: var(--fg-accent); opacity: 0.32; }
+.rebut .cell .ans { margin-top: 14px; }
+@media (prefers-reduced-motion: reduce) {
+  .rebut .cell { opacity: 1; transform: none; animation: none; }
+}
+
+/* ============================================================
+   Slide 7 — proof points, spiced (count-up numbers)
+   ============================================================ */
+.proof .pc {
+  position: relative; overflow: hidden;
+}
+section[data-deck-active] .proof .pc {
+  animation: pfIn .5s ease both; animation-delay: var(--d, 0s);
+}
+@keyframes pfIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.proof .pc .statline { display: flex; align-items: baseline; gap: 12px; }
+.proof .pc .stat { font-variant-numeric: tabular-nums; }
+.proof .pc .trend {
+  font-family: var(--font-display); font-weight: 300; font-size: 30px; line-height: 1;
+  color: var(--fg-accent);
+}
+.proof .pc .cat {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--fg-accent); margin-top: 12px;
+}
+.proof .pc .bar { height: 2px; background: var(--fg-accent); width: 100%; margin-top: 14px; }
+section[data-deck-active] .proof .pc .bar {
+  animation: pfBar .9s cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: calc(var(--d, 0s) + .22s);
+}
+@keyframes pfBar { from { width: 0; } to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .proof .pc { opacity: 1; transform: none; animation: none; }
+  .proof .pc .bar { width: 100%; animation: none; }
+}
+
+/* ============================================================
+   Slides 2 & 3 — inline-SVG diagrams (light editorial palette)
+   ============================================================ */
+.diagram { width: 100%; flex: 1; min-height: 0; display: block; }
+.diagram text { font-family: var(--font-sans); }
+.dg-title { fill: var(--fg-1); font-weight: 400; }
+.dg-sub   { fill: var(--fg-3); }
+.dg-meta  { font-family: var(--font-mono); fill: var(--fg-accent); letter-spacing: 0.12em; }
+.dg-box   { fill: var(--paper-soft); stroke: var(--rule-strong); stroke-width: 1; }
+.dg-box.hl { fill: #FAEEDA; stroke: var(--fg-accent); stroke-width: 1.5; }
+.dg-band  { fill: var(--paper-soft); stroke: var(--rule); stroke-width: 1; }
+.dg-wm    { font-family: var(--font-display); font-weight: 300; fill: var(--fg-accent); letter-spacing: 0.04em; }
+.dg-arrow { stroke: var(--fg-accent); fill: none; }
+.dg-axis  { stroke: var(--rule-strong); fill: none; }
+.dg-axislab { font-family: var(--font-mono); fill: var(--fg-3); letter-spacing: 0.1em; }
+
+/* entrance — fade/scale stagger, gated on active slide */
+.dg-enter { transform-box: fill-box; transform-origin: center; }
+section[data-deck-active] .dg-enter {
+  animation: dgIn .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s);
+}
+@keyframes dgIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+
+/* arrows pressing inward — continuous subtle flow */
+.dg-flow { stroke-dasharray: 5 11; stroke-linecap: round; }
+section[data-deck-active] .dg-flow { animation: dgFlow 1.1s linear infinite; }
+@keyframes dgFlow { to { stroke-dashoffset: -16; } }
+
+/* TENET centre pulse halo */
+.dg-pulse { transform-box: fill-box; transform-origin: center; opacity: .3; }
+section[data-deck-active] .dg-pulse { animation: dgPulse 3.4s ease-in-out infinite; }
+@keyframes dgPulse { 0%,100% { opacity: .25; transform: scale(.82); } 50% { opacity: .6; transform: scale(1.08); } }
+
+/* slide 3 — pulsing highlight rings around the TENET box */
+.cvg-ring {
+  fill: none; stroke: var(--fg-accent);
+  transform-box: fill-box; transform-origin: center;
+  opacity: 0;
+}
+section[data-deck-active] .cvg-ring { animation: cvgRing 2.6s ease-out infinite; }
+section[data-deck-active] .cvg-ring.r2 { animation-delay: .87s; }
+section[data-deck-active] .cvg-ring.r3 { animation-delay: 1.74s; }
+@keyframes cvgRing {
+  0%   { opacity: .55; transform: scale(1); }
+  70%  { opacity: .12; }
+  100% { opacity: 0;   transform: scale(1.22); }
+}
+
+/* Magnific ascending marker */
+.dg-asc { transform-box: fill-box; transform-origin: center; }
+section[data-deck-active] .dg-asc { animation: dgAsc 1.9s ease-in-out infinite; }
+@keyframes dgAsc { 0%,100% { transform: translateY(3px); opacity: .5; } 50% { transform: translateY(-5px); opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-enter { opacity: 1; transform: none; animation: none; }
+  .dg-flow, .dg-pulse, .dg-asc { animation: none; }
+}
+
+/* ============================================================
+   Slide 6 — funnel bars grow in sequence
+   ============================================================ */
+.fbar .bar { overflow: hidden; white-space: nowrap; }
+section[data-deck-active] .fbar .bar {
+  animation: fbarGrow .9s cubic-bezier(.2,.7,.2,1) both;
+}
+section[data-deck-active] .fbar.sam .bar { animation-delay: .2s; }
+section[data-deck-active] .fbar.som .bar { animation-delay: .4s; }
+@keyframes fbarGrow { from { width: 0; } }
+
+.fbar .def { transform-origin: left; }
+section[data-deck-active] .fbar .def { animation: fbarFade .6s ease both; }
+section[data-deck-active] .fbar.tam .def { animation-delay: .35s; }
+section[data-deck-active] .fbar.sam .def { animation-delay: .55s; }
+section[data-deck-active] .fbar.som .def { animation-delay: .75s; }
+@keyframes fbarFade { from { opacity: 0; transform: translateY(6px); } }
+
+section[data-deck-active] .funnel-arg { animation: fArgIn .7s ease .5s both; }
+@keyframes fArgIn { from { opacity: 0; transform: translateX(18px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fbar .bar, .fbar .def, .funnel-arg { animation: none !important; }
+}
+
+
+/* ============================================================
+   Site-wide policy: only the header animates. All other content
+   is static & visible; ambient diagram motion (dg-flow, dg-pulse,
+   cvg-ring, dg-asc) is intentionally kept.
+   ============================================================ */
+.rebut .cell, .proof .pc, .proof .pc .bar, .dg-enter, .fbar .bar, .fbar .def, .funnel-arg {
+  opacity: 1 !important; transform: none !important;
+}
+section[data-deck-active] .rebut .cell,
+section[data-deck-active] .proof .pc,
+section[data-deck-active] .proof .pc .bar,
+section[data-deck-active] .dg-enter,
+section[data-deck-active] .fbar .bar,
+section[data-deck-active] .fbar .def,
+section[data-deck-active] .funnel-arg { animation: none !important; }

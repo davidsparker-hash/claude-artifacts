@@ -27,7 +27,7 @@
     z-index: 1000;
     display: inline-flex; align-items: center; gap: 10px;
     font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
     color: rgba(246,244,239,0.7);
     background: rgba(20,20,20,0.55);
     backdrop-filter: blur(8px);
@@ -157,9 +157,8 @@
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
-
-  <!-- AUTH (not design): authoritative session check. See /_auth/README-AUTH.md -->
-  <script src="/_auth/config.js"></script>
-  <script type="module" src="/_auth/guard.js"></script>
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+ANONA  ·  TENET
+THE COMPLETE STORY  ·  COMPETITIVE REBUTTAL
+“Why won’t an incumbent just build this?”
+Four categories are converging on the coordination layer. Here is the honest answer to each — and the two things none of them hold. Reads alongside Part I and Part II, the Competitive Landscape report, and the four-document master set.
+THE CONTESTED CENTER
+TENET’s coordination layer is not empty white space — it is a center four well-funded categories are pressing toward, each from a different starting point. The table below maps who is coming from where, and what each actually holds today:
+
+--- TABLE ---
+Direction | Category | Who | What they bring
+From above | Work-OS & automation | monday.com, Make | Capital + distribution, descending into orchestration
+From the studio side | Pipeline trackers | Autodesk Flow, ftrack, NIM | Entrenched status-tracking; bolting on AI
+From the suite side | Enterprise gen-AI | Adobe Firefly + Frame.io | Generation + review + a workflow builder, inside a $280B company
+From below | Production finance | Wrapbook, Saturation | The live money flow and real-time actuals
+--- END TABLE ---
+
+Held by none of the four: bidirectional cross-vertical translation, and client-side cost & timeline control. The rest of this document answers each category in turn, then returns to those two.
+FROM ABOVE  ·  WORK-OS & AUTOMATION  (monday.com & Make)
+The objection. “monday.com is public, repricing around AI agents, and Make is cheap glue. Won’t a general work platform just add a production module?”
+What they actually have:
+[ListParagraph] monday.com: $351M Q1’26 revenue, +24% YoY; AI now ~10% of net-new ARR.
+[ListParagraph] Repriced to seats + AI credits — betting on agent work, not seats.
+[ListParagraph] Make (Celonis-owned, ~$7.7B parent): $9–$10.59/mo, ubiquitous.
+The answer — they are horizontal; TENET is vertical, and the vertical is the moat. A generic work-OS can route a task and fire a webhook. It cannot summarize an electrical plan for an interior designer in the language each speaks, or auto-derive the cascading tasks when a change ripples downstream. That domain fluency is the hard part — and it is not a module they toggle on. Make commoditizes the “connect the generators” step, which is exactly the part of TENET that was never the defensible part; the translation and client cost-control sit above the wiring.
+FROM THE STUDIO SIDE  ·  PIPELINE TRACKERS  (Autodesk Flow, ftrack & NIM)
+The objection. “Autodesk Flow is the entrenched standard, ftrack is cheap, NIM already does bid-vs-actual. Why won’t the incumbent tracker just extend?”
+What they actually have:
+[ListParagraph] Autodesk Flow: ~$50/mo; the default studio pipeline tracker.
+[ListParagraph] ftrack (Backlight): $10–$30/seat/mo; strong review UX.
+[ListParagraph] NIM: bid-vs-actual financials alongside pipeline (post houses).
+The answer — trackers show status to producers; TENET gives control to the client. Flow, ftrack and NIM are built for the people running the production — they display where a shot is and what a task costs internally. None of them turn the project’s money flow into a live, client-facing surface where the budget-holder can dictate up or down and watch cost and timeline recompute. NIM’s bid-vs-actual is the closest analog, and it proves demand for cost visibility — but it is an internal finance view, not the end of the change-order black box for the client.
+FROM THE SUITE SIDE  ·  ENTERPRISE GEN-AI  (Adobe Firefly + Frame.io)
+The objection. “Adobe owns Firefly and Frame.io, is building a Creative Production workflow builder, and has a $280B balance sheet. Doesn’t that close the gap?”
+What they actually have:
+[ListParagraph] Firefly ARR +75% QoQ (Q1 FY2026); model-agnostic, brand governance.
+[ListParagraph] Frame.io (Adobe, ~$1.275B): review + approvals + workflow builder.
+[ListParagraph] 30+ enterprise content-production APIs in automated workflows.
+The answer — Adobe optimizes asset creation and review; TENET coordinates specialists and money. Firefly + Frame.io is the strongest convergence threat — it connects generation, review, and assets. But it is built to make and approve content faster, not to manage cross-vertical dependencies or give the client cost-and-timeline control. There is no cost engine on the project’s money flow. Adobe is also a credible acquirer, not just a competitor — a layer that proves it ends the change-order black box is more valuable bolted onto their suite than rebuilt from scratch.
+FROM BELOW  ·  PRODUCTION FINANCE  (Wrapbook & Saturation.io)
+The objection. “Wrapbook already owns the live money flow and Saturation does real-time actuals. Aren’t they one step from TENET’s pitch?”
+What they actually have:
+[ListParagraph] Wrapbook: $750M valuation, ~50% YoY growth, 1,000+ companies.
+[ListParagraph] Saturation.io: real-time actuals, 8,000+ producers, from ~$20/mo.
+[ListParagraph] Both: own payroll / budget data, not the creative handoffs.
+The answer — they track the money; they do not carry the work between specialists. Wrapbook and Saturation are the closest functional analogs — they prove that real-time cost transparency is a real, paid need. But they sit on payroll and budget data, not on the creative dependency graph. They cannot translate a designer’s change into the electrician’s task list, because they never modeled the work itself. TENET sits on the money flow and the creative graph at once. That intersection — not finance alone — is what ends the black box.
+WHAT SURVIVES EVERY REBUTTAL — TWO ASSETS NONE OF THE FOUR HOLD
+Bidirectional cross-vertical translation. Re-summarize one specialist’s work into the language the next one speaks — and auto-derive the cascading tasks when a change ripples up or down. Trackers route; generators make; TENET translates.
+Client-side cost & timeline control. Put the budget-holder in the driver’s seat: dictate up or down, add or cut at the last minute, and watch cost and timeline recompute live. The end of the change-order black box.
+The point: the bet isn’t that TENET out-features any one rival. It’s that it owns the intersection of these two — the coordination layer — which is a different job than anyone above, below, or beside it is built to do.
+Reconciles to the ANONA Seed Investment Plan and the Competitive Landscape report. Illustrative figures for investor discussion; private-company data self-reported or estimated where noted. Not investment or legal advice. · June 2026 · Reads alongside Part I and Part II.
