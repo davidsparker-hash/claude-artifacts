@@ -1,0 +1,12 @@
+/* ============================================================
+   Anona Design System — root entry
+   ------------------------------------------------------------
+   Single stylesheet consumers link. It pulls in the canonical
+   foundations (color + type tokens, @font-face, base element
+   styles). Per-deck CSS (deck.css, investor.css, lobby.css …)
+   are deck-local and are linked by their own decks — they are
+   NOT imported here, so the token/font closure stays clean and
+   un-duplicated.
+   ============================================================ */
+
+@import url("colors_and_type.css");

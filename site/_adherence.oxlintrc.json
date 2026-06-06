@@ -1,0 +1,201 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "ANONA_investor_deck/**",
+              "TENET_product_deck/**",
+              "animations.jsx",
+              "competition_deck/**",
+              "dialogue.js",
+              "flow/**",
+              "flow_ctx/**",
+              "lobby_deck/**",
+              "scene.jsx",
+              "tenet-demo/**",
+              "tweaks-panel.jsx",
+              "ui_kits/tenet/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Brown|Source Serif 4|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Brown, Source Serif 4, JetBrains Mono."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--accent-bar",
+      "--amber-200",
+      "--amber-50",
+      "--amber-800",
+      "--anona-orange",
+      "--bg-1",
+      "--bg-2",
+      "--bg-amber-soft",
+      "--border",
+      "--border-strong",
+      "--fg-1",
+      "--fg-2",
+      "--fg-3",
+      "--fg-accent",
+      "--fg-on-amber",
+      "--font-display",
+      "--font-mono",
+      "--font-sans",
+      "--font-serif",
+      "--fs-body",
+      "--fs-display",
+      "--fs-display-l",
+      "--fs-display-xl",
+      "--fs-h1",
+      "--fs-h2",
+      "--fs-h3",
+      "--fs-h4",
+      "--fs-kicker",
+      "--fs-meta",
+      "--fs-small",
+      "--ink",
+      "--ink-faint",
+      "--ink-muted",
+      "--lh-body",
+      "--lh-loose",
+      "--lh-snug",
+      "--lh-tight",
+      "--paper",
+      "--paper-soft",
+      "--r-0",
+      "--r-1",
+      "--r-2",
+      "--r-3",
+      "--r-pill",
+      "--rule",
+      "--rule-strong",
+      "--s-1",
+      "--s-10",
+      "--s-2",
+      "--s-3",
+      "--s-4",
+      "--s-5",
+      "--s-6",
+      "--s-7",
+      "--s-8",
+      "--s-9",
+      "--shadow-card",
+      "--shadow-hairline",
+      "--shadow-pop",
+      "--tracking-body",
+      "--tracking-display",
+      "--tracking-kicker",
+      "--tracking-wordmark"
+    ],
+    "tokenKinds": {
+      "--anona-orange": "color",
+      "--amber-50": "color",
+      "--amber-200": "color",
+      "--amber-800": "color",
+      "--ink": "color",
+      "--ink-muted": "color",
+      "--ink-faint": "color",
+      "--paper": "color",
+      "--paper-soft": "color",
+      "--border": "color",
+      "--border-strong": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-3": "color",
+      "--fg-accent": "color",
+      "--fg-on-amber": "color",
+      "--bg-1": "color",
+      "--bg-2": "color",
+      "--bg-amber-soft": "color",
+      "--rule": "color",
+      "--rule-strong": "color",
+      "--accent-bar": "color",
+      "--font-sans": "font",
+      "--font-display": "font",
+      "--font-serif": "font",
+      "--font-mono": "font",
+      "--fs-display-xl": "font",
+      "--fs-display-l": "font",
+      "--fs-display": "font",
+      "--fs-h1": "font",
+      "--fs-h2": "font",
+      "--fs-h3": "spacing",
+      "--fs-h4": "spacing",
+      "--fs-body": "spacing",
+      "--fs-small": "spacing",
+      "--fs-meta": "spacing",
+      "--fs-kicker": "spacing",
+      "--lh-tight": "font",
+      "--lh-snug": "font",
+      "--lh-body": "font",
+      "--lh-loose": "font",
+      "--tracking-kicker": "font",
+      "--tracking-display": "font",
+      "--tracking-wordmark": "font",
+      "--tracking-body": "font",
+      "--s-1": "spacing",
+      "--s-2": "spacing",
+      "--s-3": "spacing",
+      "--s-4": "spacing",
+      "--s-5": "spacing",
+      "--s-6": "spacing",
+      "--s-7": "spacing",
+      "--s-8": "spacing",
+      "--s-9": "spacing",
+      "--s-10": "spacing",
+      "--r-0": "spacing",
+      "--r-1": "spacing",
+      "--r-2": "spacing",
+      "--r-3": "spacing",
+      "--r-pill": "spacing",
+      "--shadow-hairline": "shadow",
+      "--shadow-card": "shadow",
+      "--shadow-pop": "shadow"
+    },
+    "fontFamilies": [
+      "Brown",
+      "JetBrains Mono",
+      "Source Serif 4"
+    ]
+  }
+}

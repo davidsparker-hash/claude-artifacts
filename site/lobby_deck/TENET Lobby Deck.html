@@ -1,0 +1,684 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="TENET Lobby Deck" subtitle="Auto-advancing overview · 12 slides" viewport="1920x1080" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<!-- AUTH (not design): design's anona-auth gate removed; session, "signed in as", and sign-out handled by /_auth/guard.js -->
+<title>TENET — Lobby</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="lobby.css">
+<style>
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+
+<deck-stage no-rail>
+
+<!-- ============================================================
+     SLIDE 01 — Cold open. A held breath.
+     ============================================================ -->
+<section data-screen-label="01 Cold open" class="dark">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb"><span class="amber">ANONA</span> · TENET — Lobby</div>
+      <div class="counter"><b>01</b> / 12</div>
+    </div>
+    <div class="cold-mid">
+      <div class="pre fade" style="--d:.1s">A short walk before the deep dive</div>
+      <h1 class="line settle" style="--d:.35s">Money moves<br>before <span class="amber">clarity</span> does.</h1>
+      <div class="dash wipe-y" style="--d:1.1s"></div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">The translation layer for complex production</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 02 — The problem, felt. The $300K beat.
+     ============================================================ -->
+<section data-screen-label="02 The problem">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">The problem, felt</div>
+      <div class="counter"><b>02</b> / 12</div>
+    </div>
+    <div class="felt">
+      <div class="prose">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <p class="rise" style="--d:.12s">For twenty-six years the same thing happens in the same rooms. <span class="ink">Strong ideas die because no one can feel them yet.</span> Weaker ideas survive because they're the only thing on the table when the clock runs out.</p>
+        <p class="muted rise" style="--d:.24s">The fault line in every room is the gap between someone's idea and the version everyone can finally see.</p>
+      </div>
+      <div class="figure">
+        <div class="cap">TENET was built after watching one creative call cost a client</div>
+        <div class="num" id="num300" data-count="300" data-prefix="$" data-suffix="K">$300K</div>
+        <div class="sub">— money they never needed to spend, lost in the gap between intent and the thing everyone could finally see.</div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">Why the layer exists</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 03 — The analogy: a complex build. Relay / leak chain.
+     ============================================================ -->
+<section data-screen-label="03 The analogy">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">The analogy · a complex build</div>
+      <div class="counter"><b>03</b> / 12</div>
+    </div>
+    <div class="head-block">
+      <div class="amber-rule wipe" style="--d:.05s"></div>
+      <h1 class="rise" style="--d:.12s">Construction and film fail the same way — a long chain of specialists, <span class="amber">everything in sequence.</span></h1>
+      <p class="stand rise" style="--d:.22s">Not because people are bad at their jobs — but because each stage is marked up, and money leaks at every handoff through re-clarification and delay.</p>
+    </div>
+    <div class="relay">
+      <div class="chain">
+        <div class="stg">
+          <div class="nx">STAGE 01</div>
+          <div class="nm">Architect</div>
+          <div class="role">designs the intent</div>
+        </div>
+        <div class="stg">
+          <div class="nx">STAGE 02</div>
+          <div class="nm">City</div>
+          <div class="role">permits the plan</div>
+        </div>
+        <div class="stg">
+          <div class="nx">STAGE 03</div>
+          <div class="nm">Build</div>
+          <div class="role">the relay begins</div>
+        </div>
+        <div class="stg">
+          <div class="nx">STAGE 04</div>
+          <div class="nm">Production</div>
+          <div class="role">one stage after another</div>
+        </div>
+      </div>
+      <div class="arrow-rail">
+        <span class="lbl">Idea</span>
+        <span class="track"></span>
+        <span class="lbl amber">Cost leaks at every transition</span>
+        <span class="track"></span>
+        <span class="lbl">Final cut</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">Everyone understands a building</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 04 — What TENET is. The between-diagram.
+     ============================================================ -->
+<section data-screen-label="04 What TENET is" class="">
+  <div class="pad" style="background:var(--paper-soft);margin:0;padding:60px 110px 116px;">
+    <div class="top">
+      <div class="crumb">What TENET is</div>
+      <div class="counter"><b>04</b> / 12</div>
+    </div>
+    <div class="between">
+      <div class="copy">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <div class="big rise" style="--d:.12s">The <span class="amber">translation layer</span> for complex production.</div>
+        <p class="rise" style="--d:.24s">It carries work between specialists who speak different professional languages — <span class="ink">accurately, in real time, in both directions</span> — without losing detail, time, or money in the gaps between them.</p>
+        <p class="rise" style="--d:.34s">Not a tool that makes the work. The system that carries the work correctly between the people and tools that do.</p>
+      </div>
+      <div class="diagram">
+        <div class="node">
+          <div class="tag">UPSTREAM</div>
+          <div class="nm">Specialist A</div>
+          <div class="who">speaks design</div>
+        </div>
+        <div class="link l1"></div>
+        <div class="core">
+          <div class="wm">TENET</div>
+          <div class="sub">carries · doesn't replace</div>
+        </div>
+        <div class="link l2"></div>
+        <div class="node">
+          <div class="tag">DOWNSTREAM</div>
+          <div class="nm">Specialist B</div>
+          <div class="who">speaks structure</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">One clean line, one simple diagram</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 05 — Translation, not automation. The contrast.
+     ============================================================ -->
+<section data-screen-label="05 Translation">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">Translation, not automation</div>
+      <div class="counter"><b>05</b> / 12</div>
+    </div>
+    <div class="head-block">
+      <div class="amber-rule wipe" style="--d:.05s"></div>
+      <h1 class="rise" style="--d:.12s">You'd never summarize a building's wiring the way you'd summarize its <span class="amber">interior.</span></h1>
+      <p class="stand rise" style="--d:.22s">The core isn't automating tasks. It's knowing how to summarize each specialist's work for the next — at the right level of detail, in the language that team actually speaks.</p>
+    </div>
+    <div class="contrast">
+      <div class="col left">
+        <div class="lbl">DEPARTMENT 01</div>
+        <div class="nm">Electrical</div>
+        <div class="need">needs precision.</div>
+        <ul>
+          <li><span class="bull"></span>Load capacity</li>
+          <li><span class="bull"></span>Circuit layout</li>
+          <li><span class="bull"></span>Code compliance</li>
+        </ul>
+        <div class="wrong"><b>"There will be outlets in every room"</b> is uselessly vague here.</div>
+      </div>
+      <div class="col right">
+        <div class="lbl">DEPARTMENT 02</div>
+        <div class="nm">Interior</div>
+        <div class="need">needs feel.</div>
+        <ul>
+          <li><span class="bull"></span>Color &amp; materials</li>
+          <li><span class="bull"></span>Layout &amp; light</li>
+          <li><span class="bull"></span>The way a room reads</li>
+        </ul>
+        <div class="wrong"><b>The size of the paint can</b> is right for electrical, wrong for design.</div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">Carry it across every vertical · drop nothing that matters</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 06 — Bidirectional, in real time. The ripple.
+     ============================================================ -->
+<section data-screen-label="06 Bidirectional">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">Bidirectional · in real time</div>
+      <div class="counter"><b>06</b> / 12</div>
+    </div>
+    <div class="ripple">
+      <div class="copy">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <p class="rise" style="--d:.12s">This is not a one-way pipeline. <span class="ink">An interior designer reshapes a room, the client signs off — and the change ripples through electrical, structure, budget, and timeline.</span></p>
+        <p class="rise" style="--d:.24s">Instead of grinding to a halt, TENET translates that change into exactly what each downstream team needs to do. It runs the other way too: a code conflict downstream ripples back up in the language the designer needs.</p>
+        <p class="pull rise" style="--d:.36s">Managing the <span class="amber">cascading implications of change</span> across parallel teams is what separates a workflow system from a task tracker.</p>
+      </div>
+      <div class="stage">
+        <svg viewBox="0 0 720 524" aria-label="A change at one node rippling across teams in both directions">
+          <!-- flow links -->
+          <g class="rp-link rp-flow">
+            <line x1="360" y1="262" x2="360" y2="118"></line>
+            <line x1="360" y1="262" x2="582" y2="262"></line>
+            <line x1="360" y1="262" x2="360" y2="406"></line>
+            <line x1="360" y1="262" x2="138" y2="262"></line>
+          </g>
+          <!-- pulse rings -->
+          <circle class="rp-wave w1" cx="360" cy="262" r="78"></circle>
+          <circle class="rp-wave w2" cx="360" cy="262" r="78"></circle>
+          <circle class="rp-wave w3" cx="360" cy="262" r="78"></circle>
+          <!-- outer nodes -->
+          <g>
+            <rect class="rp-node" x="286" y="64" width="148" height="62" rx="6"></rect>
+            <text class="rp-label" x="360" y="92">Electrical</text>
+            <text class="rp-tag" x="360" y="110">downstream</text>
+          </g>
+          <g>
+            <rect class="rp-node" x="556" y="231" width="150" height="62" rx="6"></rect>
+            <text class="rp-label" x="631" y="259">Structure</text>
+            <text class="rp-tag" x="631" y="277">downstream</text>
+          </g>
+          <g>
+            <rect class="rp-node" x="286" y="398" width="148" height="62" rx="6"></rect>
+            <text class="rp-label" x="360" y="426">Budget</text>
+            <text class="rp-tag" x="360" y="444">recomputed</text>
+          </g>
+          <g>
+            <rect class="rp-node" x="14" y="231" width="150" height="62" rx="6"></rect>
+            <text class="rp-label" x="89" y="259">Timeline</text>
+            <text class="rp-tag" x="89" y="277">recomputed</text>
+          </g>
+          <!-- source -->
+          <rect class="rp-node src" x="282" y="231" width="156" height="62" rx="6"></rect>
+          <text class="rp-label on-src" x="360" y="259">Interior</text>
+          <text class="rp-tag on-src" x="360" y="277" style="fill:rgba(255,255,255,0.8)">the change</text>
+        </svg>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">Reconciled, not chaotic · no bottleneck</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 07 — Who wins most: the client. The black box opens.
+     ============================================================ -->
+<section data-screen-label="07 The client" class="dark">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">Who wins most · the client</div>
+      <div class="counter"><b>07</b> / 12</div>
+    </div>
+    <div class="box">
+      <div class="copy">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <h1 class="rise" style="--d:.12s">Opacity, replaced with <span class="amber">mathematics.</span></h1>
+        <p class="rise" style="--d:.24s">The client moves from being held hostage by opacity to <span class="lt">real-time visibility and control.</span> Dictate by budget, up or down, and watch the financial impact play out live.</p>
+        <p class="rise" style="--d:.34s">No one says "that can't be done" out of laziness. No one weaponizes a change request into gouging on overages. Anyone who's run a project knows the change-order black box. <span class="lt">TENET ends it.</span></p>
+      </div>
+      <div class="viz">
+        <div class="vault">
+          <div class="ledger">
+            <div class="row"><span class="k">Add VFX · Scene 4</span><span class="v up">+ $18,400</span></div>
+            <div class="row"><span class="k">Cut location B</span><span class="v">– $11,200</span></div>
+            <div class="row"><span class="k">Timeline impact</span><span class="v up">+ 3 days</span></div>
+            <div class="row total"><span class="k">Live net</span><span class="v">+ $7,200 · on screen</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">Real-time cause and effect · full transparency</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 08 — The market is already real.
+     ============================================================ -->
+<section data-screen-label="08 The market">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">The market is already real</div>
+      <div class="counter"><b>08</b> / 12</div>
+    </div>
+    <div class="market">
+      <div class="copy">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <div class="stat rise" style="--d:.12s">
+          <div class="n" id="num230" data-count="230" data-prefix="$" data-suffix="M">$230M</div>
+          <div class="d"><b>Magnific</b> — recurring revenue, bootstrapped. 1M+ paying subscribers, 250+ enterprise customers including the BBC, Puma, and Amazon Prime Video.</div>
+        </div>
+        <p class="rise" style="--d:.24s">But tools like that generate assets faster. They don't fix the handoffs between specialists, and they don't give the client control over cost and timeline.</p>
+        <p class="punch rise" style="--d:.34s">The generators make the parts. <span class="amber">TENET runs the line.</span></p>
+      </div>
+      <div class="layers">
+        <div class="tenet-bar">
+          <div class="wm">TENET</div>
+          <div class="role">the layer above<br>the tools</div>
+        </div>
+        <div class="runs-line">
+          <span class="seg"></span>coordinates<span class="seg"></span>
+        </div>
+        <div class="field">
+          <div class="gen"><div class="gn">Sora · Veo</div><div class="gt">clips</div></div>
+          <div class="gen"><div class="gn">ElevenLabs</div><div class="gt">voice</div></div>
+          <div class="gen"><div class="gn">Runway</div><div class="gt">frames</div></div>
+          <div class="gen"><div class="gn">Magnific</div><div class="gt">upscale</div></div>
+          <div class="gen"><div class="gn">Kling</div><div class="gt">motion</div></div>
+          <div class="gen"><div class="gn">Firefly</div><div class="gt">assets</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">More outputs · more handoffs · more need for the layer</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 09 — The proof is already running. The 62→40→23 fall.
+     ============================================================ -->
+<section data-screen-label="09 The proof">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">The proof is already running</div>
+      <div class="counter"><b>09</b> / 12</div>
+    </div>
+    <div class="proof">
+      <div class="copy">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <div class="real fade" style="--d:.1s">Not a projection · what happened</div>
+        <h1 class="rise" style="--d:.18s">Three Cisco campaigns. Three years. One arc.</h1>
+        <p class="rise" style="--d:.3s">Full CG, then hybrid, then full AI. <span class="ink">Hard cost per dollar of revenue fell from 62¢ to 40¢ to 23¢.</span> Margins nearly doubled — and held at scale.</p>
+        <div class="jane rise" style="--d:.42s">
+          <div class="jl">Anchor customer</div>
+          <div class="jt"><b>JANE</b> feeds TENET live production jobs — a real studio's real work for real brands, not a demo.</div>
+        </div>
+      </div>
+      <div class="chart">
+        <div class="bar">
+          <div class="val">62¢</div>
+          <div class="col" style="height:100%"><div class="mode">Full CG</div><div class="yr">Year 1</div></div>
+        </div>
+        <div class="bar">
+          <div class="val">40¢</div>
+          <div class="col" style="height:64%"><div class="mode">Hybrid</div><div class="yr">Year 2</div></div>
+        </div>
+        <div class="bar amber">
+          <div class="val">23¢</div>
+          <div class="col" style="height:37%"><div class="mode">Full AI</div><div class="yr">Year 3</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">Hard cost per dollar of revenue · real, not projected</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 10 — The moat. Two assets.
+     ============================================================ -->
+<section data-screen-label="10 The moat">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">The moat</div>
+      <div class="counter"><b>10</b> / 12</div>
+    </div>
+    <div class="head-block">
+      <div class="amber-rule wipe" style="--d:.05s"></div>
+      <h1 class="rise" style="--d:.12s">Two assets none of the competitors hold.</h1>
+    </div>
+    <div class="moat">
+      <div class="pair">
+        <div class="asset">
+          <div class="ix">01</div>
+          <h2>Bidirectional cross-vertical translation</h2>
+          <p>Re-summarize one specialist's work into the language the next one speaks — and auto-derive the cascading tasks when a change ripples up or down.</p>
+          <div class="punch">Carries the work · not just the status</div>
+        </div>
+        <div class="asset two">
+          <div class="ix">02</div>
+          <h2>Client-side cost &amp; timeline control</h2>
+          <p>The budget-holder in the driver's seat, watching cost and timeline recompute live. The end of the change-order black box.</p>
+          <div class="punch">Control to the client · not just visibility to the producer</div>
+        </div>
+      </div>
+      <div class="verbs">
+        <div class="vleft">
+          <span class="v"><b>Trackers</b> route.</span>
+          <span class="sep">·</span>
+          <span class="v"><b>Generators</b> make.</span>
+        </div>
+        <div class="vtenet">
+          <svg class="vorbit" viewBox="0 0 680 168" aria-hidden="true">
+            <path id="vorbitPath" class="vtrack" d="M16,84 a324,72 0 1,0 648,0 a324,72 0 1,0 -648,0"></path>
+            <polygon class="varrow" points="0,-6 13,0 0,6">
+              <animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#vorbitPath"></mpath></animateMotion>
+            </polygon>
+            <polygon class="varrow" points="0,-6 13,0 0,6">
+              <animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite" rotate="auto"><mpath href="#vorbitPath"></mpath></animateMotion>
+            </polygon>
+          </svg>
+          <span class="vt"><b>TENET</b> translates.</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">The intersection no one else owns</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 11 — The business, in one breath. Spare teaser.
+     ============================================================ -->
+<section data-screen-label="11 The business" class="">
+  <div class="pad" style="background:var(--paper-soft);padding:60px 110px 116px;">
+    <div class="top">
+      <div class="crumb">The business, in one breath</div>
+      <div class="counter"><b>11</b> / 12</div>
+    </div>
+    <div class="breath">
+      <div class="amber-rule wipe" style="--d:.05s"></div>
+      <p class="line rise" style="--d:.16s">A real revenue model, anchored on a <span class="amber">paying studio from day one.</span> Priced to a defensible seed, built enterprise-first — <span class="muted">with revenue covering a meaningful share of the build.</span></p>
+      <div class="pointer fade" style="--d:.5s">
+        <span>The full model — return math, the ask, the cap table</span>
+        <span class="dash"></span>
+        <span class="arrow">↳</span>
+        <span>one door away</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">The proof lives in the deep-dive</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 12 — The doors. The invitation.
+     ============================================================ -->
+<section data-screen-label="12 The doors">
+  <div class="pad">
+    <div class="top">
+      <div class="crumb">The doors</div>
+      <div class="counter"><b>12</b> / 12</div>
+    </div>
+    <div class="doors">
+      <div class="lede">
+        <div class="amber-rule wipe" style="--d:.05s"></div>
+        <h1 class="rise" style="--d:.12s">You've seen the idea. <span class="amber">Now go deeper.</span></h1>
+      </div>
+      <div class="grid">
+        <div class="door">
+          <div class="dn">01</div>
+          <div class="dt">The investor deck</div>
+          <div class="dd">The conviction layer, end to end — why now, the evidence, the ask.</div>
+          <div class="ar">↗</div>
+        </div>
+        <div class="door">
+          <div class="dn">02</div>
+          <div class="dt">The numbers</div>
+          <div class="dd">The seed plan and cap table — the financial source of truth.</div>
+          <div class="ar">↗</div>
+        </div>
+        <div class="door">
+          <div class="dn">03</div>
+          <div class="dt">The competitive landscape</div>
+          <div class="dd">The contested center, and the two things no one else holds.</div>
+          <div class="ar">↗</div>
+        </div>
+        <div class="door">
+          <div class="dn">04</div>
+          <div class="dt">The first product</div>
+          <div class="dd">The product overview — and the demo we're building now.</div>
+          <div class="ar">↗</div>
+        </div>
+      </div>
+      <div class="enter">
+        <a class="go" href="../chooser.html">Enter the deep dive <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="lockup"><span class="amber">Anona</span><span class="dot">·</span><span>Tenet</span></div>
+      <div class="meta">The invitation</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+
+<!-- ============================================================
+     CUSTOM CONTROL BAR + 15s auto-advance
+     ============================================================ -->
+<div class="lobby-progress" id="lobbyProgress"><div class="fill" id="lobbyFill"></div></div>
+
+<div class="lobby-bar" id="lobbyBar">
+  <div class="seg left">
+    <a class="lobby-skip" href="../chooser.html">Skip intro <span class="arrow">↦</span></a>
+    <span class="lobby-hint">Auto-advances every 15s</span>
+  </div>
+  <div class="seg mid">
+    <button class="lobby-btn" id="lobbyPrev" type="button" aria-label="Previous slide" title="Previous (←)">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+    </button>
+    <button class="lobby-btn lobby-play" id="lobbyPlay" type="button" aria-label="Pause auto-advance" title="Pause">
+      <span class="auto-lbl" id="lobbyAutoLbl">Pause</span>
+      <svg id="lobbyPlayIcon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/></svg>
+    </button>
+    <button class="lobby-btn" id="lobbyNext" type="button" aria-label="Next slide" title="Next (→)">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+    </button>
+  </div>
+  <div class="seg right">
+    <span class="lobby-count"><span class="cur" id="lobbyCur">1</span><span class="sep">/</span><span class="tot" id="lobbyTot">12</span></span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var ds = document.querySelector('deck-stage');
+  if (!ds) return;
+
+  var bar      = document.getElementById('lobbyBar');
+  var progress = document.getElementById('lobbyProgress');
+  var fill     = document.getElementById('lobbyFill');
+  var curEl    = document.getElementById('lobbyCur');
+  var totEl    = document.getElementById('lobbyTot');
+  var playBtn  = document.getElementById('lobbyPlay');
+  var playIcon = document.getElementById('lobbyPlayIcon');
+  var autoLbl  = document.getElementById('lobbyAutoLbl');
+
+  var ICON_PAUSE = '<rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/>';
+  var ICON_PLAY  = '<path d="M5 3.5v9l8-4.5z"/>';
+
+  var playing = true;
+  var reduce = false;
+  try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+  // Hide the deck-stage's built-in floating overlay — this page drives nav
+  // through its own bottom bar instead (keyboard nav still works).
+  function hideBuiltInOverlay() {
+    try {
+      var ov = ds.shadowRoot && ds.shadowRoot.querySelector('.overlay');
+      if (ov) ov.style.display = 'none';
+    } catch (e) {}
+  }
+  hideBuiltInOverlay();
+
+  function isDark(slide) { return slide && slide.classList.contains('dark'); }
+
+  // Restart the 15s progress fill from 0. animationend → advance.
+  function restartTimer() {
+    if (reduce) return;            // no auto-advance under reduced motion
+    fill.classList.remove('run');
+    void fill.offsetWidth;         // force reflow so the animation re-triggers
+    fill.classList.add('run');
+    progress.classList.toggle('paused', !playing);
+  }
+
+  function setPlaying(on) {
+    playing = on;
+    progress.classList.toggle('paused', !playing);
+    playIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    autoLbl.textContent = playing ? 'Pause' : 'Play';
+    playBtn.setAttribute('aria-label', playing ? 'Pause auto-advance' : 'Resume auto-advance');
+    playBtn.setAttribute('title', playing ? 'Pause' : 'Resume');
+  }
+
+  // When the bar finishes filling, move on. On the last slide, the next
+  // step is the chooser — the deck's own payoff.
+  fill.addEventListener('animationend', function () {
+    if (!playing) return;
+    if (ds.index >= ds.length - 1) {
+      window.location.assign('../chooser.html');
+    } else {
+      ds.next();
+    }
+  });
+
+  // Count-up figures — re-run each time their slide becomes active.
+  function animateCount(el) {
+    var to = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    if (reduce) { el.textContent = pre + to + suf; return; }
+    var t0 = null, dur = 1300;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + Math.round(to * e) + suf;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = pre + to + suf;
+    }
+    requestAnimationFrame(step);
+  }
+  function fireCounts(i) {
+    var el = (i === 1) ? document.getElementById('num300')
+           : (i === 7) ? document.getElementById('num230') : null;
+    if (el) animateCount(el);
+  }
+
+  // Track slide changes (keyboard, tap, our buttons, init) — sync the
+  // counter, recolor the bar over dark slides, and reset the timer.
+  ds.addEventListener('slidechange', function (e) {
+    curEl.textContent = String(e.detail.index + 1);
+    totEl.textContent = String(e.detail.total);
+    bar.classList.toggle('on-dark', isDark(e.detail.slide));
+    restartTimer();
+    fireCounts(e.detail.index);
+  });
+
+  // Controls
+  document.getElementById('lobbyPrev').addEventListener('click', function () { ds.prev(); });
+  document.getElementById('lobbyNext').addEventListener('click', function () { ds.next(); });
+  playBtn.addEventListener('click', function () {
+    setPlaying(!playing);
+    // resuming from a paused-at-end state? nudge the fill so it can finish.
+    if (playing) restartTimer();
+  });
+
+  // Pause the countdown while the tab is hidden so it doesn't race ahead.
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) progress.classList.add('paused');
+    else if (playing) progress.classList.remove('paused');
+  });
+
+  // Initial paint.
+  totEl.textContent = String(ds.length || 12);
+  setPlaying(true);
+  bar.classList.toggle('on-dark', isDark(ds.querySelector('section')));
+  // slidechange fires on mount (reason:init) and kicks off the first timer;
+  // but guard in case it already fired before this listener attached.
+  if (ds.index === 0) restartTimer();
+
+  // Safety net: deck-stage clears its own data-fonts-pending guard inside a
+  // requestAnimationFrame, which never fires if the tab/iframe isn't
+  // painting — leaving the stage hidden indefinitely. Force-clear it on a
+  // plain timeout (which fires regardless) so the deck can never stay black.
+  setTimeout(function () {
+    try { ds.removeAttribute('data-fonts-pending'); } catch (e) {}
+  }, 2200);
+})();
+</script>
+
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+</body>
+</html>

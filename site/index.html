@@ -348,15 +348,11 @@
 
 </div>
 
-<!-- =====================================================================
-     AUTH WIRING — points to the protected /_auth/ folder (NOT design).
+<!-- AUTH WIRING — points to the protected /_auth/ folder (NOT design).
      The real login/signup logic lives in /_auth/auth.js. This page only
-     provides the form markup (#gateForm, #email, #password, #invite,
-     #enterBtn>#btnLabel, #modeToggle, #formTitle, #toggleLead, etc.);
-     auth.js drives it. The previous "demo gate" that faked a login and
-     wrote the anona-auth localStorage key has been removed.
-     (see /_auth/README-AUTH.md §6).
-     ===================================================================== -->
+     provides the form markup; auth.js binds to the IDs above. The design's
+     fake login that wrote the anona-auth localStorage key has been removed.
+     (see /_auth/README-AUTH.md §6). -->
 <script src="/_auth/config.js"></script>
 <script type="module" src="/_auth/auth.js"></script>
 

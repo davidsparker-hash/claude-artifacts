@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<title>Tenet — Live Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    background: #0a0a0a;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  #root { position: fixed; inset: 0; }
+
+  .stage {
+    position: absolute; top: 50%; left: 50%;
+    width: 1920px; height: 1080px;
+    transform-origin: center center;
+    background: var(--paper);
+    overflow: hidden;
+    box-shadow: 0 40px 140px rgba(0,0,0,0.55);
+  }
+
+  .panels {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 972px;
+    display: flex;
+  }
+  .panel { position: relative; min-width: 0; height: 100%; overflow: hidden; }
+  .panel-client { display: flex; flex: 0 0 960px; width: 960px; }
+  .client-wrap { width: 100%; height: 100%; }
+
+  .panel-director {
+    flex: 0 0 960px; width: 960px;
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+  }
+  .panels.revealed .panel-director { transform: translateX(0); }
+  .director-inner { width: 960px; height: 100%; }
+
+  .seam-band {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 108px;
+    border-top: 1px solid var(--border);
+    background: var(--paper);
+    display: flex; align-items: center;
+    padding: 0 70px;
+    z-index: 15;
+  }
+
+  @keyframes tenetBreathe {
+    0%, 100% { opacity: 0.35; transform: scale(0.9); }
+    50%      { opacity: 1;    transform: scale(1); }
+  }
+  .tr-fade { animation: trFade .5s ease-out both; }
+  @keyframes trFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  button:focus { outline: none; }
+  button:focus-visible { outline: 2px solid var(--anona-orange); outline-offset: 2px; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="tenet-demo/model.js"></script>
+  <script type="text/babel" src="tenet-demo/ui.jsx"></script>
+  <script type="text/babel" src="tenet-demo/ClientSeat.jsx"></script>
+  <script type="text/babel" src="tenet-demo/DirectorSeat.jsx"></script>
+  <script type="text/babel" src="tenet-demo/App.jsx"></script>
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="1200" fill="#FAF8F4"/>
+      <g stroke="#BA7517" stroke-width="10" fill="none">
+        <rect x="360" y="430" width="220" height="340" rx="8"/>
+        <rect x="620" y="430" width="220" height="340" rx="8"/>
+        <path d="M580 600 h40 M600 580 l20 20 -20 20"/>
+      </g>
+      <text x="600" y="850" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="64" fill="#1A1A1A">tenet</text>
+    </svg>
+  </template>
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+</body>
+</html>

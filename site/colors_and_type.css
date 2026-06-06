@@ -75,19 +75,19 @@
   --accent-bar: var(--anona-orange);
 
   /* ----- TYPE FAMILIES ----- */
-  --font-sans:    "Brown", "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
-  --font-display: "Brown", "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+  --font-sans:    "Brown", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: "Brown", "Helvetica Neue", system-ui, sans-serif;
   --font-serif:   "Source Serif 4", "Source Serif Pro", "Georgia", serif;
   --font-mono:    "JetBrains Mono", "SF Mono", Menlo, monospace;
 
   /* ----- TYPE SCALE ----- */
   /* Tight, editorial. Display weights stay LIGHT (300) to match the
      wordmark geometry; body stays at 400. Bold is reserved for emphasis. */
-  --fs-display-xl: clamp(56px, 8vw, 128px);
-  --fs-display-l:  clamp(44px, 5.6vw, 88px);
-  --fs-display:    clamp(36px, 4.2vw, 64px);
-  --fs-h1:         clamp(32px, 3.2vw, 48px);
-  --fs-h2:         clamp(24px, 2.4vw, 34px);
+  --fs-display-xl: clamp(56px, 8vw, 128px); /* @kind font */
+  --fs-display-l:  clamp(44px, 5.6vw, 88px); /* @kind font */
+  --fs-display:    clamp(36px, 4.2vw, 64px); /* @kind font */
+  --fs-h1:         clamp(32px, 3.2vw, 48px); /* @kind font */
+  --fs-h2:         clamp(24px, 2.4vw, 34px); /* @kind font */
   --fs-h3:         20px;
   --fs-h4:         17px;
   --fs-body:       16px;
@@ -95,10 +95,10 @@
   --fs-meta:       12px;
   --fs-kicker:     11px;     /* uppercase eyebrow */
 
-  --lh-tight: 1.02;
-  --lh-snug:  1.15;
-  --lh-body:  1.55;
-  --lh-loose: 1.7;
+  --lh-tight: 1.02; /* @kind font */
+  --lh-snug:  1.15; /* @kind font */
+  --lh-body:  1.55; /* @kind font */
+  --lh-loose: 1.7; /* @kind font */
 
   --tracking-kicker: 0.18em;  /* generous, editorial */
   --tracking-display: -0.01em;

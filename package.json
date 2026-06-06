@@ -4,6 +4,7 @@
   "private": true,
   "description": "Auth/backend dependencies for anona.tv Netlify Functions. NOT a design file — set once, do not delete on Claude Design re-downloads.",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.0",
     "@supabase/supabase-js": "^2.45.0"
   }
 }

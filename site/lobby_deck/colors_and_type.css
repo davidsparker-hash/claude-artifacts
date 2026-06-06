@@ -1,0 +1,266 @@
+/* ============================================================
+   Anona Design System — Foundations
+   Colors + Type tokens (semantic & raw)
+   ------------------------------------------------------------
+   Brand face: Brown (Lineto). Loaded locally from /fonts.
+   Editorial accent: Source Serif 4 (Google Fonts) — used for
+   pull quotes only.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ---------- Brown (the brand face) ---------- */
+@font-face {
+  font-family: "Brown";
+  src: url("fonts/Brown-Light.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Brown";
+  src: url("fonts/Brown-LightItalic.otf") format("opentype");
+  font-weight: 300; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Brown";
+  src: url("fonts/Brown-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Brown";
+  src: url("fonts/Brown-RegularItalic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Brown";
+  src: url("fonts/Brown-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Brown";
+  src: url("fonts/Brown-BoldItalic.otf") format("opentype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+:root {
+  /* ----- RAW COLOR TOKENS ----- */
+
+  /* Primary: Amber */
+  --anona-orange:   #BA7517;   /* the brand amber */
+  --amber-50:       #FAEEDA;   /* light tint — chart fills, badges */
+  --amber-200:      #EF9F27;   /* mid tint — chart accent */
+  --amber-800:      #854F0B;   /* dark — amber-on-amber text */
+
+  /* Neutrals */
+  --ink:            #1A1A1A;   /* primary text */
+  --ink-muted:      #6B6B6B;   /* secondary text */
+  --ink-faint:      #9A9A9A;   /* slide numbers, meta, captions */
+  --paper:          #FFFFFF;   /* canvas / slide background */
+  --paper-soft:     #FAF8F4;   /* card fill, list backgrounds */
+  --border:         rgba(0,0,0,0.10); /* hairline divider */
+  --border-strong:  rgba(0,0,0,0.18); /* heavier division */
+
+  /* ----- SEMANTIC COLOR TOKENS ----- */
+  --fg-1: var(--ink);         /* primary text */
+  --fg-2: var(--ink-muted);   /* secondary text */
+  --fg-3: var(--ink-faint);   /* tertiary text / meta */
+  --fg-accent: var(--anona-orange);
+  --fg-on-amber: #FFFFFF;
+
+  --bg-1: var(--paper);       /* page background */
+  --bg-2: var(--paper-soft);  /* card background */
+  --bg-amber-soft: var(--amber-50);
+
+  --rule: var(--border);
+  --rule-strong: var(--border-strong);
+  --accent-bar: var(--anona-orange);
+
+  /* ----- TYPE FAMILIES ----- */
+  --font-sans:    "Brown", "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: "Brown", "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+  --font-serif:   "Source Serif 4", "Source Serif Pro", "Georgia", serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  /* ----- TYPE SCALE ----- */
+  /* Tight, editorial. Display weights stay LIGHT (300) to match the
+     wordmark geometry; body stays at 400. Bold is reserved for emphasis. */
+  --fs-display-xl: clamp(56px, 8vw, 128px);
+  --fs-display-l:  clamp(44px, 5.6vw, 88px);
+  --fs-display:    clamp(36px, 4.2vw, 64px);
+  --fs-h1:         clamp(32px, 3.2vw, 48px);
+  --fs-h2:         clamp(24px, 2.4vw, 34px);
+  --fs-h3:         20px;
+  --fs-h4:         17px;
+  --fs-body:       16px;
+  --fs-small:      14px;
+  --fs-meta:       12px;
+  --fs-kicker:     12px;     /* uppercase eyebrow */
+
+  --lh-tight: 1.02;
+  --lh-snug:  1.15;
+  --lh-body:  1.55;
+  --lh-loose: 1.7;
+
+  --tracking-kicker: 0.18em;  /* generous, editorial */
+  --tracking-display: -0.01em;
+  --tracking-wordmark: 0.04em; /* logos */
+  --tracking-body: 0;
+
+  /* ----- SPACING (4pt grid) ----- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* ----- RADII ----- */
+  /* Almost everything is square or near-square. Pills used sparingly. */
+  --r-0: 0px;
+  --r-1: 2px;
+  --r-2: 4px;
+  --r-3: 8px;
+  --r-pill: 999px;
+
+  /* ----- SHADOWS ----- */
+  /* Restrained. Most surfaces use hairline borders, not shadows. */
+  --shadow-hairline: 0 0 0 1px var(--border);
+  --shadow-card:     0 1px 2px rgba(0,0,0,0.04), 0 1px 0 rgba(0,0,0,0.02);
+  --shadow-pop:      0 12px 32px rgba(0,0,0,0.08);
+}
+
+/* ============================================================
+   Semantic element styles
+   Use these as a baseline; components override as needed.
+   ============================================================ */
+
+html, body {
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.display-xl, .display-l, .display, h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  letter-spacing: var(--tracking-display);
+}
+
+.display-xl {
+  font-size: var(--fs-display-xl);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.015em;
+}
+.display-l {
+  font-size: var(--fs-display-l);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+}
+.display {
+  font-size: var(--fs-display);
+  font-weight: 300;
+  line-height: var(--lh-snug);
+}
+h1, .h1 {
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.005em;
+}
+h2, .h2 {
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-snug);
+}
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+h4, .h4 {
+  font-size: var(--fs-h4);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+p, .body { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-1); text-wrap: pretty; }
+.body-muted { color: var(--fg-2); }
+.small { font-size: var(--fs-small); line-height: 1.5; }
+.meta  { font-size: var(--fs-meta);  line-height: 1.4; color: var(--fg-3); letter-spacing: 0.02em; }
+
+/* Kicker / eyebrow — the signature editorial accent. ALWAYS amber. */
+/* Brown ships 300/400/700 only — 400 + 0.18em tracking + amber
+   does the work; we don't reach for Bold. */
+.kicker {
+  font-size: var(--fs-kicker);
+  font-weight: 400;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+/* Wordmark utility — for setting "ANONA", "TENET", "JANE" in copy */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: var(--tracking-wordmark);
+  text-transform: uppercase;
+}
+.wordmark--amber { color: var(--fg-accent); }
+
+/* Pull-quote — left amber bar, serif optional */
+.pullquote {
+  border-left: 2px solid var(--fg-accent);
+  padding: var(--s-2) 0 var(--s-2) var(--s-5);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.35;
+  color: var(--fg-1);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  color: var(--fg-1);
+}
+
+hr, .rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--s-5) 0;
+}
+.rule--amber { border-top-color: var(--fg-accent); }
+
+a {
+  color: var(--fg-accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+a:hover { color: var(--amber-800); }
+
+/* ============================================================
+   Surfaces
+   ============================================================ */
+
+.card {
+  background: var(--bg-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-2);
+  padding: var(--s-5);
+}
+.card--paper { background: var(--bg-1); }
+.card--amber { background: var(--bg-amber-soft); border-color: transparent; }
+
+.divider-rule { height: 1px; background: var(--rule); }
+.amber-rule   { height: 1px; background: var(--fg-accent); width: 48px; }

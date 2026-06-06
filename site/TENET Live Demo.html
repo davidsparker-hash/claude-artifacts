@@ -1,0 +1,105 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="TENET Live Demo" subtitle="Script-to-scaffold flow — lane select, upload, director/producer workspace" viewport="1920x1080" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
+<script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<title>Tenet — Live Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    background: #0a0a0a;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  #root { position: fixed; inset: 0; }
+
+  .stage {
+    position: absolute; top: 50%; left: 50%;
+    width: 1920px; height: 1080px;
+    transform-origin: center center;
+    background: var(--paper);
+    overflow: hidden;
+    box-shadow: 0 40px 140px rgba(0,0,0,0.55);
+  }
+
+  .work { position: absolute; inset: 0; display: flex; flex-direction: column; background: var(--paper); }
+  .topbar { flex: 0 0 52px; height: 52px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 30px; border-bottom: 1px solid var(--border); }
+  .work-top { flex: 1; display: flex; min-height: 0; }
+  .work-scaffold { flex: 0 0 520px; width: 520px; height: 100%; min-height: 0; }
+  .work-right { flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; min-height: 0; }
+  .work-script { flex: 1; min-width: 0; min-height: 0; }
+  .work-timeline { flex: 0 0 300px; height: 300px; }
+
+  .reset-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; border: 1px solid var(--border); border-radius: 2px;
+    padding: 7px 13px; cursor: pointer; color: var(--ink-muted);
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .reset-btn:hover { color: var(--ink); border-color: var(--border-strong); }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 999px; }
+
+  @keyframes tenetBreathe { 0%,100%{opacity:0.35;transform:scale(0.9)} 50%{opacity:1;transform:scale(1)} }
+
+  button:focus { outline: none; }
+  button:focus-visible { outline: 2px solid var(--anona-orange); outline-offset: 2px; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="flow/data.js"></script>
+  <script src="flow/framework.js"></script>
+  <script src="flow/client-data.js"></script>
+  <script src="flow/production-data.js"></script>
+  <script src="flow/creative-data.js"></script>
+  <script type="text/babel" src="flow/ui.jsx"></script>
+  <script type="text/babel" src="flow/client-shell.jsx"></script>
+  <script type="text/babel" src="flow/client-hero.jsx"></script>
+  <script type="text/babel" src="flow/client-tabs1.jsx"></script>
+  <script type="text/babel" src="flow/client-tabs2.jsx"></script>
+  <script type="text/babel" src="flow/production-shell.jsx"></script>
+  <script type="text/babel" src="flow/production-hero.jsx"></script>
+  <script type="text/babel" src="flow/production-tabs.jsx"></script>
+  <script type="text/babel" src="flow/screens.jsx"></script>
+  <script type="text/babel" src="flow/panels.jsx"></script>
+  <script type="text/babel" src="flow/scaffolds.jsx"></script>
+  <script type="text/babel" src="flow/director-edit.jsx"></script>
+  <script type="text/babel" src="flow/creative-views.jsx"></script>
+  <script type="text/babel" src="flow/creative-writers.jsx"></script>
+  <script type="text/babel" src="flow/creative-shell.jsx"></script>
+  <script type="text/babel" src="flow/producer-dash.jsx"></script>
+  <script type="text/babel" src="flow/app.jsx"></script>
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="1200" fill="#FAF8F4"/>
+      <g stroke="#BA7517" stroke-width="9" fill="none">
+        <rect x="360" y="360" width="200" height="260" rx="8"/>
+        <path d="M392 430h136M392 470h136M392 510h96"/>
+        <rect x="360" y="690" width="60" height="120"/>
+        <rect x="430" y="690" width="60" height="120" fill="#FAEEDA"/>
+        <rect x="500" y="690" width="60" height="120"/>
+        <rect x="640" y="690" width="200" height="120" rx="6"/>
+      </g>
+      <text x="600" y="900" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="60" fill="#1A1A1A">tenet</text>
+    </svg>
+  </template>
+<!-- AUTH (not design): session check, "signed in as", and sign-out live in /_auth/guard.js -->
+<script src="/_auth/config.js"></script>
+<script type="module" src="/_auth/guard.js"></script>
+</body>
+</html>

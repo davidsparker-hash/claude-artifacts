@@ -29,3 +29,10 @@
   from = "/_auth/config.js"
   to = "/.netlify/functions/config"
   status = 200
+
+# TENET demo: the optional "idea import" pre-roll posts here; routed to the
+# Claude-backed function. The demo's core is deterministic and never calls this.
+[[redirects]]
+  from = "/api/interpret"
+  to = "/.netlify/functions/interpret"
+  status = 200

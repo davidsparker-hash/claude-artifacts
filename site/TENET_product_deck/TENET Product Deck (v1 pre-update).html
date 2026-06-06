@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
 <script>(function(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("sb-")===0&&k.indexOf("-auth-token")>0)return;}window.location.replace("/");}catch(e){}})();</script>
+<!-- AUTH (not design): design's anona-auth gate removed; session, "signed in as", and sign-out handled by /_auth/guard.js -->
 <title>TENET — CTO / Investor Deck</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="colors_and_type.css">
@@ -47,7 +48,7 @@
   <span class="who" id="sessionWho"></span>
   <span class="arrow">exit ↩</span>
 </button>
-<!-- AUTH (not design): the design's #sessionExit wiring + anona-auth read has been removed. /_auth/guard.js fills #sessionWho and handles sign-out. -->
+<!-- AUTH (not design): design's anona-auth gate removed; session, "signed in as", and sign-out handled by /_auth/guard.js -->
 <deck-stage>
 
 <!-- ============================================================

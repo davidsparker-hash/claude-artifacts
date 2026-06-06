@@ -1,0 +1,233 @@
+COMMERCIAL DEVELOPMENT FRAMEWORK
+
+========================================
+PRODUCER VIEW
+TOP 10 VARIABLES
+========================================
+
+1. Scope
+2. Deliverables
+3. Schedule
+4. Talent
+5. Crew
+6. Locations
+7. Production Design
+8. Post Production
+9. Rights & Legal
+10. Risk & Contingency
+
+----------------------------------------
+1. Scope
+----------------------------------------
+- Scope of work
+- Campaign size
+- Number of spots
+- Required assets
+- Client expectations
+- Change orders
+
+----------------------------------------
+2. Deliverables
+----------------------------------------
+- Broadcast masters
+- Social versions
+- Aspect ratios
+- Market versions
+- Language versions
+- Cutdowns
+
+----------------------------------------
+3. Schedule
+----------------------------------------
+- Pre-production timeline
+- Shoot days
+- Post schedule
+- Delivery deadlines
+- Approval timelines
+- Critical path items
+
+----------------------------------------
+4. Talent
+----------------------------------------
+- Casting
+- Talent fees
+- Usage rights
+- Availability
+- Union requirements
+- Renewals
+
+----------------------------------------
+5. Crew
+----------------------------------------
+- Crew size
+- Department heads
+- Overtime
+- Travel
+- Specialty crew
+- Labor costs
+
+----------------------------------------
+6. Locations
+----------------------------------------
+- Scouting
+- Permits
+- Parking
+- Weather
+- Site restrictions
+- Logistics
+
+----------------------------------------
+7. Production Design
+----------------------------------------
+- Sets
+- Props
+- Wardrobe
+- Hair
+- Makeup
+- Vehicles
+
+----------------------------------------
+8. Post Production
+----------------------------------------
+- Editorial
+- Color
+- Sound
+- Music
+- VFX
+- Localization
+
+----------------------------------------
+9. Rights & Legal
+----------------------------------------
+- Talent rights
+- Music rights
+- Territory
+- Term length
+- Exclusivity
+- Clearances
+
+----------------------------------------
+10. Risk & Contingency
+----------------------------------------
+- Weather risk
+- Schedule risk
+- Budget risk
+- Talent risk
+- Vendor risk
+- Delivery risk
+
+========================================
+DIRECTOR VIEW
+TOP 10 CREATIVE VARIABLES
+========================================
+
+1. Story
+2. Concept
+3. Performance
+4. Visual Language
+5. Tone
+6. Casting
+7. Production Design
+8. Camera & Composition
+9. Editorial Rhythm
+10. Emotional Impact
+
+----------------------------------------
+1. Story
+----------------------------------------
+- Narrative clarity
+- Structure
+- Character motivation
+- Beginning
+- Middle
+- End
+
+----------------------------------------
+2. Concept
+----------------------------------------
+- Core idea
+- Originality
+- Simplicity
+- Memorability
+- Brand fit
+- Strategic intent
+
+----------------------------------------
+3. Performance
+----------------------------------------
+- Acting
+- Authenticity
+- Behavior
+- Timing
+- Improvisation
+- Chemistry
+
+----------------------------------------
+4. Visual Language
+----------------------------------------
+- Style
+- Imagery
+- Symbolism
+- References
+- Visual motifs
+- World building
+
+----------------------------------------
+5. Tone
+----------------------------------------
+- Humor
+- Drama
+- Energy
+- Realism
+- Aspirational quality
+- Consistency
+
+----------------------------------------
+6. Casting
+----------------------------------------
+- Lead talent
+- Supporting talent
+- Character fit
+- Diversity
+- Presence
+- Credibility
+
+----------------------------------------
+7. Production Design
+----------------------------------------
+- Sets
+- Locations
+- Props
+- Wardrobe
+- Color palette
+- Environment
+
+----------------------------------------
+8. Camera & Composition
+----------------------------------------
+- Framing
+- Lens choice
+- Camera movement
+- Blocking
+- Scale
+- Perspective
+
+----------------------------------------
+9. Editorial Rhythm
+----------------------------------------
+- Pacing
+- Shot selection
+- Transitions
+- Momentum
+- Timing
+- Flow
+
+----------------------------------------
+10. Emotional Impact
+----------------------------------------
+- Audience reaction
+- Empathy
+- Surprise
+- Tension
+- Delight
+- Recall
