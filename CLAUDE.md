@@ -78,6 +78,44 @@ should require login)
 > **The Terms of Use gate needs no per-page work** — it's enforced inside
 > `guard.js`, so any page with the guard automatically gets it.
 
+### Pattern C — the "overview" back-nav pill (design, not auth)
+
+A small top-left **"↩ overview"** pill links every gated page back to the
+chooser (the main menu). It is markup *we* add — it is **not** in the Claude
+Design source — so a re-download strips it from any page it touches. Re-add it
+to every protected page (the chooser itself doesn't need one — it *is* the menu).
+
+- **HTML** — right after `<body>` (outside any scaled `deck-stage`):
+  ```html
+  <a class="session-nav session-overview" href="../chooser.html" title="Back to overview">
+    <span class="arrow">↩ overview</span>
+  </a>
+  ```
+  Use `href="chooser.html"` on root-level pages, `../chooser.html` in subfolders.
+- **CSS** — inline near the page's other styles; the **dark** pill (legible on
+  light *and* dark backgrounds):
+  ```css
+  .session-nav { position: fixed; top: 14px; z-index: 1000; display: flex;
+    align-items: center; gap: 10px; font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(246,244,239,0.82); background: rgba(14,14,14,0.9);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 6px 10px; border: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.4); cursor: pointer; text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease; }
+  .session-nav:hover { color: var(--fg-accent,#BA7517); border-color: var(--fg-accent,#BA7517); }
+  .session-overview { left: 16px; }
+  .session-nav .arrow { color: inherit; }
+  @media print { .session-nav { display: none !important; } }
+  ```
+- The decks ship their own `.session-nav`; make sure it's this **dark** version,
+  not a translucent light one (the light one vanishes on the paper pages).
+- On pages with their own header bar (cap table, seed plan), put the pill
+  **outside** that header so the header's `a` styles don't override it.
+
+> Also re-link the Lobby deck's slide-12 **"The first product"** card to
+> `../TENET%20Live%20Demo.html` — the design ships it as a non-linking card.
+
 ---
 
 ## 3. The workflow, step by step
@@ -91,13 +129,24 @@ should require login)
    ```
    Don't rely on eyeballing — `git diff` is the source of truth for what the
    re-download altered, even if "most of the site" changed.
-3. **For each changed/added HTML page**, apply Pattern A or B from §2.
-   - New page that should be private? Treat it as a protected page (Pattern B).
+3. **For each changed/added HTML page**, apply Pattern A or B **and Pattern C**
+   (the overview pill) from §2.
+   - New page that should be private? Treat it as a protected page (Pattern B)
+     and give it the overview pill (Pattern C).
    - New download asset (e.g. a `.pdf`/`.xlsx`)? Just commit it; it's static.
 4. **Neutralize fake gates** — confirm no real `anona-auth` logic remains
    (comments are fine):
    ```bash
    grep -rn "anona-auth" site/ | grep -v "has been removed\|handler has been"
+   ```
+   And confirm every protected page carries the overview pill (Pattern C).
+   Filenames have spaces, so compare file lists — don't loop over `$(...)`:
+   ```bash
+   comm -23 \
+     <(grep -rl "_auth/guard.js" site --include="*.html" | sort) \
+     <(grep -rl "session-overview" site --include="*.html" | sort) \
+     | grep -v "chooser.html"   # chooser is the menu itself — no self-link
+   # any line printed = a guard-protected page still missing the pill
    ```
 5. **Check filename case** (see §4 — this is a real production-only bug).
 6. **Verify** (see §5).
