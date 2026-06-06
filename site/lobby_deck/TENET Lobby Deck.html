@@ -14,8 +14,43 @@
   deck-stage:not(:defined) { visibility: hidden; }
 </style>
 <script src="deck-stage.js"></script>
+<style>
+  /* nav (added for cross-page uniformity): top-left "overview" pill -> chooser.
+     Matches the decks' .session-nav so the affordance is identical site-wide. */
+  .session-nav {
+    position: fixed;
+    top: 14px;
+    z-index: 1000;
+    display: flex; align-items: center; gap: 10px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(107,107,107,0.7);
+    background: rgba(246,244,239,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .session-nav:hover {
+    color: var(--fg-accent, #BA7517);
+    border-color: var(--fg-accent, #BA7517);
+  }
+  .session-overview { left: 16px; }
+  .session-exit     { right: 16px; }
+  .session-nav .arrow { color: inherit; }
+  .session-nav .who   { color: rgba(107,107,107,0.55); }
+  @media print { .session-nav { display: none !important; } }
+</style>
 </head>
 <body>
+<!-- nav (added): top-left overview pill back to the chooser (main menu) -->
+<a class="session-nav session-overview" href="../chooser.html" title="Back to overview">
+  <span class="arrow">↩ overview</span>
+</a>
+
 
 <deck-stage no-rail>
 
