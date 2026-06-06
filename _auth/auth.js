@@ -19,7 +19,9 @@
 
 import { supabase, logLoginEvent } from '/_auth/supabase-client.js';
 
-const DEST = '/chooser.html';
+// First stop after the gate is the lobby intro deck (auto-advances from slide 1);
+// its "Skip intro" and "Enter the deep dive" links lead on to /chooser.html.
+const DEST = '/lobby_deck/TENET%20Lobby%20Deck.html';
 
 const form       = document.getElementById('gateForm');
 const emailEl    = document.getElementById('email');
