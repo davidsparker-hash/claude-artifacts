@@ -54,8 +54,9 @@ All real auth edits are marked with an `AUTH (not design)` HTML comment.
   `class="...hide"` on `#inviteField`. If IDs changed, re-map `auth.js`.
 
 ### Pattern B — every protected page
-(`site/chooser.html`, `site/TENET First Experience.html`, each deck's HTML, the
-seed plan, and any NEW page that should require login)
+(`site/chooser.html`, `site/TENET First Experience.html`, the TENET Live Demo
+pages, the Lobby Deck, each deck's HTML, the seed plan, and any NEW page that
+should require login)
 - **In `<head>`** — instant bounce if not signed in:
   ```html
   <!-- AUTH (not design): instant bounce if no session token. See /_auth/README-AUTH.md -->
@@ -130,10 +131,14 @@ git mv "site/temp.html" "site/Right Case.html"
 ```bash
 # (a) JS syntax-check every auth script — there is no Node here; use macOS JSC.
 #     A single syntax error makes a whole module silently fail to load.
+#     Path-agnostic: derives the repo root from git, so it works on any
+#     machine/clone (the absolute path differs per machine). Run inside the repo.
+export REPO="$(git rev-parse --show-toplevel)"
 osascript -l JavaScript <<'EOF'
 ObjC.import('Foundation')
+var base = $.NSProcessInfo.processInfo.environment.objectForKey('REPO').js + '/'
 var files=['_auth/admin.js','_auth/guard.js','_auth/analytics.js','_auth/terms.js','_auth/auth.js','_auth/supabase-client.js']
-files.forEach(function(f){try{var s=$.NSString.stringWithContentsOfFileEncodingError('/Users/davidparker/claude-artifacts/'+f,4,null).js;s=s.replace(/^\s*import[^\n]*\n/gm,'').replace(/export\s+/g,'').replace(/\bawait\b/g,'');new Function(s);console.log(f+': OK')}catch(e){console.log(f+': ERROR -> '+e.message)}})
+files.forEach(function(f){try{var s=$.NSString.stringWithContentsOfFileEncodingError(base+f,4,null).js;s=s.replace(/^\s*import[^\n]*\n/gm,'').replace(/export\s+/g,'').replace(/\bawait\b/g,'');new Function(s);console.log(f+': OK')}catch(e){console.log(f+': ERROR -> '+e.message)}})
 EOF
 
 # (b) Build merge check — mirrors what Netlify does.
@@ -155,9 +160,14 @@ git commit -m "Re-apply auth to re-downloaded design"
 git push origin main         # pushing main auto-deploys to Netlify
 ```
 - The repo deploys from **`main`**. Pushing is what makes it go live.
-- If `git push` fails with a credentials error inside this tool's sandbox, the
-  push must be run from a normal terminal:
-  `cd /Users/davidparker/claude-artifacts && git push origin main`
+- If `git push` fails with a credentials error (e.g. "could not read Username
+  for https://github.com" — common inside a sandbox, or on a machine that has
+  never authenticated to GitHub), run it from a normal terminal at the repo
+  root: `git push origin main`. The repo path differs per machine (e.g.
+  `~/claude-artifacts` on one, a Dropbox CloudStorage path on another), so `cd`
+  into wherever this clone lives first. First-time auth: GitHub username + a
+  personal access token (not your password); the keychain caches it after.
+  `gh auth login`, or switching the remote to SSH, also work.
 - After deploy, sanity-check in a **private/incognito** window: the site should
   show the **login gate**; after signing in, the chooser + all cards load and
   sign-out works.
@@ -169,9 +179,14 @@ git push origin main         # pushing main auto-deploys to Netlify
 - `_auth/*` (login, guard, analytics, terms, admin) and `netlify/functions/*`.
 - `_auth/terms.js` holds the **Terms of Use copy + `TERMS_VERSION`**. To change
   the terms, edit that one file and bump the version (re-prompts everyone).
+- `netlify/functions/interpret.js` powers the TENET Live Demo's **optional**
+  "idea import" (Claude-backed; verifies the caller's Supabase token so it can't
+  be hit anonymously). Needs `ANTHROPIC_API_KEY` set in Netlify; the demo's core
+  is deterministic and works without it. Its dep (`@anthropic-ai/sdk`) lives in
+  the root `package.json`.
 - Supabase tables / RLS live in `_auth/supabase/schema.sql` (already run).
-- Secrets live **only** in Netlify env vars, never in the repo
-  (Supabase keys, PostHog keys, Resend key). See `_auth/README-AUTH.md §2`.
+- Secrets live **only** in Netlify env vars, never in the repo (Supabase keys,
+  PostHog keys, Resend key, `ANTHROPIC_API_KEY`). See `_auth/README-AUTH.md §2`.
 
 ---
 
