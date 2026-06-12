@@ -25,7 +25,7 @@
  *  module is the authoritative check (validates/expires the session).
  * ===================================================================== */
 
-import { supabase } from '/_auth/supabase-client.js';
+import { supabase, logLoginEvent } from '/_auth/supabase-client.js';
 import { TERMS_VERSION, TERMS_HTML, TERMS_UPDATED_LABEL } from '/_auth/terms.js';
 
 const LOGIN = '/';
@@ -51,6 +51,18 @@ if (!data || !data.session) {
   document.querySelectorAll('#signout, #sessionExit, [data-anona-signout]').forEach((el) => {
     el.addEventListener('click', signOut);
   });
+
+  // Visit log — the admin "Login log" only captured PASSWORD logins, but
+  // Supabase sessions persist, so returning visitors never re-typed one and
+  // the log sat frozen. Record a visit when a signed-in session lands on a
+  // guarded page, throttled to once per day per browser. Best-effort.
+  try {
+    const day = new Date().toISOString().slice(0, 10);
+    if (localStorage.getItem('anona-visit-day') !== day) {
+      localStorage.setItem('anona-visit-day', day);
+      logLoginEvent();
+    }
+  } catch (_) { /* visit log is best-effort */ }
 
   // Analytics — only for signed-in users, so events are tied to identity.
   let track = () => {};
